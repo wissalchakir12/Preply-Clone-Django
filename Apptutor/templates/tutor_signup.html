@@ -1,0 +1,1660 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Become a tutor </title>
+    <link rel="stylesheet" href={% static 'css/tutor_signup.css' %} />
+    <link rel="stylesheet" href={% static 'css/demo.css' %} />
+    <link rel="stylesheet" href={% static 'css/intlTelInput.css' %} />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
+    <style>
+        @font-face {
+            font-family: 'PreplyInterV';
+            font-weight: 400 700;
+            font-display: swap;
+            font-style: oblique 0deg 10deg;
+            src: url('https://static.preply.com/ds/fonts/en/PreplyInter.var.woff2') format('woff2');
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .StepTitle{
+            font-size: 28px;
+            font-weight: 700;
+            color: black;
+        }
+        .step_p{
+            font-size: 14px;
+        }
+
+        .Input {
+            height: 50px;
+            border: #d8dfe6 2px solid;
+        }
+
+        .checkbox {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .checkbox label {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+
+        .select_stl {
+            border: None;
+            background-color: none;
+            width: 100%;
+
+        }
+
+        .StepContainer-3 {
+            background: white;
+            width: 100%;
+            max-width: 850px;
+            padding: 32px;
+            margin: 0px auto;
+            border-radius: 4px;
+            min-height: 700px;
+        }
+
+        .cnt_photo {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .box1_cnt_p {
+            flex: 1.7;
+
+        }
+
+        .box2_cnt_p {
+            flex: 1.3;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .box2_title {
+            margin-top: 40px;
+            font-family: 'PreplyInterV';
+            font-size: 15px;
+            margin-left: 20px;
+
+        }
+
+        .box2_image {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .img_bx2 {
+
+            width: 28%;
+        }
+
+        .box2_list {}
+
+        .tip_ul {
+            list-style: none;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .tip_li {
+
+            margin-top: 10px;
+        }
+
+        .tip_li span {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tip_li svg {
+            width: 15px;
+            fill: rgb(4, 105, 119);
+            margin-right: 5px;
+            float: left;
+
+        }
+
+        .title_1 {
+            margin-top: 0;
+        }
+
+        .title_2 {
+            margin-top: 25px;
+            font-size: 20px;
+        }
+
+        .upload_ {
+            padding: 30px 15px;
+            
+        }
+
+        .upload_label {
+            background-color: aqua;
+            padding: 18px;
+            border: solid 1px aqua;
+            border-radius: 14px;
+            cursor: pointer;
+
+
+        }
+
+        .up_input {
+            display: none;
+        }
+
+        .photo_placeholder {
+            width: 95%;
+            border: dashed 1px black;
+            height: 450px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            
+
+        }
+
+        .photo_placeholder.open {
+            background-image: url('{% static "img/download.png" %}');
+        }
+
+
+        .upload_img {
+            background-image: url('../static/img/download.png');
+            background-repeat: repeat;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            position: relative;
+            display: none;
+            
+        }
+
+        #rotation {
+            display: none;
+        }
+
+        .rotate {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .rotate_icon {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .rotate_i {
+            background-color: #c3f5fa;
+            border: solid 1px #c3f5fa;
+            width: 30px;
+            height: 30px;
+            border-radius: 10px;
+            padding: 0;
+            align-items: center;
+            color: black;
+        }
+
+        .rotate_i:hover {
+            background-color: #c3f5fa;
+            border: solid 1px #c3f5fa;
+        }
+
+        .rotate_i svg {
+            width: 12px;
+            fill: black;
+        }
+
+        .next_prev {
+            display: flex;
+            flex: column;
+            padding: 30px;
+            margin-top: 15px;
+        }
+
+        .finish_him {
+            background-color: #0096b2;
+            padding-bottom: 5px;
+            border-radius: 12px;
+        }
+
+
+        .button_n {
+            background-color: #0096b2;
+            border: solid 1px #0096b2;
+            border-radius: 12px;
+            color: #fff;
+            max-height: 50px;
+            cursor: pointer;
+            padding: 4px 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 80px;
+
+        }
+
+        .button_n:hover {
+            background-color: #0096b2;
+            border: solid 1px #0096b2;
+        }
+
+        .button_p {
+            background-color: transparent;
+            border: solid 1px transparent;
+            border-radius: 12px;
+            color: #006987;
+            padding: 10px 16px;
+            max-height: 50px;
+            cursor: pointer;
+            padding: 5px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 80px;
+
+
+        }
+
+        .button_p:hover {
+            background-color: #beeaf2;
+            border: solid 1px #beeaf2;
+        }
+
+        .under_ {
+            display: none;
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 550px;
+        }
+
+        .logout {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+
+        .log_cont {
+            text-align: center;
+            padding: 10px;
+            display: none;
+        }
+
+        .error_input {
+
+            background-color: rgb(244, 213, 213);
+            border: red solid 1.5px;
+
+        }
+
+        .para {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: rgb(150, 238, 106);
+            font-size: 25px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .para p{
+            text-align: center;
+        }
+
+        .butt {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            gap: 8px;
+        }
+
+        #steps_container {
+            width: 100%;
+            height: 48px;
+            background: rgb(56, 64, 71);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #step_center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+        }
+
+        #box_1 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #858585;
+            font-size: 20px;
+        }
+
+        #about__ {
+            border: #858585 solid 1px;
+            border-radius: 50%;
+            padding: 4px 10px 4px 10px;
+            background-color: #fff;
+
+        }
+
+
+        #about_svg {
+            display: none;
+        }
+
+        #about_p {
+            color: #fff;
+        }
+
+        #photo__ {
+            border: #858585 solid 1px;
+            border-radius: 50%;
+            padding: 4px 10px 4px 10px;
+        }
+
+        #photo_svg {
+            display: none;
+        }
+
+        #photo_p {
+            color: #858585;
+        }
+
+        #video__ {
+            border: #858585 solid 1px;
+            border-radius: 50%;
+            padding: 4px 10px 4px 10px;
+
+
+        }
+
+        #video_svg {
+            display: none;
+        }
+
+        #video_p {
+            color: #858585;
+        }
+
+        #finish__ {
+            border: #858585 solid 1px;
+            border-radius: 50%;
+            padding: 4px 10px 4px 10px;
+        }
+
+        #finish_svg {
+            display: none;
+        }
+
+        #finish_p {
+            color: #858585;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Wrapper">
+        <div class="LogoWrapper">
+            <div class="_15uGWh X4eHUe _1o4EVj _3EMNmq _2x1aeM _1WH1_Q _2JlASK GWHMDM">
+                <span class="_3Ubdzh _2PuzId">
+                    <svg width="130" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
+                        focusable="false" aria-label="Preply" viewBox="0 0 130 40">
+                        <g data-name="logomark">
+                            <path data-name="top"
+                                d="M18.556 8.632c.9.465 1.528 1.538 1.214 2.552-.182.591-.815 1.094-1.362 1.382l-4.83 2.489-11.824 6.24C1.09 21.682 0 21.504 0 20.51c0-.348.234-.619.502-.83l4.175-3.447c-.97-.522-1.959-1.218-2.417-1.465C1.08 14.13 1 13.11 1 12.72V2.106c0-.37-.018-.669.094-1.033A1.508 1.508 0 013 .073c.14.045.253.116.387.191l15.17 8.368z"
+                                fill="#CD4A86"></path>
+                            <path data-name="bottom"
+                                d="M18.74 14.883c1.248-.66 2.257-.053 2.257 1.356L21 27c0 1.409-1.01 3.086-2.256 3.745L2.256 39.612C1.01 40.272 0 39.666 0 38.257V27.495c0-1.409 1.01-3.085 2.256-3.745l16.485-8.867z"
+                                fill="#27E0F6"></path>
+                        </g>
+                        <g data-name="preply" fill-rule="evenodd" clip-rule="evenodd" fill="#192435">
+                            <path
+                                d="M109 27h-5V5.377C104 4.167 105.113 3 106.359 3H109v24zM53 27l-.017-9.013c0-2.767.727-5.678 2.978-7.482 2.028-1.604 5.02-2.012 7.539-2.012v4.92c-1.434 0-3.604-.133-4.7.972-.649.649-.8 1.665-.8 3.047V27h-5zM113.631 29.627v3.957l1.712-.003c1.447 0 3.137.002 4.388-.833.827-.644 1.521-1.729 2.076-3.255L129 8h-3.5c-1.199 0-1.889 1.053-2.167 2.163l-3.255 11.362L116 8h-5l6.442 18.857c.322.966.218 1.67-.312 2.11-.972.808-2.319.66-3.499.66zM37.5 31.5v-7.07c1.09 1.916 3.368 2.77 5.473 2.77 2.17 0 3.95-.877 5.337-2.63 1.505-1.959 2.057-4.456 2.075-6.886.027-2.663-.48-5.625-2.482-7.548-1.651-1.604-3.976-2.127-6.209-2.127-2.426 0-5.136.719-6.825 2.548-1.244 1.27-1.866 3.217-1.866 5.836V34h2.354c1.284 0 2.143-1.215 2.143-2.5zm8.114-13.789c0 1.66-.342 2.978-1.04 3.95-.694.97-1.64 1.456-2.84 1.456-1.293 0-2.284-.485-2.978-1.457-.693-.877-1.04-2.195-1.04-3.949 0-2.538.801-5.614 3.88-5.614 3.074 0 4.018 3.022 4.018 5.614zM88.497 31.5v-7.07c1.09 1.916 3.368 2.77 5.473 2.77 2.17 0 3.949-.877 5.337-2.63 1.504-1.959 2.056-4.456 2.075-6.886.026-2.663-.48-5.625-2.483-7.548-1.65-1.604-3.975-2.127-6.208-2.127-2.427 0-5.137.719-6.826 2.548C84.623 11.827 84 13.774 84 16.393V34h2.354c1.284 0 2.143-1.215 2.143-2.5zm8.114-13.789c0 1.66-.342 2.978-1.04 3.95-.694.97-1.64 1.456-2.84 1.456-1.293 0-2.284-.485-2.978-1.457-.694-.877-1.04-2.195-1.04-3.949 0-2.538.8-5.614 3.88-5.614 3.073 0 4.018 3.022 4.018 5.614zM81.694 21.156H78.23c-.555 0-.98.114-1.283.352-.463.357-.777.876-1.285 1.18-.6.357-1.315.485-2.005.485-1.2 0-2.101-.372-2.7-1.11-.65-.694-.997-1.631-1.041-3.063h12.05c0-2.997-.404-6.12-2.466-8.508C77.979 8.832 76.08 8 73.31 8c-2.631 0-4.688.852-6.164 2.562C65.714 12.222 65 14.536 65 17.489c0 3.092.738 5.346 2.215 7.011 1.477 1.71 3.533 2.5 6.164 2.5 2.17 0 3.974-.44 5.406-1.5 1.432-1.016 2.398-2.402 2.909-4.344zm-4.712-5.406h-7.067c.045-1.2.392-2.12 1.041-2.77.644-.65 1.477-.971 2.492-.971 1.106 0 1.963.327 2.562.97.555.6.877 1.522.972 2.77z">
+                            </path>
+                        </g>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div class="ControlWrapper">
+            <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="HelpIcon">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M2 10c0-4.415 3.585-8 8-8s8 3.585 8 8-3.585 8-8 8-8-3.585-8-8zm8-10C4.48 0 0 4.48 0 10s4.48 10 10 10 10-4.48 10-10S15.52 0 10 0zm.578 11.148c-.11.49-.396.776-.916.776-.622 0-.989-.425-.989-1.026v-.102c0-.864.447-1.436 1.311-1.941.945-.564 1.23-.93 1.23-1.604 0-.718-.556-1.216-1.361-1.216-.718 0-1.202.352-1.436 1.004-.183.468-.513.673-.96.673-.578 0-.937-.358-.937-.915 0-.315.073-.593.22-.872.468-.966 1.64-1.59 3.215-1.59 2.08 0 3.48 1.144 3.48 2.85 0 1.106-.536 1.86-1.568 2.468-.974.564-1.194.88-1.29 1.495zm.3 2.885c0 .645-.535 1.15-1.201 1.15-.66 0-1.194-.505-1.194-1.15 0-.644.535-1.15 1.194-1.15.666 0 1.2.506 1.2 1.15z">
+                </path>
+            </svg>
+            <div class="AvaWrapper">
+                <img alt="" src="https://static.preply.com/images/tutor_default.png" class="Avatar" id="avatar_img"
+                    onclick="show_logout()">
+                <div class="log_cont" id="cont_log">
+                    <a href="{% url 'become_tutor' %}" class="logout" onclick="logout()">logout</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="steps_container">
+        <div id="step_center">
+            <div id="box_1">
+                <div id="about__">
+                    <span id="about_span">1</span>
+                    <svg id="about_svg" xmlns="http://www.w3.org/2000/svg" height="1em"
+                        viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <style>
+                            svg {
+                                fill: #ffffff
+                            }
+                        </style>
+                        <path
+                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                    </svg>
+                </div>
+                <p id="about_p">About</p>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                    viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #b3b3b3
+                        }
+                    </style>
+                    <path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                </svg>
+
+
+            </div>
+            <div id="box_1">
+                <div id="photo__">
+                    <span id="photo_span">2</span>
+                    <svg id="photo_svg" xmlns="http://www.w3.org/2000/svg" height="1em"
+                        viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <style>
+                            svg {
+                                fill: #ffffff
+                            }
+                        </style>
+                        <path
+                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                    </svg>
+                </div>
+                <p id="photo_p">Photo</p>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                    viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #b3b3b3
+                        }
+                    </style>
+                    <path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                </svg>
+
+
+            </div>
+            <div id="box_1">
+                <div id="video__">
+                    <span id="video_span">3</span>
+                    <svg id="video_svg" xmlns="http://www.w3.org/2000/svg" height="1em"
+                        viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <style>
+                            svg {
+                                fill: #ffffff
+                            }
+                        </style>
+                        <path
+                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                    </svg>
+                </div>
+                <p id="video_p">Video</p>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                    viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #b3b3b3
+                        }
+                    </style>
+                    <path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                </svg>
+
+
+            </div>
+            <div id="box_1">
+                <div id="finish__">
+                    <span id="finish_span">4</span>
+                    <svg id="finish_svg" xmlns="http://www.w3.org/2000/svg" height="1em"
+                        viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <style>
+                            svg {
+                                fill: #ffffff
+                            }
+                        </style>
+                        <path
+                            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+                    </svg>
+                </div>
+                <p id="finish_p">Finish</p>
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                    viewBox="0 0 320 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                    <style>
+                        svg {
+                            fill: #b3b3b3
+                        }
+                    </style>
+                    <path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
+                </svg>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="Wrapper-2">
+            <div class="StepContainer-2" id="about">
+                <h4 class="StepTitle">About</h4>
+                <p class="step_p">Start creating your public tutor profile. Your progress will be automatically saved as you complete each section. You can return at any time to finish your registration.</p>
+                <div class="LeftContainer">
+                    <div class="FormItem">
+                        <label class="LabelForm">
+                            <span>First Name</span>
+                        </label>
+                        <input name="firstName" id="first-name" class="Input">
+                        <div id="first_rqrd">
+                            <span id="first_span" style="color: red;"></span>
+                        </div>
+                    </div>
+                    <div class="FormItem">
+                        <label class="LabelForm">
+                            <span>Last Name</span>
+                        </label>
+                        <input name="LastName" id="last-name" class="Input">
+                        <div id="last_rqrd">
+                            <span id="last_span" style="color: red;"></span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="FormItem">
+                            <label class="LabelForm">
+                                <span>Country of origin</span>
+                            </label>
+                            <select class="Input" name="teachingExperience" id="country"
+                                class="Select_Language select_stl">
+                                <option value="" disabled selected hidden>Choose Country...</option>
+                                {% for item in country %}
+
+                                <option value="{{ item.0 }}">{{ item.1 }}</option>
+                                {% endfor %}
+                            </select>
+                            <div id="country_rqrd">
+                                <span id="country_span" style="color: red;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="FormItem">
+                        <div class="SpokenLanguage">
+                            <div class="FormItem SLForm">
+                                <label class="LabelForm">
+                                    Languages spoken
+                                </label>
+                                <select class="Input" disabled="" data-qa-group="lang_spoken" class="Select_Language"
+                                    id="slt_lng" name="language">
+                                    <option id="choose" value="Choose language..." disabled>Choose language...</option>
+                                    {% for item in Languages %}
+                                    <option value="{{ item.0 }}">{{ item.0 }}</option>
+                                    {% endfor %}
+                                </select>
+                                <div id="languges_rqrd">
+                                    <span id="languges_span" style="color: red;"></span>
+                                </div>
+                            </div>
+                            <div class="FormItem SLForm">
+                                <label class="LabelForm">
+                                    <span>Level</span>
+                                </label>
+                                <select class="Input" data-qa-group="lang_level" class="Select_Language" name="level"
+                                    id="level__">
+                                    <option value="" disabled selected hidden>Choose Level...</option>
+                                    {% for item in Levels %}
+                                    <option value="{{ item.0 }}">{{ item.0 }}</option>
+                                    {% endfor %}
+                                </select>
+                                <div id="level_rqrd">
+                                    <span id="level_span" style="color: red;"></span>
+                                </div>
+                            </div>
+                            <div class="FormItem HidForm">
+                                <a class="RmvLangButton  Button_button Button_outlined "
+                                    onclick="removeSpokenLanguage(this)">
+                                    <svg height="15" viewBox="0 0 12 15" width="12" xmlns="http://www.w3.org/2000/svg"
+                                        class="Dustbin-sc-1i5959j-0 bSNytb">
+                                        <path
+                                            d="M4 15a3 3 0 0 1-3-3V5h10v7a3 3 0 0 1-3 3zM3 7v5a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V7zm9-6v2H0V1h3l.707-.707A1 1 0 0 1 4.414 0h3.172a1 1 0 0 1 .707.293L9 1z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <a class="AddLanguage Button_outlined Button_button" onclick="addSpokenLanguage()">
+                        Add another language
+                    </a>
+                    <div>
+                        <div class="FormItem">
+                            <label class="LabelForm">
+                                <span>Subject taught</span>
+                            </label>
+
+                            <select class="Input" data-qa-group="lang_spoken" class="Select_Language" id="subject_"
+                                name="sbj_">
+                                <option value="" disabled hidden></option>
+                                {% for item in Subjects %}
+                                <option value="{{ item.0 }}">{{ item.1 }}</option>
+                                {% endfor %}
+                            </select>
+                            <div>
+                                <span id="subject_span"> </span>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="FormItem">
+                        <label class="LabelForm">Phone number&nbsp;
+                            <span class="LabelHelp">(optional)</span>
+                        </label>
+                        <div class="AboutPhoneInputWrapper">
+                            <div class="react-tel-input ">
+                                <div class="special-label">
+                                    Phone
+                                </div>
+                                <input class="form-control tel-input" placeholder="Phone number" type="number" Number
+                                    value="" id="phone" name="phone_n">
+                                <style>
+                                    /* Hide the increment and decrement buttons */
+                                    input[type="number"]::-webkit-inner-spin-button,
+                                    input[type="number"]::-webkit-outer-spin-button {
+                                        -webkit-appearance: none;
+                                        appearance: none;
+                                        margin: 0;
+                                    }
+                                </style>
+
+                            </div>
+
+                        </div>
+                        <p class="InputHelp-sc-o21xnv-16 hJATtK">Receive SMS-notifications about new messages from
+                            students
+                        </p>
+                    </div>
+                    <div class="FormItem">
+                        <label for="check" class="LabelForm">Age</label>
+                        <div class="checkbox">
+                            <input type="checkbox" id="checkbox" name="checkbox_">
+                            <label for="check" class="text">I confirm I’m over 18</label>
+                        </div>
+                        <div>
+                            <span id="check_box" style="color: red;"></span>
+                        </div>
+                    </div>
+                    <div class="StepsControl">
+                        <a class="button_n" onclick="nextpage()">
+                            Next
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="StepContainer-3" id="photo" style="display: none;">
+                <div class="cnt_photo">
+                    <div class="box1_cnt_p">
+                        <h1 class="title_1">Profile photo</h1>
+                        <p class="title_2">Make a great first impression</p>
+                        <p class="title_3">Tutors who look friendly and professional get the most students</p>
+                        <div class="upload_">
+                            <label class="upload_label" for="upload_input">upload photo</label>
+                            <input class="up_input" type="file" accept="images/jpg, images/png, images/jpeg"
+                                id="upload_input" name="uploaded_file">
+
+                        </div>
+                        <div class="photo_placeholder" id="placehol">
+                            <p id="text_photo">Drag and drop your photo here</p>
+                            <img class="upload_img" id="placeholder_">
+
+                        </div>
+                        <div class="rotate" id="rotation" style="display: none;">
+                            <p>Rotate</p>
+                            <div class="rotate_icon">
+                                <input type="range" id="zoomSlider" min="0" max="2" step="0.00001" value="0">
+                                <div class="icons_rot">
+                                    <button class="rotate_i" id="rotate_l" onclick="rotate_l()">
+                                        <svg height="17" viewBox="0 0 14 17" width="14"
+                                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                            <path
+                                                d="M10.068 3.458c3.474 1.731 4.916 6.012 3.222 9.56-1.103 2.31-3.262 3.742-5.594 3.982l-.199-2.033a4.999 4.999 0 0 0 3.996-2.844c1.21-2.535.18-5.592-2.302-6.829a4.885 4.885 0 0 0-3.624-.302L7.35 6.365 6.15 7.997 1.518 4.435 5.515 0l1.47 1.384-1.338 1.485a6.835 6.835 0 0 1 4.42.59zM3.464 13.497a4.995 4.995 0 0 0 2.092 1.278l-.578 1.956a6.993 6.993 0 0 1-2.928-1.789zM2.366 11.8l-1.854.766a7.3 7.3 0 0 1-.458-3.568l1.984.253c-.107.873.012 1.75.328 2.55z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                    <button class="rotate_i" id="rotate_r" onclick="rotate_r()">
+                                        <svg height="17" viewBox="0 0 14 17" width="14"
+                                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                                            <path
+                                                d="M3.932 3.458a6.835 6.835 0 0 1 4.421-.589L7.014 1.384 8.485 0l3.997 4.435-4.63 3.562-1.203-1.632 1.784-1.373a4.885 4.885 0 0 0-3.624.302c-2.482 1.237-3.512 4.294-2.302 6.83a4.999 4.999 0 0 0 3.996 2.843L6.303 17c-2.33-.24-4.49-1.671-5.593-3.981-1.694-3.55-.252-7.83 3.222-9.56zm6.604 10.039l1.414 1.445a6.993 6.993 0 0 1-2.928 1.789l-.578-1.956a4.995 4.995 0 0 0 2.091-1.278zm1.098-1.697a5.214 5.214 0 0 0 .328-2.549l1.984-.253a7.3 7.3 0 0 1-.458 3.568z">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="next_prev">
+
+                            <a class="button_p" onclick="backpage()">
+                                Back
+                            </a>
+                            <a class="button_n" id="help" onmouseover="changeCursor()" onmouseout="restoreCursor()"
+                                onclick="nextpage2()">
+                                Next
+                            </a>
+                            <label for="" id="label__"></label>
+                        </div>
+
+                    </div>
+                    <div class="box2_cnt_p">
+                        <div class="box2_title">
+                            <h3>Tips for an amazing photo</h3>
+                        </div>
+                        <div class="box2_image">
+                            <img src="https://static.preply.com/static/ssr/_next/static/images/photo-ref-1-fcf7c5add9d3d561be837bbd7915623e.png"
+                                class="img_bx2">
+                            <img src="https://static.preply.com/static/ssr/_next/static/images/photo-ref-2-c02241b2241bcc6388ab660d773dc480.png"
+                                class="img_bx2">
+                            <img src="https://static.preply.com/static/ssr/_next/static/images/photo-ref-3-1cc7f6e12d284954b7e1a082c30d7bb8.png"
+                                class="img_bx2">
+                        </div>
+                        <div class="box2_list">
+                            <ul class="tip_ul">
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    Smile and look at the camera
+                                </li>
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    Frame your head and shoulders
+                                </li>
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    Your photo is centered and upright
+                                </li>
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Use a stable surface so that your video does not appear shaky</span>
+                                </li>
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Your face and eyes are fully visible (except for religious reasons)</span>
+                                </li>
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    Avoid logos or contact information
+                                </li>
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    You are the only person in the photo
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="StepContainer-3" id="video" style="display: none;">
+                <div class="cnt_photo">
+                    <div class="box1_cnt_p">
+                        <h1 class="title_1">Video Introduction</h1>
+                        <p class="title_2">Make a great first impression</p>
+                        <p class="title_3">Tutors who look friendly and professional get the most students</p>
+                        <div class="upload_">
+                            <label class="upload_label" for="video_input">Upload Video</label>
+                            <input class="up_input" type="file" name="video_tutor" id="video_input" accept="video/*"
+                                required style="display: none;">
+
+                        </div>
+                        <div class="next_prev">
+
+                            <a class="button_p" onclick="backpage_video()">
+                                Back
+                            </a>
+                            <a class="button_n" id="help" onmouseover="changeCursor()" onmouseout="restoreCursor()"
+                                onclick="nextpage_video()">
+                                Next
+                            </a>
+                            <label for="" id="label__"></label>
+                        </div>
+
+                    </div>
+                    <div class="box2_cnt_p">
+                        <div class="box2_title">
+                            <h3>Tips for an amazing video</h3>
+                        </div>
+
+                        <div class="box2_list">
+                            <ul class="tip_ul">
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    Video length should be 30 sec to 2 min
+                                </li>
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    Use good lighting and a neutral background
+                                </li>
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    Use a stable surface so that your video does not appear shaky
+                                </li>
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Make sure your face and eyes are fully visible (except for religious
+                                        reasons)</span>
+                                </li>
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    <span>Highlight your teaching experience and any relevant teaching
+                                        certification(s)</span>
+                                </li>
+                                <li class="tip_li">
+                                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 24 24">
+                                        <path fill-rule="evenodd"
+                                            d="M9 2a7 7 0 0 0-7 7v6a7 7 0 0 0 7 7h6a7 7 0 0 0 7-7V9a7 7 0 0 0-7-7H9ZM4 9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm11.832.555a1 1 0 0 0-1.664-1.11l-3.216 4.824L9.8 11.733a1 1 0 0 0-1.6 1.2l2 2.667a1 1 0 0 0 1.632-.045l4-6Z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    Greet your students warmly and invite them to book a lesson
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="StepContainer-3" id="certification" style="display: none;">
+                <div class="para">
+                    <p>Congratualations on completing your registration as a Tutor </p>
+                    <p>Click on Finish to comfirm</p>
+                    <div class="butt">
+                        <a class="button_p" onclick="backpage2()">
+                            Back
+                        </a>
+                        
+                            <button type="submit" class="finish button_n" onclick="finish()">Finish</button>
+                        
+                    </div>
+                </div>
+            </div>
+    </form>
+
+
+    <script src={% static 'js/intlTelInput.js' %}></script>
+
+    <script>
+        const div1 = document.getElementById("about");
+        const div2 = document.getElementById("photo");
+        const div3 = document.getElementById("video");
+        const div4 = document.getElementById("certification");
+        const keyExists = sessionStorage.getItem('keyExists');
+
+        var step_1 = document.getElementById('about__');
+        var step_2 = document.getElementById('photo__');
+        var step_3 = document.getElementById('video__');
+        var step_4 = document.getElementById('finish__');
+
+        var step_1p = document.getElementById('about_p');
+        var step_2p = document.getElementById('photo_p');
+        var step_3p = document.getElementById('video_p');
+        var step_4p = document.getElementById('finish_p');
+
+        var step_1svg = document.getElementById('about_svg');
+        var step_2svg = document.getElementById('photo_svg');
+        var step_3svg = document.getElementById('video_svg');
+        var step_4svg = document.getElementById('finish_svg');
+
+        var step_1span = document.getElementById('about_span');
+        var step_2span = document.getElementById('photo_span');
+        var step_3span = document.getElementById('video_span');
+        var step_4span = document.getElementById('finish_span');
+
+
+        if (keyExists === 'div2') {
+            div1.style.display = "none";
+            div2.style.display = "block";
+            div3.style.display = "none";
+            div4.style.display = "none";
+
+            step_1.style.backgroundColor = "green";
+            step_2.style.backgroundColor = "#fff";
+            step_3.style.backgroundColor = " rgb(56, 64, 71);";
+            step_4.style.backgroundColor = " rgb(56, 64, 71);";
+
+            step_1p.style.color = "#858585";
+            step_2p.style.color = "#fff";
+            step_3p.style.color = "#858585";
+            step_4p.style.color = "#858585";
+
+            step_1svg.style.color = "#fffff";
+            step_1svg.style.display = "block";
+
+            step_2svg.style.color = "#fffff";
+            step_2svg.style.display = "none";
+
+            step_3svg.style.color = "#fffff";
+            step_3svg.style.display = "none";
+
+            step_4svg.style.color = "#fffff";
+            step_4svg.style.display = "none";
+
+            step_1span.style.display = "none";
+            step_2span.style.display = "block";
+            step_3span.style.display = "block";
+            step_4span.style.display = "block";
+
+        } else if (keyExists === 'div3') {
+            div2.style.display = "none";
+            div1.style.display = "none";
+            div3.style.display = "block";
+            div4.style.display = "none";
+
+            step_1.style.backgroundColor = "green";
+            step_2.style.backgroundColor = "green";
+            step_3.style.backgroundColor = "#fff";
+            step_4.style.backgroundColor = " rgb(56, 64, 71);";
+
+            step_1p.style.color = "#858585";
+            step_2p.style.color = "#858585";
+            step_3p.style.color = "#fff";
+            step_4p.style.color = "#858585";
+
+            step_1svg.style.color = "#fffff";
+            step_1svg.style.display = "block";
+
+            step_2svg.style.color = "#fffff";
+            step_2svg.style.display = "block";
+
+
+            step_3svg.style.display = "none";
+            step_4svg.style.color = "#fffff";
+            step_4svg.style.display = "none";
+
+            step_1span.style.display = "none";
+            step_2span.style.display = "none";
+            step_3span.style.display = "block";
+            step_4span.style.display = "block";
+        }
+        else if (keyExists === "div4") {
+            div2.style.display = "none";
+            div1.style.display = "none";
+            div3.style.display = "none";
+            div4.style.display = "block";
+
+            step_1.style.backgroundColor = "green";
+            step_2.style.backgroundColor = "green";
+            step_3.style.backgroundColor = "green";
+            step_4.style.backgroundColor = "#fff";
+
+            step_1p.style.color = "#858585";
+            step_2p.style.color = "#858585";
+            step_3p.style.color = "#858585";
+            step_4p.style.color = "#fff";
+
+            step_1svg.style.color = "#fffff";
+            step_1svg.style.display = "block";
+
+            step_2svg.style.color = "#fffff";
+            step_2svg.style.display = "block";
+
+            step_3svg.style.color = "#fffff";
+            step_3svg.style.display = "block";
+
+            step_4svg.style.color = "#fffff";
+            step_4svg.style.display = "none";
+
+            step_1span.style.display = "none";
+            step_2span.style.display = "none";
+            step_3span.style.display = "none";
+            step_4span.style.display = "block";
+        }
+        else {
+            div2.style.display = "none";
+            div1.style.display = "block";
+            div3.style.display = "none";
+            div4.style.display = "none";
+
+            step_1.style.backgroundColor = "#fff";
+            step_2.style.background = "none";
+            step_3.style.background = "none";
+            step_4.style.background = "none";
+
+            step_1p.style.color = "#fff";
+            step_2p.style.color = "#858585";
+            step_3p.style.color = "#858585";
+            step_4p.style.color = "#858585";
+
+
+            step_1svg.style.display = "none";
+            step_2svg.style.display = "none";
+            step_3svg.style.display = "none";
+            step_4svg.style.display = "none";
+
+            step_1span.style.display = "block";
+            step_2span.style.display = "block";
+            step_3span.style.display = "block";
+            step_4span.style.display = "block";
+        }
+
+        var input = document.querySelector("#phone");
+        window.intlTelInput(input, {});
+
+
+        function nextpage() {
+
+            var firstname = document.getElementById('first-name');
+            var lastname = document.getElementById('last-name');
+            var first_span = document.getElementById('first_span');
+            var last_span = document.getElementById('last_span');
+            var country_span = document.getElementById('country_span');
+            var subject_span = document.getElementById('subject_span');
+            var checkbox_span = document.getElementById('check_box');
+            var language__ = document.getElementById('slt_lng');
+            var languges_span = document.getElementById('languges_span');
+
+            var level__ = document.getElementById('level__');
+            var level_span = document.getElementById('level_span');
+
+            var selectElement = document.getElementById('country');
+            var selectedIndex = selectElement.selectedIndex;
+
+            var subject = document.getElementById('subject_');
+            var selectedIndex2 = subject.selectedIndex;
+            var selectedIndex3 = language__.selectedIndex;
+            var selectedIndex4 = level__.selectedIndex;
+
+            var first_bool = firstname.value.trim() !== '';
+            var last_bool = lastname.value.trim() !== '';
+            var country_bool = selectedIndex !== 0;
+            var subject_bool = selectedIndex2 !== 0;
+            var language_bool = selectedIndex3 !== 0;
+            var level_bool = selectedIndex4 !== 0;
+            var checkbox_bool = document.getElementById("checkbox").checked;
+
+
+
+            if (!first_bool) {
+                first_span.textContent = "This field is required";
+                firstname.className = "Input error_input";
+            } else {
+                first_span.textContent = "";
+            }
+
+            if (!last_bool) {
+                last_span.textContent = "This field is required";
+                lastname.className = "Input error_input";
+
+            } else {
+                last_span.textContent = "";
+            }
+
+            if (!country_bool) {
+                country_span.textContent = "This field is required";
+                selectElement.className = "Select_Language select_stl error_input";
+            } else {
+                country_span.textContent = "";
+            }
+
+            if (!language_bool) {
+                languges_span.textContent = "This field is required";
+                language__.className = "Select_Language error_input";
+            }
+            else {
+                languges_span.textContent = "";
+            }
+
+            if (!level_bool) {
+                level_span.textContent = "This field is required";
+                level__.className = "Select_Language error_input";
+            }
+            else {
+                level_span.textContent = "";
+            }
+
+            if (!checkbox_bool) {
+                checkbox_span.textContent = "You must be 18 or older to teach with Preply. Check the box if you meet our age requirement.";
+
+            } else {
+                checkbox_span.textContent = "";
+            }
+
+
+
+
+
+
+            if (first_bool && last_bool && country_bool && subject_bool && checkbox_bool && language_bool && level_bool) {
+                const newHiddenDiv2 = document.getElementById('choose').value;
+                if (language__.value === newHiddenDiv2) {
+                    languges_span.textContent = "This field is required";
+                    language__.className = "Select_Language error_input";
+                }
+                else {
+                    step_1.style.backgroundColor = "green";
+                    step_2.style.backgroundColor = "#fff";
+                    step_3.style.backgroundColor = " rgb(56, 64, 71);";
+                    step_4.style.backgroundColor = " rgb(56, 64, 71);";
+
+                    step_1p.style.color = "#858585";
+                    step_2p.style.color = "#fff";
+                    step_3p.style.color = "#858585";
+                    step_4p.style.color = "#858585";
+
+                    step_1svg.style.color = "#fffff";
+                    step_1svg.style.display = "block";
+
+                    step_2svg.style.color = "#fffff";
+                    step_2svg.style.display = "none";
+
+                    step_3svg.style.color = "#fffff";
+                    step_3svg.style.display = "none";
+
+                    step_4svg.style.color = "#fffff";
+                    step_4svg.style.display = "none";
+
+                    step_1span.style.display = "none";
+                    step_2span.style.display = "block";
+                    step_3span.style.display = "block";
+                    step_4span.style.display = "block";
+
+
+
+
+                    div1.style.display = "none";
+                    div2.style.display = "block";
+                    div3.style.display = "none";
+                    div4.style.display = "none";
+                    sessionStorage.setItem('keyExists', 'div2');
+                }
+            }
+            else {
+                step_1.style.color = "white";
+                step_2.style.color = "none";
+                step_3.style.color = "none";
+                step_4.style.color = "none";
+
+
+                div1.style.display = "block";
+                div2.style.display = "none";
+                div3.style.display = "none";
+                div4.style.display = "none";
+            }
+
+
+
+
+
+
+        };
+
+
+        let profilePic = document.getElementById('placeholder_');
+        let inputfile = document.getElementById('upload_input');
+        let text = document.getElementById('text_photo');
+        let placeholder_a = document.getElementById('placehol');
+        let rotate_ = document.getElementById('rotation');
+        let zoomSlider = document.getElementById('zoomSlider');
+        let cropper; // Declare the cropper variable
+
+        inputfile.onchange = function () {
+            profilePic.src = URL.createObjectURL(inputfile.files[0]);
+            text.style.display = "none";
+            profilePic.style.display = "block";
+            placeholder_a.style.border = "none";
+            rotate_.style.display = "block";
+            placeholder_a.style.height = "550px";
+            placeholder_a.classList.toggle("open");
+
+            // Initialize Cropper.js after the image is loaded
+            cropper = new Cropper(profilePic, {
+                aspectRatio: 1,
+                viewMode: 0,
+            });
+
+            zoomSlider.addEventListener('input', function () {
+                const zoomValue = parseFloat(zoomSlider.value);
+
+                // Set the zoom level programmatically using Cropper.js method
+                cropper.zoomTo(zoomValue);
+            });
+            help = document.getElementById('help');
+            help.onmouseover = null;
+            help.onmouseout = null;
+        }
+
+
+
+        let rotateOption = document.querySelectorAll(".rotate button");
+
+        rotateOption.forEach(option => {
+            option.addEventListener("click", () => {
+                if (cropper) {
+                    if (option.id === "rotate_l") {
+                        cropper.rotate(-10); // Rotate left by 10 degrees
+                    }
+                    if (option.id === "rotate_r") {
+                        cropper.rotate(10); // Rotate right by 10 degrees
+                    }
+                }
+            })
+        });
+
+
+        function changeCursor() {
+            var button = document.getElementById('help');
+            button.style.cursor = "not-allowed";
+        }
+
+        function restoreCursor() {
+            var button = document.getElementById('help');
+            button.style.cursor = "pointer"; // or any other cursor style you prefer
+        }
+
+
+
+
+        function nextpage2() {
+            let inputfile2 = document.getElementById('upload_input');
+
+
+            if (inputfile2.value) {
+                step_1.style.backgroundColor = "green";
+                step_2.style.backgroundColor = "green";
+                step_3.style.backgroundColor = "#fff";
+                step_3.style.backgroundColor = "rgb(56, 64, 71);";
+
+                step_1p.style.color = "#858585";
+                step_2p.style.color = "#858585";
+                step_3p.style.color = "#fff";
+                step_4p.style.color = "#858585";
+
+                step_1svg.style.color = "#fffff";
+                step_1svg.style.display = "block";
+
+                step_2svg.style.color = "#fffff";
+                step_2svg.style.display = "block";
+
+
+                step_3svg.style.display = "none";
+
+
+                step_4svg.style.display = "none";
+
+                step_1span.style.display = "none";
+                step_2span.style.display = "none";
+                step_3span.style.display = "block";
+                step_4span.style.display = "block";
+
+                div1.style.display = "none";
+                div2.style.display = "none";
+                div3.style.display = "block";
+                div4.style.display = "none";
+                sessionStorage.setItem('keyExists', 'div3');
+
+                var croppedimage = cropper.getCroppedCanvas().toDataURL("images/png");
+
+                document.getElementById('avatar_img').src = croppedimage;
+            }
+        }
+
+        function backpage() {
+
+            step_1.style.backgroundColor = "#fff";
+            step_2.style.background = "none";
+            step_3.style.background = "none";
+            step_4.style.background = "none";
+
+            step_1p.style.color = "#fff";
+            step_2p.style.color = "#858585";
+            step_3p.style.color = "#858585";
+            step_4p.style.color = "#858585";
+
+
+            step_1svg.style.display = "none";
+            step_2svg.style.display = "none";
+            step_3svg.style.display = "none";
+            step_4svg.style.display = "none";
+
+            step_1span.style.display = "block";
+            step_2span.style.display = "block";
+            step_3span.style.display = "block";
+            step_4span.style.display = "block";
+
+
+
+
+            div1.style.display = "block";
+            div2.style.display = "none";
+            div3.style.display = "none";
+            div4.style.display = "none";
+            sessionStorage.setItem('keyExists', 'div1');
+        }
+        function nextpage_video() {
+            let inputfile2 = document.getElementById('video_input');
+
+
+            if (inputfile2.value) {
+                step_1.style.backgroundColor = "green";
+                step_2.style.backgroundColor = "green";
+                step_3.style.backgroundColor = "green";
+                step_4.style.backgroundColor = "#fff";
+
+                step_1p.style.color = "#858585";
+                step_2p.style.color = "#858585";
+                step_3p.style.color = "#858585";
+                step_4p.style.color = "#fff";
+
+                step_1svg.style.color = "#fffff";
+                step_1svg.style.display = "block";
+
+                step_2svg.style.color = "#fffff";
+                step_2svg.style.display = "block";
+
+                step_3svg.style.color = "#fffff";
+                step_3svg.style.display = "block";
+
+                step_4svg.style.display = "none";
+
+
+
+
+                step_1span.style.display = "none";
+                step_2span.style.display = "none";
+                step_3span.style.display = "none";
+                step_4span.style.display = "block";
+
+                div1.style.display = "none";
+                div2.style.display = "none";
+                div3.style.display = "none";
+                div4.style.display = "block";
+                sessionStorage.setItem('keyExists', 'div4');
+
+            }
+        }
+        function backpage_video() {
+            step_1.style.backgroundColor = "green";
+            step_2.style.background = "#fff";
+            step_3.style.background = "none";
+            step_4.style.background = "none";
+
+            step_1p.style.color = "#858585";
+            step_2p.style.color = "#fff";
+            step_3p.style.color = "#858585";
+            step_4p.style.color = "#858585";
+
+
+            step_1svg.style.display = "block";
+            step_2svg.style.display = "none";
+            step_3svg.style.display = "none";
+            step_4svg.style.display = "none";
+
+            step_1span.style.display = "none";
+            step_2span.style.display = "block";
+            step_3span.style.display = "block";
+            step_4span.style.display = "block";
+
+
+
+
+            div1.style.display = "none";
+            div2.style.display = "block";
+            div3.style.display = "none";
+            div4.style.display = "none";
+            sessionStorage.setItem('keyExists', 'div2');
+        }
+        function backpage2() {
+            step_1.style.backgroundColor = "green";
+            step_2.style.background = "green";
+            step_3.style.background = "#fff";
+            step_4.style.background = "none";
+
+            step_1p.style.color = "#858585";
+            step_2p.style.color = "#858585";
+            step_3p.style.color = "#fff";
+            step_4p.style.color = "#858585";
+
+
+            step_1svg.style.display = "block";
+            step_2svg.style.display = "block";
+            step_3svg.style.display = "none";
+            step_4svg.style.display = "none";
+
+            step_1span.style.display = "none";
+            step_2span.style.display = "none";
+            step_3span.style.display = "block";
+            step_4span.style.display = "block";
+
+
+
+
+            div1.style.display = "none";
+            div2.style.display = "none";
+            div3.style.display = "block";
+            div4.style.display = "none";
+            sessionStorage.setItem('keyExists', 'div3');
+        }
+
+        function show_logout() {
+            logout = document.getElementById('cont_log');
+            if (logout.style.display === "block") {
+                logout.style.display = "none";
+            }
+            else {
+                logout.style.display = "block";
+            }
+
+
+        }
+
+        function finish() {
+            sessionStorage.setItem('keyExists', 'div1');
+        }
+
+
+    </script>
+    <script>
+        function logout() {
+            sessionStorage.setItem('keyExists', 'div2');
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <script>
+        var selct_languages = document.querySelector('select[name="language"]');
+        var selectedLanguageOptions = []; // Array to store selected language options
+
+        for (var i = 0; i < selct_languages.options.length; i++) {
+            if (selct_languages.options[i].value.trim() === "English") {
+                selct_languages.options[i].selected = true;
+                selectedLanguageOptions.push("English"); // Add "English" to the selected language options
+                break; // Exit the loop once the option is found
+            }
+        }
+
+        function addSpokenLanguage() {
+            // Get references to the button and the spoken language div by class
+            const spokenLanguageDiv = document.querySelector(".SpokenLanguage");
+
+            // Clone the entire "SpokenLanguage" div
+            const newSpokenLanguageDiv = spokenLanguageDiv.cloneNode(true);
+
+            // Remove the label elements from the cloned div
+            const labelElements = newSpokenLanguageDiv.querySelectorAll("label");
+            labelElements.forEach(function (label) {
+                label.remove();
+            });
+
+            // Show the hidden div in the cloned "SpokenLanguage" div
+            const newHiddenDiv = newSpokenLanguageDiv.querySelector(".HidForm");
+            newHiddenDiv.style.display = "block";
+
+            const newHiddenDiv2 = newSpokenLanguageDiv.querySelector("#choose");
+
+            newHiddenDiv2.removeAttribute("disabled");
+            newHiddenDiv2.setAttribute("selected", "selected");
+
+
+            // Find and enable all the select elements inside the cloned "SpokenLanguage" div
+            const selectElements = newSpokenLanguageDiv.querySelectorAll("select");
+            selectElements.forEach(function (select) {
+                select.removeAttribute("disabled");
+
+                // Check if it's a language select
+                const isLanguageSelect = select.name === "language";
+
+                if (isLanguageSelect) {
+                    // Remove options selected in previous language selects
+                    selectedLanguageOptions.forEach(function (selectedOption) {
+                        for (var i = 0; i < select.options.length; i++) {
+                            if (select.options[i].value.trim() === selectedOption) {
+                                select.options[i].style.display = 'none'; // Hide the option
+                                break;
+                            }
+                        }
+                    });
+
+                    // Handle new selections for language and update the array accordingly
+                    select.addEventListener('change', function () {
+                        const selectedValue = select.value.trim();
+                        if (!selectedLanguageOptions.includes(selectedValue)) {
+                            selectedLanguageOptions.push(selectedValue);
+                        }
+                    });
+                }
+            });
+
+            spokenLanguageDiv.parentNode.appendChild(newSpokenLanguageDiv);
+        }
+
+        function removeSpokenLanguage(button) {
+            // Get the parent "SpokenLanguage" div and remove it
+            const spokenLanguageDiv = button.closest(".SpokenLanguage");
+            spokenLanguageDiv.remove();
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,640 @@
+{% extends 'base.html' %} {% block content%}{% load static %}
+<link rel="stylesheet" href="{% static 'css/become_tutor.css' %}" />
+<style>
+    .form .error_input {
+        margin-top: 8.5px;
+        width: 100%;
+        height: 45px;
+        background-color: rgb(244, 213, 213);
+        border: red solid 1.5px;
+        margin-bottom: 8.5px;
+        font-size: 16px;
+        padding-left: 15px;
+        border-radius: 5px;
+    }
+
+    
+</style>
+
+<div id="support-widget" role="button" tabindex="0" class="HelpWidget">
+    <svg width="11" xmlns="http://www.w3.org/2000/svg" height="19" fill="none" viewBox="0 0 11 19">
+        <path
+            d="M3.765 12.127c0 .71.443 1.18 1.113 1.18.683 0 1.031-.403 1.139-1.167.147-1.42.469-1.876 2.09-3.189 1.863-1.5 2.613-2.666 2.613-4.368C10.72 1.836 8.522 0 5.333 0 3.74 0 2.453.415 1.514 1.22.576 2.036 0 3.135 0 4.113c0 .59.348.991.925.991.495 0 .763-.227 1.072-.897.683-1.555 1.715-2.238 3.35-2.238 1.782 0 3.015 1.139 3.015 2.613 0 1.273-.55 1.996-2.024 3.189-2.09 1.702-2.573 2.546-2.573 4.355Zm-.361 4.378c0 .844.683 1.514 1.54 1.514.845 0 1.542-.67 1.542-1.514a1.53 1.53 0 0 0-1.541-1.527c-.858 0-1.541.67-1.541 1.527Z">
+        </path>
+    </svg>
+    <div class="HelpWidgetMenu">
+        <a class="Link_link" href="https://help.preply.com/en/" target="_blank">
+            Help Center
+        </a>
+        <button class="Link_link" target="_blank">Contact us</button>
+    </div>
+    <script>
+        const supportWidget = document.getElementById('support-widget');
+        const helpWidget = supportWidget.querySelector('.HelpWidget');
+        const helpWidgetMenu = supportWidget.querySelector('.HelpWidgetMenu');
+        // Add event listener to toggle the widget menu
+        supportWidget.addEventListener('click', function () {
+            helpWidget.classList.toggle('HelpWidgetOpen');
+            helpWidgetMenu.classList.toggle('HelpWidgetOpen');
+        });
+    </script>
+</div>
+
+
+<div class="layout">
+    <div class="hero2">
+        <form class="Login_form" method="post">
+            {% csrf_token %}
+            <div class="HeaderSection">
+                <h1 class="Title"><span>Teach online</span></h1>
+                <h2 class="Subtitle" data-qa-id="warning-msg"><span>Earn money on your schedule</span></h2>
+            </div>
+            <div class="form_Input">
+                {% if isError == 1 %}
+                    <div class="FormInputItem">
+                        <input type="email" class="FormInput" name="email" id="email" required=""
+                            data-qa-id="email" placeholder="Email" aria-label="Email" >
+                        <div>
+                            <span style="color: red;">  </span> 
+                        </div>
+                    </div>
+                    
+                    <div class="FormInputItem">
+                        <input type="password" name="Password" class="FormInput styles_bottomElem__3F_Uk" id="password"
+                            required="" data-qa-id="password" autocomplete="on" placeholder="Password"
+                            aria-label="Password">
+                        <div>
+                            <span style="color: red;"> {{Error}} </span> 
+                        </div>
+                    </div>
+                {% elif isError == 2 %}
+                    <div class="FormInputItem">
+                        <input type="email" class="FormInput" name="email" id="email" required=""
+                            data-qa-id="email" placeholder="Email" aria-label="Email" >
+                        <div>
+                            <span style="color: red;">  </span> 
+                        </div>
+                    </div>
+                    
+                    <div class="FormInputItem">
+                        <input type="password" name="Password" class="FormInput styles_bottomElem__3F_Uk" id="password"
+                            required="" data-qa-id="password" autocomplete="on" placeholder="Password"
+                            aria-label="Password">
+                        <div>
+                            <span style="color: red;"> {{Error}} </span> 
+                        </div>
+                    </div>
+                {% elif isError == 3 %}
+                    <div class="FormInputItem">
+                        <input type="email" class="FormInput" name="email" id="email" required=""
+                            data-qa-id="email" placeholder="Email" aria-label="Email" >
+                        <div>
+                            <span style="color: red;"> {{Error}} </span> 
+                        </div>
+                    </div>
+                    
+                    <div class="FormInputItem">
+                        <input type="password" name="Password" class="FormInput styles_bottomElem__3F_Uk" id="password"
+                            required="" data-qa-id="password" autocomplete="on" placeholder="Password"
+                            aria-label="Password">
+                        <div>
+                            <span style="color: red;">  </span> 
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="FormInputItem">
+                        <input type="email" class="FormInput" name="email" id="email" required=""
+                            data-qa-id="email" placeholder="Email" aria-label="Email" >
+                        <div>
+                            <span style="color: red;"> </span> 
+                        </div>
+                    </div>
+                    
+                    <div class="FormInputItem">
+                        <input type="password" name="Password" class="FormInput styles_bottomElem__3F_Uk" id="password"
+                            required="" data-qa-id="password" autocomplete="on" placeholder="Password"
+                            aria-label="Password">
+                        <div>
+                            <span style="color: red;">  </span> 
+                        </div>
+                    </div>
+                {% endif %}
+                
+            </div>
+            <div class="ButtonWrapper">
+                <button
+                    class="EmailSignupButton Button_button Button_l Button_fullWidth styles_CLSElement1__fvLEk styles_CLSElement2__Yhk1F"
+                    type="submit">
+                    <span>Sign up with email</span>
+                </button>
+            </div>
+            <div class="OptionContainer  ">
+                <hr class="OptionHRElem">
+                <span class="OptionTextSpan">or continue with</span>
+                <hr aria-hidden="true" class="OptionHRElem2">
+            </div>
+            <div class="ButtonWrapperHorizontal">
+                <a class="FacebookOAuthButtonLight Button_button Button_l Button_fullWidth" href="#"
+                    data-type="facebook">
+                    <svg class="FaceBookLight-sc-pmt2cd-2 jvZGEN" xmlns="http://www.w3.org/2000/svg" width="28"
+                        height="28" viewBox="0 0 28 28" style="margin-right: 8px;">
+                        <path fill="#fff" d="M0 4a4 4 0 0 1 4-4h20a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4Z">
+                        </path>
+                        <path fill="#3b5998"
+                            d="M15.73 23v-7.754h2.6l.39-3.023h-2.99v-1.93c0-.874.243-1.47 1.5-1.47h1.6v-2.7A21.335 21.335 0 0 0 16.5 6a3.641 3.641 0 0 0-3.887 3.994v2.23H10v3.022h2.61V23Z">
+                        </path>
+                    </svg>
+                    <span>Facebook</span>
+                </a>
+                <a class="GoogleOAuthButtonLight Button_button Button_l Button_fullWidth" href="#"
+                    data-type="google">
+                    <svg class="GoogleLight-sc-pmt2cd-3 tQIfa" xmlns="http://www.w3.org/2000/svg" width="28"
+                        height="28" viewBox="0 0 28 28" style="margin-right: 8px;">
+                        <path fill="#fff" d="M0 4a4 4 0 0 1 4-4h20a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4Z">
+                        </path>
+                        <path fill="#4285f4"
+                            d="M21.68 14.186a9.15 9.15 0 0 0-.145-1.636H14v3.1h4.3a3.68 3.68 0 0 1-1.6 2.414v2.007h2.586a7.8 7.8 0 0 0 2.394-5.885Z">
+                        </path>
+                        <path fill="#34a853"
+                            d="M14 22a7.636 7.636 0 0 0 5.294-1.938l-2.586-2.007a4.827 4.827 0 0 1-7.185-2.535H6.85v2.073A8 8 0 0 0 14 22Z">
+                        </path>
+                        <path fill="#fbbc05"
+                            d="M9.524 15.523a4.737 4.737 0 0 1 0-3.04V10.41H6.852a8.013 8.013 0 0 0 0 7.185l2.674-2.072Z">
+                        </path>
+                        <path fill="#ea4335"
+                            d="M14 9.182a4.318 4.318 0 0 1 3.057 1.2l2.295-2.294A7.691 7.691 0 0 0 14 6a8 8 0 0 0-7.15 4.408l2.674 2.072A4.768 4.768 0 0 1 14 9.18Z">
+                        </path>
+                    </svg>
+                    <span>Google</span>
+                </a>
+            </div>
+            <div class="AgreementText">
+                By signing up, you agree to Preply’s
+                <a target="_blank" href="#">Terms of Service</a>
+                and
+                <a target="_blank" href="#">Privacy Policy</a>
+            </div>
+        </form>
+    </div>
+    <section class="TeachFeaturesList">
+        <div class="TeachFeaturesListRow">
+            <div class="TeachFeaturesListCol">
+                <svg class="Icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="none"
+                    viewBox="0 0 64 64">
+                    <g clip-path="url(#clip0)">
+                        <path fill="#3BB3BD"
+                            d="M61.383 24a1.333 1.333 0 1 0 2.565-.726A33.324 33.324 0 0 0 32 0C14.327 0 0 14.327 0 32c0 17.673 14.327 32 32 32a1.333 1.333 0 0 0 0-2.667C15.8 61.333 2.667 48.2 2.667 32S15.8 2.667 32 2.667A30.616 30.616 0 0 1 61.383 24Z">
+                        </path>
+                        <path fill="#3BB3BD"
+                            d="M30.668 18.667v12H24a1.333 1.333 0 0 0 0 2.667h8A1.332 1.332 0 0 0 33.335 32V18.667a1.333 1.333 0 1 0-2.667 0Z">
+                        </path>
+                        <path fill="#3BB50B"
+                            d="M57.333 45.334h-4v-8H60a1.333 1.333 0 0 0 0-2.667h-6.667v-4a1.333 1.333 0 1 0-2.666 0v4h-4a6.667 6.667 0 0 0 0 13.333h4v8H44a1.333 1.333 0 1 0 0 2.667h6.667v4a1.333 1.333 0 1 0 2.666 0v-4h4a6.667 6.667 0 0 0 0-13.333Zm-10.666 0a4 4 0 0 1 0-8h4v8h-4ZM57.333 56h-4v-8h4a4 4 0 1 1 0 8Z">
+                        </path>
+                    </g>
+                    <defs>
+                        <clipPath id="clip0">
+                            <path fill="#fff" d="M0 0h64v64H0z"></path>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <div class="TeachFeaturesListColContent">
+                    <div class="TeachFeaturesListColTitle">
+                        Set your own rate
+                    </div>
+                    <div class="TeachFeaturesListColText">
+                        Choose your hourly rate and change it anytime. On average, English tutors charge $15-25
+                        per hour.
+                    </div>
+                </div>
+
+            </div>
+            <div class="TeachFeaturesListCol">
+                <svg class="Icon" xmlns="http://www.w3.org/2000/svg" width="84" height="64" fill="none"
+                    viewBox="0 0 84 64">
+                    <path fill="#3BB3BD"
+                        d="M68.703 16.619c.538 0 .897.327.897.818v34.751c0 .491-.358.818-.897.818H11.304c-.538 0-.897-.327-.897-.818v-34.75c0-.492.36-.82.897-.82h57.4Zm0-2.619H11.304c-1.973 0-3.587 1.473-3.587 3.273v34.751c0 1.8 1.614 3.274 3.587 3.274h57.4c1.972 0 3.587-1.473 3.587-3.274v-34.75c0-1.8-1.615-3.274-3.588-3.274ZM78.565 64.337H1.435c-.718 0-1.435-.491-1.435-1.31 0-.818.538-1.31 1.435-1.31h77.13c.718 0 1.435.492 1.435 1.31 0 .819-.718 1.31-1.435 1.31Z">
+                    </path>
+                    <ellipse cx="70" cy="13" fill="#fff" rx="20" ry="28"></ellipse>
+                    <path fill="#3BB50B" stroke="#3BB50B" stroke-width=".5"
+                        d="M58.75 12.993v.006c0 5.034 2.209 9.42 4.76 12.849 2.438 3.28 5.205 5.706 6.689 7.007l.195.171.004.003a.93.93 0 0 0 1.203 0l.003-.003.196-.171c1.484-1.301 4.25-3.727 6.69-7.007 2.55-3.43 4.759-7.815 4.759-12.849v-.006A12.57 12.57 0 0 0 71.006.75l-.257-.006v.015A12.57 12.57 0 0 0 58.75 12.993ZM71 31.12c-4.676-4.092-10.414-10.24-10.417-18.116A10.829 10.829 0 0 1 71 2.584a10.83 10.83 0 0 1 10.417 10.42c-.003 7.877-5.74 14.024-10.417 18.116Z">
+                    </path>
+                    <path fill="#3BB50B" stroke="#3BB50B" stroke-width=".5"
+                        d="M71 6.75a6.25 6.25 0 1 0 0 12.5 6.25 6.25 0 0 0 0-12.5Zm0 10.8a4.55 4.55 0 1 1 0-9.1 4.55 4.55 0 0 1 0 9.1Z">
+                    </path>
+                </svg>
+                <div class="TeachFeaturesListColContent">
+                    <div class="TeachFeaturesListColTitle"><span>Teach anytime, anywhere</span>
+                    </div>
+                    <div class="TeachFeaturesListColText">
+                        <span>
+                            Decide when and how many hours you want to teach. No minimum time commitment or
+                            fixed schedule. Be your own boss!
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="TeachFeaturesListCol">
+                <svg class="Icon" xmlns="http://www.w3.org/2000/svg" width="59" height="64" fill="none"
+                    viewBox="0 0 59 64">
+                    <path fill="#3BB50B"
+                        d="M43.995 22.664c0-8.1-6.566-14.665-14.666-14.665-8.1 0-14.665 6.566-14.665 14.665 0 8.1 6.566 14.665 14.665 14.665 8.096-.009 14.656-6.57 14.666-14.665Zm-26.664 0c0-6.627 5.372-11.999 11.998-11.999 6.627 0 12 5.372 12 11.999 0 6.627-5.373 11.999-12 11.999-6.623-.007-11.991-5.375-11.998-11.999Z">
+                    </path>
+                    <path fill="#3BB50B"
+                        d="M35.997 22.665c0-.446-.223-.863-.594-1.11l-8-5.333a1.333 1.333 0 0 0-2.072 1.11v10.665a1.333 1.333 0 0 0 2.073 1.11l7.999-5.333c.37-.248.594-.664.594-1.11Zm-8 2.842v-5.685l4.263 2.843-4.262 2.842Z">
+                    </path>
+                    <path fill="#3BB3BD"
+                        d="M58.661 42.663V4a4.004 4.004 0 0 0-4-4H4a4.004 4.004 0 0 0-4 4v38.663a4.004 4.004 0 0 0 4 4h22.285L12.353 61.755a1.333 1.333 0 1 0 1.958 1.81l13.686-14.827V62.66a1.333 1.333 0 0 0 2.667 0V48.739L44.35 63.566a1.333 1.333 0 1 0 1.958-1.81L32.376 46.662H54.66a4.004 4.004 0 0 0 4-4Zm-55.995 0V4c0-.736.598-1.333 1.334-1.334H54.66c.736 0 1.333.598 1.334 1.334v38.663c0 .736-.597 1.332-1.334 1.333H4a1.334 1.334 0 0 1-1.334-1.333Z">
+                    </path>
+                </svg>
+                <div class="TeachFeaturesListColContent">
+                    <div class="TeachFeaturesListColTitle">
+                        <span>Grow professionally</span>
+                    </div>
+                    <div class="TeachFeaturesListColText">
+                        <span>
+                            Attend professional development webinars and get tips to upgrade your skills. You’ll
+                            get all the help you need fromour team to grow.
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="Section_x">
+        <div class="Wrapper">
+            <div class="text-block Block" style="padding-bottom: 40px;">
+                <h2 class="Title-x">Teach Students from over 180 countries</h2>
+                <p class="Subtitle-x" style="color: #6f757b;">
+                    Preply tutors teach 800,000+ students globally. Join us and you’ll have
+                    everything you need to teach successfully.
+                </p>
+            </div>
+            <div class="Block Benefits-block">
+                <ul class="Benefits-list">
+                    <li class="Benefit"><svg height="9" viewBox="0 0 11 9" width="11"
+                            xmlns="http://www.w3.org/2000/svg" class="Checkmark">
+                            <path d="M4 5.586L9.293.293l1.414 1.414L4 8.414.293 4.707l1.414-1.414z"></path>
+                        </svg>Steady stream of new students</li>
+                    <li class="Benefit"><svg height="9" viewBox="0 0 11 9" width="11"
+                            xmlns="http://www.w3.org/2000/svg" class="Checkmark">
+                            <path d="M4 5.586L9.293.293l1.414 1.414L4 8.414.293 4.707l1.414-1.414z"></path>
+                        </svg>Smart calendar</li>
+                    <li class="Benefit"><svg height="9" viewBox="0 0 11 9" width="11"
+                            xmlns="http://www.w3.org/2000/svg" class="Checkmark">
+                            <path d="M4 5.586L9.293.293l1.414 1.414L4 8.414.293 4.707l1.414-1.414z"></path>
+                        </svg>Interactive classroom</li>
+                    <li class="Benefit"><svg height="9" viewBox="0 0 11 9" width="11"
+                            xmlns="http://www.w3.org/2000/svg" class="Checkmark">
+                            <path d="M4 5.586L9.293.293l1.414 1.414L4 8.414.293 4.707l1.414-1.414z"></path>
+                        </svg>Convenient payment methods</li>
+                    <li class="Benefit"><svg height="9" viewBox="0 0 11 9" width="11"
+                            xmlns="http://www.w3.org/2000/svg" class="Checkmark">
+                            <path d="M4 5.586L9.293.293l1.414 1.414L4 8.414.293 4.707l1.414-1.414z"></path>
+                        </svg><span>Professional development webinars</span></li>
+                    <li class="Benefit"><svg height="9" viewBox="0 0 11 9" width="11"
+                            xmlns="http://www.w3.org/2000/svg" class="Checkmark">
+                            <path d="M4 5.586L9.293.293l1.414 1.414L4 8.414.293 4.707l1.414-1.414z"></path>
+                        </svg>Supportive tutor community</li>
+                </ul><button class="SignupButton Button_button Button_l">Sign up to
+                    teach</button>
+            </div>
+            <div class="students-block Block">
+                <div class="student-item">
+                    <picture>
+                        <img src="https://static.preply.com/static/ssr/_next/static/images/img-teach-1-35ff561d2ebd46fb846994271b88ce26.webp"
+                            alt="" class="StudentIcon Student_img">
+                    </picture>
+                    <div class="student_content">
+                        <p>Marcella F.</p>
+                        <p>Great lesson today!</p>
+                        <p>12:40 PM</p>
+                    </div>
+
+                </div>
+
+                <div class="student-item">
+                    <picture>
+                        <img src="https://static.preply.com/static/ssr/_next/static/images/img-teach-2-e983a9b1b01b88ce47fd4cdda6c737a8.webp"
+                            alt="" class="StudentIcon Student_img">
+                    </picture>
+                    <div class="student_content">
+                        <p>Victor M.</p>
+                        <p>Can we reschedule our lesson?</p>
+                        <p>Sep 28</p>
+                    </div>
+                </div>
+
+                <div class="student-item">
+                    <picture>
+                        <img src="https://static.preply.com/static/ssr/_next/static/images/img-teach-3-b28b43f59da2f5d054772f22dca1e2c4.webp"
+                            alt="" class="StudentIcon Student_img">
+                    </picture>
+                    <div class="student_content">
+                        <p>Wang X.</p>
+                        <div>
+                            <svg height="21" viewBox="0 0 18 21" width="18" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M16.21 9.783l-7.48 7.481c-1.478 1.478-3.875 1.711-5.488.382a3.993 3.993 0 0 1-.29-5.919l8.74-8.74c.927-.926 2.433-1.103 3.444-.275a2.5 2.5 0 0 1 .19 3.712l-7.424 7.425c-.389.389-1.025.389-1.414 0s-.389-1.026 0-1.415l6.187-6.187c.29-.29.29-.77 0-1.06s-.77-.29-1.06 0l-6.089 6.088c-.926.926-1.103 2.432-.275 3.443a2.5 2.5 0 0 0 3.712.191l7.304-7.304c1.478-1.478 1.712-3.875.382-5.487a3.998 3.998 0 0 0-5.918-.29l-8.677 8.676c-2.029 2.03-2.361 5.332-.53 7.545a5.505 5.505 0 0 0 8.146.396l7.601-7.602c.29-.29.29-.77 0-1.06s-.77-.29-1.06 0z">
+                                </path>
+                            </svg>&nbsp;
+                            <span>Homework.doc</span>
+                        </div>
+                        <p>Sep 25</p>
+                    </div>
+                </div>
+
+
+
+                <div class="student-item">
+                    <picture>
+                        <img src="https://static.preply.com/static/ssr/_next/static/images/img-teach-4-604ce2870feb95ca750a283acdf4c2d6.webp"
+                            alt="" class="StudentIcon Student_img">
+                    </picture>
+
+                    <div class="student_content">
+                        <p>Jennifer C.</p>
+                        <p>Thank you!</p>
+                        <p>Sep 24</p>
+                    </div>
+
+                </div>
+                <div class="student-item">
+                    <picture>
+                        <img src="https://static.preply.com/static/ssr/_next/static/images/img-teach-5-3069d9355e1c4b20c1e557186bad6a19.webp"
+                            alt="" class="StudentIcon Student_img">
+                    </picture>
+                    <div class="student_content">
+                        <p>Grace B.</p>
+                        <p>Let’s schedule next lesson!</p>
+                        <p>Sep 24</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="Section_y">
+        <div class="Wrapper_y">
+            <div class="BannerBlock Block_y"></div>
+            <div class="Content-Block Block_y">
+                <div class="Quote">
+                    <h2 class="QuoteTitle">Preply allowed me to make a living without leaving home!</h2>
+                </div>
+                <p class="Quote_Subtitle">
+                    <b>Eliza G.</b>
+                    teaches English on Preply so she can spend more time with her son
+                </p>
+                <button class="BecomeTutorButton Button_button Button_l" style="margin-top: 30px;">Become a
+                    tutor</button>
+            </div>
+        </div>
+    </section>
+    <section class="Section_z">
+        <div class="Wrapper_z">
+            <h2 class="Title_z">Frequently asked questions</h2>
+            <ul class="Questions_z" style="list-style: none;">
+                <li class="QuestionItem">
+                    <div class="QuestionWrapper">
+                        <span onclick="toggleAnswers()" class="QuestionIcon"></span>
+                        <div class="Question_z">What kind of tutors does Preply look for?</div>
+                    </div>
+                    <div class="Answer_z Text_Text">
+                        <div>
+                            <p>No specific certification or teaching experience is required! We welcome tutors who:
+                            </p>
+                            <ul class="List_z">
+                                <li class="ListItem_z">
+                                    Enjoy sharing knowledge and making a difference in students’ lives
+                                </li>
+                                <li class="ListItem_z">
+                                    Have outstanding communication skills
+                                </li>
+                                <li class="ListItem_z">
+                                    Are willing to provide a personalized learning experience to international
+                                    students
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="QuestionItem">
+                    <div class="QuestionWrapper">
+                        <span onclick="toggleAnswers()" class="QuestionIcon"></span>
+                        <div class="Question_z">What subject can I teach?</div>
+                    </div>
+                    <div class="Answer_z Text_Text">
+                        <div>
+                            <p>We have over 100 subjects on Preply, including languages, school and university
+                                subjects, hobbies and art.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="QuestionItem">
+                    <div class="QuestionWrapper">
+                        <span onclick="toggleAnswers()" class="QuestionIcon"></span>
+                        <div class="Question_z">How do I become an online tutor at Preply?</div>
+                    </div>
+                    <div class="Answer_z Text_Text">
+                        <div>
+                            <ol class="List_z">
+                                <li class="ListItem_z">
+                                    Provide some basic information about yourself
+                                </li>
+                                <li class="ListItem_z">
+                                    Upload your headshot photo
+                                </li>
+                                <li class="ListItem_z">
+                                    Describe your strengths as a tutor
+                                </li>
+                                <li class="ListItem_z">
+                                    Record a short video introduction (up to 2 mins long)
+                                </li>
+                                <li class="ListItem_z">
+                                    Choose your availability
+                                </li>
+
+                            </ol>
+                            <p>
+                                You’ll see tips and examples at each step of the registration process to help you
+                                create a great tutor profile. When you complete registration, our Tutor Success team
+                                will review your profile within 5 business days. Once your profile is approved,
+                                students from around the world will see it on Preply and will be able to book
+                                lessons with you.
+                            </p>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="QuestionItem">
+                    <div class="QuestionWrapper">
+                        <span onclick="toggleAnswers()" class="QuestionIcon"></span>
+                        <div class="Question_z">How can I get my profile approved quickly?</div>
+                    </div>
+                    <div class="Answer_z Text_Text">
+                        <div>
+                            <p>Sometimes, we don’t approve tutor profiles at the first attempt because the profile
+                                photo, video or description doesn’t meet our requirements. Make sure you use a real
+                                photo of yourself, take the time to record a short video and describe your strengths
+                                as a tutor in the description. A surefire way to get approved is to follow the tips
+                                given at each step of the registration process.
+                            </p>
+                            <p>
+                                Also, be sure to avoid mentioning any contact details, lesson prices or misleading
+                                information in your profile description and video. We’ll ask you to remove this
+                                information, which will slow down the approval process.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="QuestionItem">
+                    <div class="QuestionWrapper">
+                        <span onclick="toggleAnswers()" class="QuestionIcon"></span>
+                        <div class="Question_z">Why should I teach on Preply?</div>
+                    </div>
+                    <div class="Answer_z Text_Text">
+                        <div>
+                            <p>
+                                Because it’s easy and flexible! If you teach with Preply, you:
+                            </p>
+                            <ul class="List_z">
+                                <li class="ListItem_z">
+                                    earn by sharing what you know
+                                </li>
+                                <li class="ListItem_z">
+                                    get a steady stream of new students looking to learn online
+                                </li>
+                                <li class="ListItem_z">
+                                    manage your lessons and connect with students easily
+                                </li>
+                                <li class="ListItem_z">
+                                    teach whenever and wherever you want
+                                </li>
+                                <li class="ListItem_z">
+                                    use safe payment methods (Paypal, Payoneer, Skrill or Transferwise)
+                                </li>
+                                <li class="ListItem_z">
+                                    get support from our friendly team through professional development webinars,
+                                    live chat and email
+                                </li>
+                                <li class="ListItem_z">
+                                    join a community of expert tutors who are always there for you
+                                </li>
+                            </ul>
+                            <p>
+                                ...and more to come! We’re constantly improving the platform and teaching tools for
+                                our tutors based on their needs.
+                            </p>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="QuestionItem">
+                    <div class="QuestionWrapper">
+                        <span onclick="toggleAnswers()" class="QuestionIcon"></span>
+                        <div class="Question_z">Why should I teach on Preply?</div>
+                    </div>
+                    <div class="Answer_z Text_Text">
+                        <div>
+                            <p>
+                                You will need a laptop or a desktop computer, a stable internet connection, a
+                                webcam, and a microphone for conducting lessons in the Preply virtual classroom.
+                            </p>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="QuestionItem">
+                    <div class="QuestionWrapper">
+                        <span onclick="toggleAnswers()" class="QuestionIcon"></span>
+                        <div class="Question_z">Why should I teach on Preply?</div>
+                    </div>
+                    <div class="Answer_z Text_Text">
+                        <div>
+                            <p>
+                                Yes. It is free to create a tutor profile, get exposure to students, and use
+                                Preply’s tools and materials. We only charge a commission for the lessons that you
+                                have taught. The commission for a trial lesson with a new student is 100%. The
+                                commission for the subsequent lessons starts at 33% and decreases to 18%: the more
+                                hours you teach on Preply, the lower the rate of commission.
+                                <a class="Link_link" href="#" target="_blank">
+                                    Learn more about Preply’s commission model
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                </li>
+                <li class="QuestionItem">
+                    <div class="QuestionWrapper">
+                        <span onclick="toggleAnswers()" class="QuestionIcon"></span>
+                        <div class="Question_z">Why should I teach on Preply?</div>
+                    </div>
+                    <div class="Answer_z Text_Text">
+                        <div>
+                            <p>
+                                Most popular tutors on Preply earn up to $550 a week. Your earnings depend on the
+                                hourly rate you set, the number of lessons you teach and how many students continue
+                                learning with you after the trial lesson. A tip for newly registered tutors: start
+                                with a lower hourly rate to get first students faster. You can change your rate
+                                anytime.
+                            </p>
+                            <p>
+                                Preply takes a commission fee from your lessons to bring in more students from
+                                around the globe, and develop an easy-to-use video tool and learning materials for
+                                your lessons. We provide free professional development webinars and multilingual
+                                customer support to guide you along every step of your tutoring journey.
+                            </p>
+                            <p>
+                                The commission for every trial lesson with a new student is 100%. For all subsequent
+                                lessons, the commission starts at 33% and decreases to 18% based on how many hours
+                                you’ve taught on the platform. <br>
+                                <a class="Link_link" href="#" target="_blank">
+                                    Learn more about Preply’s commission model
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+            <div class="SupportText">Have more questions?
+                <a class="Link_link" href="#" target="_blank">Check our Help center
+                </a>
+                or
+                <a class="Link_link" href="#" target="_blank">contact our support team
+                </a>
+            </div>
+        </div>
+        <script>
+            function toggleAnswers() {
+                var questionItem = event.target.closest('.QuestionItem');
+                var answerElement = questionItem.querySelector('.Answer_z');
+
+                // Toggle the "open" class on the answer element
+                answerElement.classList.toggle('open');
+
+            }
+
+        </script>
+    </section>
+    <section class="Section_S">
+        <div class="Wrapper_S">
+            <div class="Content_S">
+                <h2 class="Title_S">Get paid to teach online</h2>
+                <p class="Subtitle_S">
+                    Connect with thousands of learners around the world and teach from your living room</p>
+                <button class="GetStartedButton Button_button Button_l">Get started</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+{% endblock content%}

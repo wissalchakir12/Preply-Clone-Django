@@ -1,0 +1,481 @@
+{% extends 'base.html' %} {% block content%}{% load static %}
+<link rel="stylesheet" href="{% static 'css/findtutor.css' %}" />
+<style>
+  .btngs {
+    width: 100%;
+    height: 20px;
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+  }
+
+  .ft_cnt {
+    width: 100%;
+  }
+
+  .select_sbj {
+    border: none;
+    width: 100%;
+  }
+
+  .boxes {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    background: white;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(61, 60, 60, 0.2);
+    justify-content: left;
+  }
+
+  .img_box {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imgs {
+    flex: 4;
+    width: 85%;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 10px;
+  }
+
+  .img_ {
+    width: 100%;
+    height: 144px;
+    border-radius: 25px;
+
+  }
+
+  .empty {
+    flex: 1;
+    width: 100%;
+  }
+
+  .details_tut {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    gap: 10px;
+  }
+
+  .but_fav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .but_fav a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn_view {
+    background-color: #3bb3bd;
+    color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btn_msg {
+    background-color: #abe2ec;
+    color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sbj_spok {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .sbj_spok svg {
+    height: 18px;
+    width: 18px;
+    margin: 2px 12px 2px 0;
+  }
+
+  .lang_spok {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+  }
+
+  .lang_spok svg {
+    height: 15px;
+    width: 15px;
+    margin: 2px 12px 2px 0;
+  }
+  .lang__l{
+    display: flex;
+    flex-direction: row;
+
+  }
+  .lvl{
+    background-color:#ebf7f8;
+    color: #3bb3bd;
+    margin-left: 4px;
+  }
+  .lgj{
+    margin-left: 6px;
+  }
+  .sbj_en{
+    color: #8194a7;
+  }
+  .name__{
+    float: left;
+  }
+  .name__::first-letter{
+    text-transform: uppercase;
+  }
+</style>
+<form method="post">
+  {% csrf_token %}
+  <div class="ft_cnt">
+    <div class="pppp">
+      <div class="sty-j8j">
+        <div class="sty-j8j mine">
+          <div class="sty-mjr sty-nda">
+            <div class="_2S-tqt _3WN-cld _1k-bw3 _3p-vof">
+              <span class="nKo-5o8 _18-8gx">
+                <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 32 32">
+                  <path fill="#27E0F6"
+                    d="M18.847 27.662c3.05-.976 7.74-5.157 8.25-10.734.353-3.875-1.933-7.98-4.182-9.355C16.253 3.5 5.819 6.32 3.485 11.419c-2.182 4.769.244 11.634 4.66 14.76 3.181 2.25 7.652 2.46 10.702 1.483Z">
+                  </path>
+                  <path fill="#090F19"
+                    d="M30.43 28.137c.407-.027 1.112-.4 1.338-1.078.156-.471-.009-1.053-.249-1.294-.71-.715-2.09-.69-2.528-.128-.41.525-.308 1.455.15 1.981.33.38.88.545 1.289.519Z">
+                  </path>
+                  <path fill="#090F19" fill-rule="evenodd"
+                    d="M23.778 6.944c0 4.533-2.415 6.457-4.305 6.457-1.89 0-4.306-1.924-4.306-6.457 0-2.738 2.055-4.72 4.306-4.72 2.25 0 4.305 1.982 4.305 4.72Zm2.224 0c0 5.209-2.924 8.681-6.53 8.681-3.605 0-6.529-3.472-6.529-8.68 0-3.836 2.924-6.945 6.53-6.945 3.605 0 6.529 3.11 6.529 6.944Zm-5.962 13.02c3.2-.032 5.172.557 6.37 1.158 1.052.528 1.558 1.084 1.855 1.411.038.042.072.08.104.113a1.112 1.112 0 1 0 1.617-1.527l-.09-.098c-.32-.353-1.061-1.17-2.489-1.886-1.569-.788-3.9-1.429-7.384-1.394-4.545 0-7.413 1.037-9.155 2.562-1.762 1.542-2.212 3.442-2.212 4.8v1.562a1.112 1.112 0 1 0 2.224 0v-1.562c0-.878.283-2.103 1.453-3.127 1.188-1.04 3.449-2.011 7.695-2.011h.012Z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </span>
+            </div>
+            <p class="khP-pop _2p-3x7 _2J-lyj">Private lessons</p>
+          </div>
+          <div class="sty-mjr">
+            <a class="sty-ygw" href="#">
+              <div class="_2S-tqt _3WN-cld _1k-bw3 _3p-vof">
+                <span class="nKo-5o8 _18-8gx">
+                  <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 33 32">
+                    <path fill="#FDC75F"
+                      d="M17.75 27.774c2.873-.951 7.292-5.024 7.771-10.457.334-3.775-1.819-7.773-3.937-9.113-6.275-3.966-16.103-1.217-18.302 3.75-2.056 4.644.229 11.332 4.388 14.375 2.996 2.193 7.208 2.396 10.08 1.445Z">
+                    </path>
+                    <path fill="#090F19"
+                      d="M27.753 25.374c.384-.026 1.048-.39 1.26-1.05.147-.458-.008-1.025-.234-1.26-.669-.696-1.968-.672-2.381-.125-.386.511-.29 1.417.142 1.93.311.37.83.53 1.213.505Z">
+                    </path>
+                    <path fill="#090F19" fill-rule="evenodd"
+                      d="M17.71 11.455c1.358 0 3.386-1.485 3.386-5.436 0-2.363-1.698-3.932-3.386-3.932-1.687 0-3.386 1.57-3.386 3.932 0 3.95 2.029 5.436 3.386 5.436Zm0 2.087c3.023 0 5.473-3.01 5.473-7.523C23.183 2.695 20.733 0 17.71 0c-3.022 0-5.473 2.695-5.473 6.019 0 4.514 2.45 7.523 5.473 7.523ZM9.864 3.668c-1.378 0-2.632 1.255-2.632 2.98 0 2.654 1.392 3.944 2.632 3.944a.87.87 0 1 1 0 1.74c-2.628 0-4.371-2.56-4.371-5.683 0-2.527 1.88-4.72 4.37-4.72a.87.87 0 0 1 0 1.739Zm15.269 0c1.377 0 2.631 1.255 2.631 2.98 0 2.654-1.391 3.944-2.631 3.944a.87.87 0 1 0 0 1.74c2.627 0 4.37-2.56 4.37-5.683 0-2.527-1.88-4.72-4.37-4.72a.87.87 0 1 0 0 1.739Zm5.081 13.03c.735.664.916 1.462.916 2.042v1.059h1.738V18.74c0-.936-.3-2.257-1.488-3.332-1.177-1.066-3.102-1.775-6.11-1.775a.87.87 0 1 0 0 1.74c2.76 0 4.199.651 4.943 1.325ZM32 20.668a.87.87 0 0 0 .87-.869h-1.74c0 .48.39.87.87.87Zm-27.216-3.97a2.709 2.709 0 0 0-.915 2.042v1.059h-1.74V18.74c0-.936.3-2.257 1.488-3.332 1.178-1.066 3.102-1.775 6.11-1.775a.87.87 0 1 1 0 1.74c-2.76 0-4.199.651-4.943 1.325Zm-1.785 3.97a.87.87 0 0 1-.87-.869h1.74c0 .48-.39.87-.87.87Zm21.025-1.813c-1.126-.584-2.98-1.157-5.99-1.125h-.01c-3.994 0-6.119.943-7.24 1.958a4.097 4.097 0 0 0-1.382 3.086v1.522a1.044 1.044 0 1 1-2.087 0v-1.522c0-1.302.416-3.138 2.07-4.634 1.64-1.484 4.345-2.496 8.633-2.497 3.286-.034 5.487.592 6.968 1.36 1.345.698 2.042 1.493 2.342 1.835.033.038.06.07.085.095a1.044 1.044 0 0 1-1.541 1.408c-.03-.032-.063-.07-.098-.11a5.54 5.54 0 0 0-1.75-1.376Z"
+                      clip-rule="evenodd"></path>
+                  </svg>
+                </span>
+              </div>
+              <p>Group classes</p>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="cntFT0">
+        <div class="cntFT">
+          <div class="cntFTbox1">
+            <h1>Online English tutors & teachers for private lessons</h1>
+            <div class="incfb1">
+              <p id="read_more" class="read_more">
+                Looking for an online English tutor? Preply is the leading
+                online language learning platform worldwide. You can choose from
+                16126 English teachers with an average rating of 4.9 out of 5
+                stars given by 135013 customers. Book a lesson with a private
+                English teacher today and start learning. Not entirely happy
+                with your tutor? No worries, Preply offers free tutor
+                replacement till you're 100% satisfied. Looking for a different
+                way to learn a language? Explore online English classes.
+              </p>
+              <a href="#" class="readbtn"> + Read more</a>
+            </div>
+
+            <div class="boxhidden">
+              <p>
+                <span>Get a personalized choice of tutors</span> by answering a
+                few quick questions
+              </p>
+              <div class="cntboxgs">
+                <div class="box1">
+                  <div class="sb1">
+                    <select class="select_sbj" name="subjects" id="select_id" onfocus="hidborder()"
+                      onblur="hidborder()">
+                      {% for subject in subjects %}
+                      {% if subject.1 == English %}
+                      <option value="{{subject.0}}" selected>{{ subject.1}}</option>
+                      {% else %}
+                      <option value="{{subject.0}}">{{ subject.1}}</option>
+                      {% endif %}
+                      {% endfor %}
+
+                    </select>
+
+                    <script>
+                      function hidborder() {
+                        var x = document.getElementById('select_id');
+                        x.style.border = "none";
+
+                      }
+                    </script>
+                  </div>
+
+                  <div class="sb2">
+                    <button type="submit" class="btngs">Get started</button>
+                  </div>
+                </div>
+                <div class="box2">
+                  <a>Choose by myself from 16,113 tutors</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cntFTbox2">
+            <img class="image"
+              src="https://static.preply.com/static/ssr/_next/static/images/pre-search-bg-image-ef8dd6110ed7156c1568f3ef392eb3b1.jpg" />
+          </div>
+          <div class="bxhd">
+            <p>
+              <span>Get a personalized choice of tutors</span> by answering a
+              few quick questions
+            </p>
+            <div class="cntboxgs">
+              <div class="box1">
+                <div class="sb1">
+                  <input type="text" class="inp1" />
+                  <button class="btnddl2">
+                    <i class="fa fa-chevron-down"></i>
+                  </button>
+                </div>
+                <div class="styledropdown4">
+                  <div class="styles_SuggestionItem6wnYQ">English</div>
+                  <div class="styles_SuggestionItem6wnYQ">Spanish</div>
+                  <div class="styles_SuggestionItem6wnYQ">French</div>
+                  <div class="styles_SuggestionItem6wnYQ">German</div>
+                  <div class="styles_SuggestionItem6wnYQ">Japanese</div>
+                  <div class="styles_SuggestionItem6wnYQ">Italian</div>
+                  <div class="styles_SuggestionItem6wnYQ">Korean</div>
+                  <div class="styles_SuggestionItem6wnYQ">Arabic</div>
+                  <div class="styles_SuggestionItem6wnYQ">Chinese</div>
+                  <div class="styles_SuggestionItem6wnYQ">Math</div>
+                  <div class="styles_SuggestionItem6wnYQ">History</div>
+                  <div class="styles_SuggestionItem6wnYQ">Statistics</div>
+                  <div class="styles_SuggestionItem6wnYQ">Economics</div>
+                  <div class="styles_SuggestionItem6wnYQ">Chemistry</div>
+                  <div class="styles_SuggestionItem6wnYQ">Biology</div>
+                  <div class="styles_SuggestionItem6wnYQ">Algebra</div>
+                  <div class="styles_SuggestionItem6wnYQ">Physics</div>
+
+                  <div class="styles_SuggestionItem6wnYQ">
+                    Android app development
+                  </div>
+                </div>
+                <div class="sb2">
+                  <a type="submit" class="btngs">Get started</a>
+                </div>
+              </div>
+              <div class="box2">
+                <a>Choose by myself from 16,113 tutors</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="cntFT1">
+
+          <div class="cntFT1bxf0">
+            <div class="cntFT1bxf0_box cntfw">
+              <h1>{{number_tutor }}+</h1>
+              <p>Experienced tutors</p>
+            </div>
+            <div class="cntFT1bxf0_box cntfw">
+              <h1>300,000+</h1>
+              <p>5-star tutor reviews</p>
+            </div>
+            <div class="cntFT1bxf0w_box">
+              <div class="cntFT1bxf0star_box">
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa-solid fa-star-half-stroke checked"></span>
+                <h1>4.8</h1>
+              </div>
+              <p> on the App Store</p>
+
+            </div>
+            <div class="cntFT1bxf0_box cntfw">
+              <h1>{{number_subject}}+</h1>
+              <p>Subjects taught</p>
+            </div>
+            <div class="cntFT1bxf0_box cntfw">
+              <h1>{{number_country}}+</h1>
+              <p>Tutor nationalities</p>
+            </div>
+          </div>
+          <div class="cntFT1bxf">
+            {% for tutor in tutors %}
+            <div class="boxes">
+              <div class="img_box">
+                <div class="imgs">
+                  <img class="img_" src="{% static 'images/' %}{{ tutor.9 }}" alt="" />
+                </div>
+                <div class="empty">
+                </div>
+              </div>
+              <div class="details_tut">
+                <h2 class="name__">{{ tutor.3 }} {{ tutor.2 }} 
+                  {% for country in countries %}
+                  {% if country.0 == tutor.5 %}
+                  (<span>{{ country.1 }}</span>)
+                  {% endif %}
+                  {% endfor %}
+                </h2>
+
+
+                <div class="sbj_spok">
+                  <svg  xmlns="http://www.w3.org/2000/svg" width="13" height="10"
+                    viewBox="129 34 13 10">
+                    <path fill="#6F757B" fill-rule="evenodd"
+                      d="M135.399 34 129 37.2l6.399 3.199 5.235-2.618v4.944h1.163V37.2L135.4 34zm0 7.7-4.654-2.327v1.3L135.4 43l4.653-2.327v-1.3l-4.653 2.326z">
+                    </path>
+                  </svg>
+                  <h3>
+                    {% for subject in subjects %}
+                    {% if subject.0 == tutor.6 %}
+                    <span class="sbj_en">{{ subject.1 }}</span>
+                    {% endif %}
+                    {% endfor %}
+                  </h3>
+                </div>
+                <div class="lang_spok">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40"
+                    height="40" viewBox="0 0 40 40" class="styles_icon__i6YfH">
+                    <defs>
+                      <path id="a"
+                        d="M1127.5 327.75a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm-7.5 0a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm-7.5 0a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm17.5-10c3.5 0 6.25 2.75 6.25 6.25v12.5c0 3.5-2.75 6.25-6.25 6.25h-2l-3.5 5.25-4.5-5.25h-10a6.19 6.19 0 0 1-6.25-6.25V324c0-3.5 2.75-6.25 6.25-6.25zm0 28.75c5.5 0 10-4.5 10-10V324c0-5.5-4.5-10-10-10h-20c-5.5 0-10 4.5-10 10v12.5c0 5.5 4.5 10 10 10h8.25l6.75 7.5z">
+                      </path>
+                    </defs>
+                    <use xlink:href="#a" transform="translate(-1100 -314)"></use>
+                  </svg>
+                  <h4 class="lang__l">Languages spoken:
+                    {% for lnsp in languages_spoken %}
+                    {% if lnsp.0 == tutor.0 %}
+                    <p class="lgj">{{ lnsp.1 }}</p> : <p class="lvl">{{ lnsp.2 }}</p> ,
+                    {% endif %}
+                    {% endfor %}
+                  </h4>
+                </div>
+
+
+              </div>
+              <div class="but_fav">
+                <a href="{% url 'tutor_video' tutor.0 %}" class="btn_view">View video</a>
+                <a href="" class="btn_msg">message</a>
+              </div>
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<script>
+  const toggle = document.querySelector(".toggle_btn");
+  const togglei = document.querySelector(".toggle_btn i");
+  const dropdown = document.querySelector(".dropdown-menu1");
+  const dropdown2 = document.querySelector(".dropdown-menu2");
+  toggle.onclick = function () {
+    dropdown.classList.toggle("open");
+    dropdown2.classList.toggle("open");
+    toggle.classList.toggle("open");
+    const isopen = dropdown.classList.contains("open");
+    const isopen2 = dropdown2.classList.contains("open");
+    togglei.classList = isopen2 ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+    togglei.classList = isopen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+  };
+  const readbtn = document.querySelector(".readbtn");
+  const pgr = document.querySelector(".read_more");
+  const incfb = document.querySelector(".incfb1");
+  readbtn.onclick = function () {
+    pgr.classList.toggle("open");
+    incfb.classList.toggle("open");
+    if (pgr.classList.contains("open")) {
+      readbtn.textContent = "-Hide";
+    } else {
+      readbtn.textContent = "+ Read more";
+    }
+  };
+  const dropdown3 = document.querySelector(".styledropdown3");
+  const btnddl = document.querySelector(".btnddl");
+  btnddl.onclick = function () {
+    dropdown3.classList.toggle("open");
+  };
+  const dropdownsub = document.querySelector(".drpdwn_sbject");
+  const btnfilter1 = document.querySelector(".btnfilter1");
+  const darkOverlay = document.querySelector(".dark-overlay");
+  btnfilter1.onclick = function () {
+    dropdownsub.classList.toggle("open");
+    darkOverlay.style.display = 'fixed';
+
+  };
+  const drpdwn_price = document.querySelector(".drpdwn_price");
+  const btnfilter2 = document.querySelector(".btnfilter2");
+  btnfilter2.onclick = function () {
+    drpdwn_price.classList.toggle("open");
+  };
+  const drpdwn_country = document.querySelector(".drpdwn_country");
+  const btnfilter3 = document.querySelector(".btnfilter3");
+  btnfilter3.onclick = function () {
+    drpdwn_country.classList.toggle("open");
+  };
+  const drpdwn_available = document.querySelector(".drpdwn_available");
+  const btnfilter4 = document.querySelector(".btnfilter4");
+  btnfilter4.onclick = function () {
+    drpdwn_available.classList.toggle("open");
+  };
+  const dropdown4 = document.querySelector(".styledropdown4");
+  const btnddl2 = document.querySelector(".btnddl2");
+  btnddl2.onclick = function () {
+    dropdown4.classList.toggle("open");
+  };
+
+</script>
+{% endblock content%}

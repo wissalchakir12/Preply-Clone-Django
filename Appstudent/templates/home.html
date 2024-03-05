@@ -1,0 +1,1679 @@
+{% load static %}
+<link rel="stylesheet" href={% static 'css/home.css' %} />
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Perply</title>
+    <style>
+        *{
+            font-family: "PreplyInterV";
+        }
+        @font-face {
+            font-family: "PreplyInterV";
+            font-weight: 400 700;
+            font-display: swap;
+            font-style: oblique 0deg 10deg;
+            src: url("https://static.preply.com/ds/fonts/en/PreplyInter.var.woff2") format("woff2");
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: "PreplyInterV";
+            font-weight: 400 700;
+            font-display: swap;
+            font-style: oblique 0deg 10deg;
+            src: url("https://static.preply.com/ds/fonts/cyr/PreplyInter.var.woff2") format("woff2");
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454,
+                U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: "PreplyInterV";
+            font-weight: 400 700;
+            font-display: swap;
+            font-style: oblique 0deg 10deg;
+            src: url("https://static.preply.com/ds/fonts/lat/PreplyInter.var.woff2") format("woff2");
+            unicode-range: U+A1, U+BF-C4, U+C6-CF, U+D1-D6, U+D9-DC, U+DF-E4,
+                U+E6-EF, U+F1-F6, U+F9-FC, U+FF, U+102-107, U+118, U+119, U+11E, U+11F,
+                U+130, U+131, U+141-144, U+152, U+153, U+15A, U+15B, U+15E, U+15F,
+                U+178-17C, U+218-21B, U+1E9E, U+E02E;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/en/PreplyInter.regular.woff2") format("woff2");
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/en/PreplyInter.medium.woff2") format("woff2");
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/en/PreplyInter.bold.woff2") format("woff2");
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: oblique 10deg;
+            font-weight: 400;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/en/PreplyInter.italic.woff2") format("woff2");
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: oblique 10deg;
+            font-weight: 500;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/en/PreplyInter.medium.italic.woff2") format("woff2");
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: oblique 10deg;
+            font-weight: 700;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/en/PreplyInter.bold.italic.woff2") format("woff2");
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/cyr/PreplyInter.regular.woff2") format("woff2");
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454,
+                U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/cyr/PreplyInter.medium.woff2") format("woff2");
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454,
+                U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/cyr/PreplyInter.bold.woff2") format("woff2");
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454,
+                U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: oblique 10deg;
+            font-weight: 400;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/cyr/PreplyInter.italic.woff2") format("woff2");
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454,
+                U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: oblique 10deg;
+            font-weight: 500;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/cyr/PreplyInter.medium.italic.woff2") format("woff2");
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454,
+                U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: oblique 10deg;
+            font-weight: 700;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/cyr/PreplyInter.bold.italic.woff2") format("woff2");
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454,
+                U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/lat/PreplyInter.regular.woff2") format("woff2");
+            unicode-range: U+A1, U+BF-C4, U+C6-CF, U+D1-D6, U+D9-DC, U+DF-E4,
+                U+E6-EF, U+F1-F6, U+F9-FC, U+FF, U+102-107, U+118, U+119, U+11E, U+11F,
+                U+130, U+131, U+141-144, U+152, U+153, U+15A, U+15B, U+15E, U+15F,
+                U+178-17C, U+218-21B, U+1E9E, U+E02E;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/lat/PreplyInter.medium.woff2") format("woff2");
+            unicode-range: U+A1, U+BF-C4, U+C6-CF, U+D1-D6, U+D9-DC, U+DF-E4,
+                U+E6-EF, U+F1-F6, U+F9-FC, U+FF, U+102-107, U+118, U+119, U+11E, U+11F,
+                U+130, U+131, U+141-144, U+152, U+153, U+15A, U+15B, U+15E, U+15F,
+                U+178-17C, U+218-21B, U+1E9E, U+E02E;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/lat/PreplyInter.bold.woff2") format("woff2");
+            unicode-range: U+A1, U+BF-C4, U+C6-CF, U+D1-D6, U+D9-DC, U+DF-E4,
+                U+E6-EF, U+F1-F6, U+F9-FC, U+FF, U+102-107, U+118, U+119, U+11E, U+11F,
+                U+130, U+131, U+141-144, U+152, U+153, U+15A, U+15B, U+15E, U+15F,
+                U+178-17C, U+218-21B, U+1E9E, U+E02E;
+        }
+
+        @font-face {
+            font-family: "PreplyInter";
+            font-style: oblique 10deg;
+            font-weight: 400;
+            font-display: swap;
+            src: url("https://static.preply.com/ds/fonts/lat/PreplyInter.italic.woff2") format("woff2");
+            unicode-range: U+A1, U+BF-C4, U+C6-CF, U+D1-D6, U+D9-DC, U+DF-E4,
+                U+E6-EF, U+F1-F6, U+F9-FC, U+FF, U+102-107, U+118, U+119, U+11E, U+11F,
+                U+130, U+131, U+141-144, U+152, U+153, U+15A, U+15B, U+15E, U+15F,
+                U+178-17C, U+218-21B, U+1E9E, U+E02E;
+        }
+        .container_{
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            top: 44%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+        }
+        .text_hero{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .text_hero h1{
+            font-size: 50px;
+        }
+        .text_hero h2{
+            color: #52667d;
+        }
+        .text_hero p{
+            color:  #526a6e;
+        }
+        .text_hero a{
+            display: inline-block;
+            padding: 10px;
+            text-decoration: none;
+            background-color: #0096b2;
+            border: #0096b2 1px solid;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 30%;
+            color: white;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            
+        }
+        .hero img{
+            border-top-right-radius: 120px;
+            border-top-left-radius: 180px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 70px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {% if request.session.tutor_login %}
+        <div class="navbar_tutor">
+            {% include 'navbar_t.html' %}
+        </div>
+        <div class="container_">
+            <div class="text_hero">
+                <h1>Welcome New Tutors!</h1>
+                <h2>We are delighted to have you join our community.</h2>
+                <p>Embark on your teaching journey with us! Share your expertise and passion by uploading your educational videos. Join our community of educators and inspire countless learners worldwide.</p>
+                <a href="/add_lessons">Get started</a>
+            </div>
+            <div class="hero">
+                <img src="{% static 'images/beauty.png' %}" alt="">
+            </div>
+        </div>
+        {% else %}
+        <div class="home_using">
+            <header class="hom">
+                <div class="navbar">
+                    <div class="logo">
+                        <a href="/"> <img src={% static 'images/logo_new.png.png' %} class="im" /> </a>
+                    </div>
+                    <nav>
+                        <ul class="links">
+                            <li class="lien"><a href="/findtutor" class="lien1">Find tutors</a></li>
+                            <li class="lien">
+                                <a href="#" class="lien1">Corporate training</a>
+                            </li>
+                            <li class="lien"><a href="/become_tutor" class="lien1">Become a tutor</a></li>
+                        </ul>
+                        <div class="ll">
+                            <a href="1" class="refer_btn"> Refer a friend</a>
+                            <a href="2" class="log_btn">
+                                <i class="far fa-question-circle" id="ic1"></i>
+                            </a>
+                            <a href="/login" class="log_btn">
+                                <div class="log">
+                                    <i class="fa fa-arrow-right-to-bracket" id="ic"></i>
+                                    <p>Log In</p>
+                                </div>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="dropdown-menu1">
+                    <ul>
+                        <li><a href="#" class=""> Home</a></li>
+                        <li><a href="#" class=""> Message</a></li>
+                        <li><a href="#" class=""> Help</a></li>
+                        <li><a href="#" class=""> Log In</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown-menu2">
+                    <ul>
+                        <li><a href="#" class=""> 2</a></li>
+                        <li><a href="#" class=""> Home</a></li>
+                        <li><a href="#" class=""> Message</a></li>
+                        <li><a href="#" class=""> Help</a></li>
+                        <li><a href="#" class=""> Log In</a></li>
+                    </ul>
+                </div>
+                <div class="toggle_btn"><i id="aa" class="fa-solid fa-bars"></i></div>
+                <div class="gred_container">
+                    <div class="boxgr">
+                        <img src={% static 'images/image2.avif' %} class="greim" />
+                    </div>
+                    <div class="boxgr">
+                        <div class="unlock1">
+                            <div class="unlock">
+                                <h1>
+                                    Unlock your potential with the best
+                                    <span class="hc">language tutors</span>
+                                </h1>
+                                <a href="1" class="starbtn">
+                                    Get started
+                                    <i class="fa fa-arrow-right"></i>
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="cntw">
+                <div class="cntFT1bxf0">
+                    <div class="cntFT1bxf0_box cntfw">
+                        <h1>{{number_tutor }}+</h1>
+                        <p>Experienced tutors</p>
+                    </div>
+                    <div class="cntFT1bxf0_box cntfw">
+                        <h1>300,000+</h1>
+                        <p>5-star tutor reviews</p>
+                    </div>
+                    <div class="cntFT1bxf0_box">
+                        <div class="cntFT1bxf0star_box">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa-solid fa-star-half-stroke checked"></span>
+                            <h1>4.8</h1>
+                        </div>
+                        <p> on the App Store</p>
+
+                    </div>
+                    <div class="cntFT1bxf0_box cntfw">
+                        <h1>{{number_subject}}+</h1>
+                        <p>Subjects taught</p>
+                    </div>
+                    <div class="cntFT1bxf0_box cntfw">
+                        <h1>{{number_country}}+</h1>
+                        <p>Tutor nationalities</p>
+                    </div>
+                    <div class="cntfhiddenbox">
+                        <div class="cntFT1bxf0w1_box ">
+                            <h1>32,000+</h1>
+                            <p>Experienced tutors</p>
+                        </div>
+                        <div class="cntFT1bxf0w1_box ">
+                            <h1>300,000+</h1>
+                            <p>5-star tutor reviews</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cntFT1bxf00">
+                    <div class="cntgrid">
+                        <div class="gridbox">
+                            <a class="gridboxlink">
+                                <div class="gridbox_i">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="english_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Shape"
+                                                        d="M13.784.004a.556.556 0 0 0-.385.28L10.144 5.71a.265.265 0 0 0-.035.035.56.56 0 0 0-.157.577v3.5L6.33 12.934l-.018.017a.531.531 0 0 0-.07.053l-.017.017a.261.261 0 0 0-.035.018v.017a.53.53 0 0 0-.07.07l-.018.018a.696.696 0 0 0-.035.07.56.56 0 0 0-.035.455v12.09c0 .309.252.56.56.56h.56V28h1.12v-1.68H19.47V28h1.12v-1.68h.56c.308 0 .56-.251.56-.56V13.67a.568.568 0 0 0-.018-.385.557.557 0 0 0-.087-.158v-.017a.265.265 0 0 0-.035-.035v-.018a.261.261 0 0 0-.035-.017l-.018-.018-.017-.017a.534.534 0 0 0-.088-.07L17.791 9.82V6.268a.632.632 0 0 0 0-.157v-.018a.55.55 0 0 0-.07-.192v-.017a.508.508 0 0 0-.088-.105l-.017-.018L14.344.284a.561.561 0 0 0-.56-.28Zm.087 1.628 2.38 3.972h-4.76l2.38-3.972Zm-2.8 5.091h5.6v2.8h-5.6v-2.8Zm-.35 3.92h6.3l2.624 2.24H8.097l2.625-2.24Zm-3.569 3.36H20.59V25.2H7.152V14.002Zm6.72.56a4.711 4.711 0 0 0-4.708 4.706 4.711 4.711 0 0 0 4.707 4.707 4.711 4.711 0 0 0 4.707-4.707 4.711 4.711 0 0 0-4.707-4.707Zm0 1.119a3.57 3.57 0 0 1 3.586 3.587 3.57 3.57 0 0 1-3.587 3.587 3.57 3.57 0 0 1-3.587-3.587 3.57 3.57 0 0 1 3.587-3.587Zm.927.315a.654.654 0 0 0-.07.017.563.563 0 0 0-.438.385l-.945 2.677a.563.563 0 0 0 .14.595l1.627 1.558a.559.559 0 0 0 .976-.248.563.563 0 0 0-.206-.557L14.52 19.11l.84-2.344a.562.562 0 0 0-.56-.77Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text">
+                                    <p class="gridboxp">English tutors</p>
+                                    <p>16,430 teachers</p>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="gridbox">
+                            <a class="gridboxlink">
+                                <div class="gridbox_i"><i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="spanish_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <g id="icons8-sagrada_familia">
+                                                        <path id="Shape"
+                                                            d="M8.4 0c-.92 0-1.68.76-1.68 1.68 0 .545.258 1.04.665 1.347-.394 1.923-.884 5.384-1.348 9.188-.376-2.623-.745-4.974-1.067-6.422.385-.309.63-.786.63-1.313 0-.92-.76-1.68-1.68-1.68-.92 0-1.68.76-1.68 1.68 0 .527.245 1.004.63 1.313-.532 2.384-1.21 7.16-1.785 11.672a360.379 360.379 0 0 0-.77 6.457C.12 25.716 0 26.948 0 27.44c0 .308.252.56.56.56H27.44c.308 0 .56-.252.56-.56 0-.492-.12-1.724-.315-3.518a360.38 360.38 0 0 0-.77-6.457c-.575-4.513-1.253-9.288-1.785-11.672.385-.309.63-.786.63-1.313 0-.92-.76-1.68-1.68-1.68-.92 0-1.68.76-1.68 1.68 0 .527.245 1.004.63 1.313-.322 1.452-.69 3.786-1.068 6.422-.463-3.804-.953-7.265-1.347-9.188.407-.308.665-.802.665-1.347C21.28.76 20.52 0 19.6 0c-.92 0-1.68.76-1.68 1.68 0 .545.258 1.04.665 1.347-.53 2.6-1.218 8.033-1.803 13.178-.021.193-.048.368-.07.56l-.944-.175c-.215-.943-.418-1.82-.613-2.485.326-.306.525-.746.525-1.225 0-.92-.76-1.68-1.68-1.68-.92 0-1.68.76-1.68 1.68 0 .48.2.919.525 1.225-.195.665-.398 1.542-.613 2.485l-.944.175c-.022-.192-.049-.367-.07-.56-.585-5.145-1.274-10.579-1.803-13.177.407-.309.665-.803.665-1.348C10.08.76 9.32 0 8.4 0Zm0 1.12c.315 0 .56.245.56.56a.55.55 0 0 1-.28.49.542.542 0 0 0-.14.053.584.584 0 0 1-.14.017c-.037 0-.07-.01-.105-.018a.551.551 0 0 0-.193-.07.549.549 0 0 1-.262-.472c0-.315.245-.56.56-.56Zm11.2 0c.315 0 .56.245.56.56a.549.549 0 0 1-.262.472.555.555 0 0 0-.21.07c-.029.005-.057.018-.088.018-.037 0-.07-.01-.105-.018a.514.514 0 0 0-.158-.052.545.545 0 0 1-.297-.49c0-.315.245-.56.56-.56ZM8.4 3.832c.494 2.595 1.137 7.57 1.697 12.496l.123 1.067c.002.01-.002.024 0 .035 0 .048.007.094.018.14.245 2.183.465 4.272.63 5.95a.57.57 0 0 0 .017.192c.164 1.68.234 2.656.263 3.168H5.653c.028-.518.094-1.496.262-3.22.186-1.897.45-4.368.735-6.895v-.053c.018-.148.035-.253.052-.402.56-4.924 1.204-9.887 1.698-12.477Zm11.2 0c.494 2.59 1.137 7.554 1.697 12.478.018.155.035.265.053.42a.374.374 0 0 0 0 .07c.284 2.511.551 4.972.735 6.86.168 1.724.234 2.702.262 3.22h-5.495a71.97 71.97 0 0 1 .245-3.115c.007-.018.014-.035.018-.053v-.017a.524.524 0 0 0 .018-.175c.166-1.687.384-3.789.63-5.985v-.018c.002-.013.015-.021.017-.034v-.053l.122-1.102c.56-4.927 1.204-9.901 1.698-12.495ZM3.92 3.92c.315 0 .56.245.56.56a.55.55 0 0 1-.28.49.514.514 0 0 0-.157.053.57.57 0 0 1-.123.017.579.579 0 0 1-.175-.035.592.592 0 0 0-.105-.035.55.55 0 0 1-.28-.49c0-.315.245-.56.56-.56Zm20.16 0c.315 0 .56.245.56.56a.55.55 0 0 1-.28.49.514.514 0 0 0-.157.053.57.57 0 0 1-.123.017c-.037 0-.07-.01-.105-.018a.551.551 0 0 0-.193-.07.549.549 0 0 1-.262-.472c0-.315.245-.56.56-.56ZM3.92 6.3c.462 2.192 1.083 6.35 1.61 10.412a498.63 498.63 0 0 0-.735 6.826 87.692 87.692 0 0 0-.28 3.342H1.173c.03-.5.1-1.343.262-2.835.195-1.785.468-4.064.77-6.44.551-4.327 1.22-8.951 1.715-11.305Zm20.16 0c.494 2.354 1.164 6.978 1.715 11.305.302 2.376.575 4.655.77 6.44.162 1.492.232 2.334.262 2.835h-3.342a87.692 87.692 0 0 0-.28-3.342c-.186-1.895-.45-4.31-.735-6.826.527-4.062 1.148-8.22 1.61-10.412ZM14 12.32a.553.553 0 0 1 .315 1.015.571.571 0 0 0-.175.087.584.584 0 0 1-.28 0 .552.552 0 0 0-.192-.104.553.553 0 0 1 .332-.998Zm-.105 2.223c.035.002.068.017.105.017.037 0 .07-.015.105-.018a42.5 42.5 0 0 1 .455 1.803l-.455-.087a.544.544 0 0 0-.158-.018.492.492 0 0 0-.052.018l-.455.087a42.5 42.5 0 0 1 .455-1.802ZM14 17.36l.822.175c.42 1.923.854 4.126 1.173 6.02a86.885 86.885 0 0 0-.28 3.325h-3.43a86.885 86.885 0 0 0-.28-3.325c.32-1.894.752-4.097 1.172-6.02L14 17.36Zm-2.047.42c-.127.595-.228 1.199-.35 1.82-.06-.551-.13-1.14-.193-1.715l.543-.105Zm4.095 0 .542.105c-.063.575-.133 1.164-.192 1.715-.123-.621-.224-1.225-.35-1.82Z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></i></div>
+                                <div class="grindbox_text">
+                                    <p class="gridboxp">Spanish tutors</p>
+                                    <p>5,501 teachers</p>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="gridbox">
+                            <a class="gridboxlink">
+                                <div class="gridbox_i"><i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="french_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <g id="icons8-eiffel_tower" transform="translate(3)">
+                                                        <path id="Shape"
+                                                            d="m10.412 0-.175 1.68H8.908a.558.558 0 0 0-.507.56v1.12h-.053a.558.558 0 0 0-.507.56V5.6c0 .308.252.56.56.56h.332c-.367 3.443-.905 5.913-1.487 7.84h-.7a.84.84 0 0 0-.105 0 .566.566 0 0 0-.438.717l.455 1.505c-.58 1.499-1.163 2.615-1.61 3.728a.492.492 0 0 0-.017.053L.63 27.16a.558.558 0 0 0 .49.84H5.6a.56.56 0 0 0 .56-.525s.063-1.155.665-2.293c.602-1.137 1.632-2.222 3.815-2.222s3.213 1.085 3.815 2.223a6.207 6.207 0 0 1 .665 2.292.56.56 0 0 0 .56.525h4.48a.558.558 0 0 0 .488-.278.556.556 0 0 0 .002-.562l-4.182-7.122v-.018l-.018-.035a.261.261 0 0 0-.017-.035c-.447-1.113-1.03-2.23-1.61-3.727l.454-1.505a.565.565 0 0 0-.542-.718h-.647c-.58-1.925-1.105-4.397-1.47-7.84h.262c.308 0 .56-.252.56-.56V3.92a.561.561 0 0 0-.56-.56V2.24a.561.561 0 0 0-.56-.56h-1.277L10.867 0h-.456ZM9.52 2.8h2.24v.56H9.52V2.8Zm-.56 1.68h3.36v.56H8.96v-.56Zm.875 1.68h1.662c.353 3.345.854 5.865 1.418 7.84H8.418c.564-1.975 1.065-4.495 1.417-7.84Zm-2.538 8.96h6.686l-.176.56h-2.17a.57.57 0 0 0-.227 0H7.472l-.175-.56Zm.123 1.68h1.54l-.91 2.8H6.23c.359-.818.75-1.684 1.19-2.8Zm2.73 0h.98l.91 2.8h-2.8l.91-2.8Zm2.17 0h1.54c.44 1.116.831 1.982 1.19 2.8h-1.82l-.91-2.8Zm-6.615 3.92h9.87l3.605 6.16h-3.01c-.068-.492-.23-1.262-.735-2.223-.728-1.382-2.218-2.817-4.795-2.817s-4.067 1.435-4.795 2.817c-.505.96-.667 1.73-.735 2.223H2.1l3.605-6.16Z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></i></div>
+                                <div class="grindbox_text">
+                                    <p class="gridboxp">Frensh tutors</p>
+                                    <p>2,103 teachers</p>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="gridbox">
+                            <a class="gridboxlink">
+                                <div class="gridbox_i"><i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="german_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <g id="icons8-brandenburg_gate">
+                                                        <path id="Shape"
+                                                            d="M14 0a.737.737 0 0 0-.555.27.601.601 0 0 0-.135-.034.639.639 0 0 0-.471.168c-.173.16-.208.452-.168.606.08.307.229.4.387.521-.162.129-.354.274-.37.286-.095.076-.122.225-.186.354-.05-.02-.092-.08-.134-.084a.68.68 0 0 0-.572.185c-.116.098-.206.168-.27.403-.048.181-.046.28-.05.404-.135-.105-.3-.263-.286-.235-.088-.173-.202-.303-.303-.42-.044-.054-.048-.115-.185-.236-.133-.12-.36-.186-.522-.202h-.017a.91.91 0 0 0-.555.134c-.139.084-.263.124-.37.42h.017c-.09.247-.074.329-.084.489-.01.16-.026.288-.017.42.008.14.124.234.219.337-.003.004.01-.01-.017.034a1.215 1.215 0 0 0-.185.605c0 .129.008.274.017.421H3.13c-.284 0-.623.114-.808.37-.185.257-.195.556-.151.808.086.505.382.997.824 1.514.236.278.51.488.774.707v.37H1.514c-.284 0-.622.114-.807.37-.185.257-.196.556-.152.808.087.505.383.997.825 1.515.235.277.509.488.774.706V26.923h3.23V14h3.77v12.923h3.23V14h3.77v12.923h3.23V14h3.77v12.923h3.23V13.546a.562.562 0 0 0 0-.084v-1.919c.08-.08.158-.162.236-.252.442-.518.738-.993.825-1.498.044-.252.033-.55-.152-.807s-.523-.37-.807-.37h-1.717v-.842c.08-.08.158-.162.236-.252.442-.518.738-.993.824-1.498.044-.252.034-.551-.151-.808-.185-.256-.524-.37-.808-.37h-6.058c.009-.147.017-.292.017-.42 0-.284-.132-.518-.185-.606-.027-.044-.014-.03-.017-.034.095-.103.21-.198.22-.336.008-.133-.007-.261-.018-.421-.01-.16.021-.244-.067-.488-.107-.293-.231-.337-.37-.42a.845.845 0 0 0-.555-.135c-.165.014-.402.077-.539.202-.137.124-.14.182-.185.235-.099.118-.215.248-.303.42.015-.027-.151.131-.286.236a1.6 1.6 0 0 0-.05-.387c-.003-.006.002-.01 0-.017h-.017a.69.69 0 0 0-.253-.387c-.115-.098-.277-.237-.572-.201-.105.012-.235.105-.353.185a1.413 1.413 0 0 0-.707-.387c.032-.028.072-.055.101-.085.128-.124.242-.248.27-.269.157-.122.306-.214.386-.521.04-.154.005-.446-.168-.606a.639.639 0 0 0-.471-.168.601.601 0 0 0-.135.033A.737.737 0 0 0 14 0Zm-.505 2.558c.103.096.19.235.286.269.175.06.322.063.438.067.204.009.324.095.353.135.03.04.065.034-.034.185-.109.166-.107.217-.134.303a.536.536 0 0 0 .193.582.535.535 0 0 0 .615.024c.031-.021.052-.076.084-.101a.54.54 0 0 0 .69.505c.241-.072.557-.215.891-.404.268-.152.497-.368.707-.64-.025.089-.05.183-.05.27 0 .285.126.523.185.622.059.099.033.038.033.05 0 .114-.031.276-.05.421h-7.404c-.019-.145-.05-.307-.05-.42 0-.011-.026.048.033-.051.06-.099.185-.337.185-.623 0-.086-.025-.18-.05-.269.21.272.44.488.707.64.334.189.65.332.891.403a.54.54 0 0 0 .69-.521c.061.046.066.105.185.134a.667.667 0 0 0 .472-.084.677.677 0 0 0 .252-.286c.158-.317.093-.601.034-.807-.053-.186-.112-.312-.152-.404ZM3.281 5.923H24.72c-.05.183-.208.522-.539.909a4.735 4.735 0 0 1-.32.336.538.538 0 0 0-.168.387v1.06H4.846v-.589a.537.537 0 0 0-.219-.437 5.037 5.037 0 0 1-.807-.757c-.33-.387-.488-.726-.539-.909ZM7 6.462v1.615h1.077V6.462H7Zm2.692 0v1.615h1.077V6.462H9.692Zm2.693 0v1.615h1.077V6.462h-1.077Zm2.692 0v1.615h1.077V6.462h-1.077Zm2.692 0v1.615h1.077V6.462H17.77Zm2.693 0v1.615h1.076V6.462h-1.076ZM1.666 9.692h24.668c-.05.183-.208.522-.538.909a4.735 4.735 0 0 1-.32.336.538.538 0 0 0-.168.388v1.598H3.23v-1.127a.537.537 0 0 0-.219-.438 5.037 5.037 0 0 1-.808-.757c-.33-.387-.488-.726-.538-.909Zm2.642 1.077v1.616h1.077v-1.616H4.308Zm2.692 0v1.616h1.077v-1.616H7Zm2.692 0v1.616h1.077v-1.616H9.692Zm2.693 0v1.616h1.077v-1.616h-1.077Zm2.692 0v1.616h1.077v-1.616h-1.077Zm2.692 0v1.616h1.077v-1.616H17.77Zm2.693 0v1.616h1.076v-1.616h-1.076Zm2.692 0v1.616h1.077v-1.616h-1.077ZM3.23 14h1.077v11.846H3.23V14Zm7 0h1.077v11.846H10.23V14Zm7 0h1.077v11.846H17.23V14Zm7 0h1.077v11.846H24.23V14Z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></i></div>
+                                <div class="grindbox_text">
+                                    <p class="gridboxp">German tutors</p>
+                                    <p>1,055 teachers</p>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="gridbox">
+                            <a class="gridboxlink">
+                                <div class="gridbox_i"><i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="italian_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <g id="icons8-colosseum" transform="translate(0 3)">
+                                                        <path id="Shape"
+                                                            d="M10.654 0C6.387 0 3.856 1.11 2.402 2.282A6.257 6.257 0 0 0 .944 3.929c-.273.457-.378.806-.378.806a.542.542 0 0 0-.017.155v16.522a.55.55 0 0 0 .549.549h26.353a.55.55 0 0 0 .549-.55v-9.11s-.133-1.436-1.424-2.779c-1.265-1.317-3.652-2.543-7.91-2.59l-1.115-.979a.568.568 0 0 0-.137-.085s-1.349-.6-2.693-.738c-.005-.013-.013-.022-.018-.034-.062-.183-.133-.397-.24-.652a17.231 17.231 0 0 0-.892-1.785c-.36-.63-.768-1.254-1.235-1.75C11.868.414 11.332 0 10.654 0Zm0 1.098c.174 0 .504.174.875.566.371.393.766.961 1.098 1.544.14.245.26.483.378.72-.234.295-.378.65-.378 1.116V7.19h1.648c.549-.056 1.098-.052 1.647-.052v-.669c.542.176.965.365.995.378l1.166 1.029a.543.543 0 0 0 .36.137c4.206 0 6.286 1.182 7.344 2.282 1.057 1.1 1.115 2.11 1.115 2.11v8.459h-1.098v-1.321c0-.88-.605-1.472-1.373-1.527-.767-.056-1.372.424-1.372 1.304v1.544h-1.647v-1.647c0-1.043-.714-1.71-1.647-1.819-.933-.11-1.647.502-1.647 1.544v1.922h-2.196v-2.145c0-1.098-.715-1.698-1.647-1.698-.933 0-1.648.656-1.648 1.698v2.145h-2.196V18.89c0-1.043-.714-1.6-1.647-1.544-.933.055-1.647.776-1.647 1.818v1.699H5.49v-1.476c0-.879-.605-1.377-1.372-1.32-.768.055-1.373.647-1.373 1.526v1.27H1.647V4.993c.006-.022.04-.163.24-.498A5.14 5.14 0 0 1 3.088 3.14c1.238-.998 3.49-2.042 7.566-2.042Zm-1.87 2.797c-.933.109-1.647.776-1.647 1.818v1.922a53.445 53.445 0 0 1 3.294-.395V5.44c0-1.043-.714-1.654-1.647-1.544Zm-4.666.995c-.768.055-1.373.647-1.373 1.527V8.68c.768-.33 1.703-.553 2.745-.772V6.211c0-.88-.605-1.377-1.372-1.321Zm10.157 5.49c-.933 0-1.648.6-1.648 1.698v2.197h3.295v-2.197c0-1.042-.715-1.698-1.647-1.698Zm-5.49.377c-.934.11-1.648.777-1.648 1.819v1.973c1.043-.056 2.14-.167 3.294-.223v-2.025c0-1.042-.714-1.653-1.647-1.544Zm10.98 0c-.933-.055-1.647.502-1.647 1.544v2.025c1.153.056 2.251.167 3.294.223v-1.973c0-1.042-.714-1.763-1.647-1.819Zm-15.647.72c-.768.057-1.373.649-1.373 1.528v2.093h.223c.714-.11 1.534-.268 2.522-.377v-1.922c0-.88-.605-1.377-1.372-1.321Zm20.039 0c-.63.061-1.098.505-1.098 1.322v1.922c.988.109 1.808.268 2.522.377h.223v-2.093c0-.88-.605-1.471-1.373-1.527a1.675 1.675 0 0 0-.274 0Z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></i></div>
+                                <div class="grindbox_text">
+                                    <p class="gridboxp">Italian tutors</p>
+                                    <p>1,423 teachers</p>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="gridbox">
+                            <a class="gridboxlink">
+                                <div class="gridbox_i"><i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="chinese_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <g id="icons8-great_wall">
+                                                        <path id="Shape"
+                                                            d="M7.337.522a.549.549 0 0 0-.118.016.539.539 0 0 0-.084 1.044l3.214 1.312L5.67 7.437a.537.537 0 0 0 .303.926l9.423 1.38-.32 5.822c-.002-.006-.006-.01-.017 0l-.017.017-13.966-5.183V6.781l6.63-3.618a.536.536 0 0 0-.05-.959L3.87.59a.541.541 0 0 0-.32-.05.538.538 0 0 0-.1 1.026l2.776 1.178L.286 5.99A.54.54 0 0 0 0 6.462v4.307c0 .225.14.427.353.505l13.445 4.98c-.21.091-.412.188-.656.287-1.346.543-3.17 1.205-5.015 2.053-1.844.847-3.716 1.882-5.149 3.23-1.432 1.349-2.44 3.04-2.44 5.1a.542.542 0 0 0 .268.472.544.544 0 0 0 .542 0 .542.542 0 0 0 .267-.473c0-1.714.81-3.109 2.104-4.324 1.293-1.216 3.056-2.205 4.846-3.03 1.79-.824 3.6-1.478 4.98-2.035.69-.278 1.271-.528 1.717-.791.006-.004.01-.013.017-.017.015-.008.036-.008.05-.017a.537.537 0 0 0 .286-.202v-.017c.074-.059.154-.117.22-.185.153-.157.287-.378.302-.656h.017v-.034l.336-6.175v-.017a.564.564 0 0 0 .017-.252l.152-2.71h1.11v1.616a.54.54 0 0 0 .539.538h1.615a.54.54 0 0 0 .539-.538V6.462h1.076v1.615a.54.54 0 0 0 .539.538h1.615a.54.54 0 0 0 .539-.538V6.462h1.094c.04.862.48 10.226.521 11.324-.002-.048-.166.395-.555.926-.39.53-.926 1.205-1.48 2.002-1.11 1.594-2.273 3.698-2.273 6.21a.542.542 0 0 0 .268.472.544.544 0 0 0 .542 0 .542.542 0 0 0 .267-.473c0-2.179 1.014-4.07 2.07-5.586.528-.76 1.067-1.422 1.48-1.986.415-.564.781-.963.758-1.599-.046-1.2-.538-11.846-.538-11.846a.539.539 0 0 0-.539-.521h-2.154a.54.54 0 0 0-.538.538v1.615h-.539V5.923a.54.54 0 0 0-.538-.538h-2.154a.54.54 0 0 0-.538.538v1.615h-.539V5.923a.54.54 0 0 0-.538-.538H16.104a.54.54 0 0 0-.489.504l-.151 2.76-8.262-1.195 4.476-4.375a.538.538 0 0 0-.168-.892L7.538.573a.56.56 0 0 0-.201-.05ZM21 11.308c-1.443 0-2.692 1.25-2.692 2.692v2.154c0-.076-.034.09-.286.32-.253.229-.65.521-1.145.84-.988.642-2.353 1.416-3.718 2.323-1.365.907-2.741 1.933-3.803 3.13-1.062 1.197-1.818 2.591-1.818 4.156a.542.542 0 0 0 .268.473.544.544 0 0 0 .542 0 .542.542 0 0 0 .267-.473c0-1.216.591-2.354 1.548-3.433.957-1.079 2.274-2.08 3.601-2.961 1.328-.881 2.655-1.637 3.686-2.305.515-.335.959-.652 1.295-.96.337-.307.64-.614.64-1.11V14c0-.753.862-1.615 1.615-1.615s1.615.862 1.615 1.615v2.154c0 .378-.35.978-1.026 1.683-.675.704-1.62 1.508-2.575 2.389-1.907 1.763-3.937 3.91-3.937 6.697a.542.542 0 0 0 .267.473.544.544 0 0 0 .543 0 .542.542 0 0 0 .267-.473c0-2.248 1.74-4.186 3.6-5.906.93-.86 1.87-1.67 2.609-2.44.738-.77 1.33-1.517 1.33-2.423V14c0-1.443-1.25-2.692-2.693-2.692Z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></i></div>
+                                <div class="grindbox_text">
+                                    <p class="gridboxp">Chinese tutors</p>
+                                    <p>2,409 teachers</p>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="gridbox">
+                            <a class="gridboxlink">
+                                <div class="gridbox_i"><i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="arabic_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <g id="icons8-mosque">
+                                                        <path id="Shape"
+                                                            d="M3.64 0c-.354 0-.435.175-.508.263-.072.087-.124.17-.175.262-.098.184-.192.41-.297.682-.21.55-.457 1.289-.683 2.083-.395 1.398-.759 2.947-.84 4.095A1.681 1.681 0 0 0 0 8.96c0 .724.472 1.34 1.12 1.575V27.44c0 .308.252.56.56.56h9.52c.308 0 .56-.252.56-.56v-2.065c0-.78.564-1.562 1.207-2.135.51-.455.845-.61 1.033-.717.188.107.523.262 1.033.717.643.573 1.207 1.354 1.207 2.135v2.065c0 .308.252.56.56.56h9.52c.308 0 .56-.252.56-.56V10.535A1.686 1.686 0 0 0 28 8.96c0-.735-.492-1.35-1.155-1.575-.079-1.157-.422-2.706-.822-4.112a24.855 24.855 0 0 0-.683-2.066 6.156 6.156 0 0 0-.297-.682 1.612 1.612 0 0 0-.175-.263C24.794.176 24.713 0 24.36 0s-.435.175-.508.263c-.072.087-.124.17-.175.262-.098.184-.192.41-.297.682-.21.55-.457 1.289-.682 2.083-.399 1.407-.762 2.947-.84 4.095A1.681 1.681 0 0 0 20.72 8.96c0 .724.473 1.34 1.12 1.575v5.705h-.578c-.168-2.914-1.647-4.664-3.184-5.775-.816-.59-1.645-1.024-2.31-1.4-.666-.376-1.147-.724-1.296-.963a.563.563 0 0 0-.524-.262h-.053a.565.565 0 0 0-.367.262c-.15.241-.63.587-1.296.963-.664.376-1.494.81-2.31 1.4-1.537 1.111-3.016 2.861-3.185 5.775H6.16v-5.705A1.686 1.686 0 0 0 7.28 8.96c0-.728-.481-1.345-1.138-1.575-.08-1.155-.444-2.717-.84-4.112a24.855 24.855 0 0 0-.682-2.066 6.156 6.156 0 0 0-.298-.682 1.612 1.612 0 0 0-.175-.263C4.075.176 3.994 0 3.64 0Zm0 1.768c.182.487.376 1.113.578 1.82.365 1.284.671 2.723.77 3.692H2.291c.099-.965.405-2.408.77-3.693.202-.708.396-1.332.578-1.82Zm20.72 0c.182.487.376 1.113.578 1.82.363 1.275.669 2.72.77 3.692h-2.695c.1-.967.406-2.415.77-3.693.2-.708.395-1.332.577-1.82ZM1.593 8.4a.374.374 0 0 0 .07 0h.017c.315 0 .56.245.56.56a.54.54 0 0 1-.49.542h-.018a.422.422 0 0 0-.105 0H1.61a.54.54 0 0 1-.49-.542c0-.287.2-.52.472-.56Zm1.662 0h.77a1.592 1.592 0 0 0-.105.56c0 .724.473 1.34 1.12 1.575v6.16a.422.422 0 0 0 0 .105v10.08h-2.8V10.535A1.686 1.686 0 0 0 3.36 8.96c0-.197-.04-.385-.105-.56Zm2.293 0H5.6c.018 0 .035-.002.053 0 .29.026.507.262.507.56a.553.553 0 0 1-.508.56H5.6a.553.553 0 0 1-.56-.56c0-.298.217-.534.508-.56Zm16.8 0h.087c.3.018.525.256.525.56a.539.539 0 0 1-.508.542.422.422 0 0 0-.105 0h-.017a.54.54 0 0 1-.49-.542c0-.298.217-.534.508-.56Zm1.627 0h.77a1.652 1.652 0 0 0-.105.56c0 .724.473 1.34 1.12 1.575V26.88h-2.8V10.535a1.686 1.686 0 0 0 1.12-1.575c0-.197-.042-.383-.105-.56Zm2.345 0c.315 0 .56.245.56.56a.553.553 0 0 1-.508.56h-.052a.553.553 0 0 1-.56-.56c0-.315.245-.56.56-.56ZM14 9.187c.348.316.742.593 1.207.858.694.394 1.49.8 2.223 1.33 1.367.989 2.56 2.328 2.712 4.865H7.858c.153-2.537 1.345-3.876 2.712-4.865.733-.53 1.512-.936 2.205-1.33A6.853 6.853 0 0 0 14 9.188ZM6.16 17.36h15.68v9.52h-4.48v-1.505c0-1.286-.836-2.282-1.592-2.957a8.353 8.353 0 0 0-1.506-1.068.558.558 0 0 0-.524 0s-.749.392-1.505 1.067c-.757.676-1.593 1.672-1.593 2.958v1.505H6.16v-9.52Z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></i></div>
+                                <div class="grindbox_text">
+                                    <p class="gridboxp">Arabic tutors</p>
+                                    <p>1,795 teachers</p>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="gridbox">
+                            <a class="gridboxlink">
+                                <div class="gridbox_i"><i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="japanese_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <g id="icons8-torii" transform="translate(0 2)">
+                                                        <path id="Shape"
+                                                            d="M.507.56a.557.557 0 0 0-.433.383c-.063.199-.01.415.136.562l4.41 4.48a.56.56 0 0 0 .402.175H6.16V8.4H4.427a.558.558 0 0 0-.507.56v3.36c0 .308.252.56.56.56h1.68v9.52c0 .308.252.56.56.56h3.36c.308 0 .56-.252.56-.56v-9.52h6.72v9.52c0 .308.252.56.56.56h3.36c.308 0 .56-.252.56-.56v-9.52h1.68c.308 0 .56-.252.56-.56V8.96a.561.561 0 0 0-.56-.56h-1.68V6.16h1.137a.56.56 0 0 0 .403-.175l4.41-4.48a.556.556 0 0 0 .074-.643.557.557 0 0 0-.582-.284S22.002 1.68 14.018 1.68C6.032 1.68.717.578.717.578A.544.544 0 0 0 .56.56H.507Zm1.68 1.365c1.8.308 5.585.875 11.83.875 6.237 0 10-.567 11.796-.875L22.75 5.04h-1.348a.524.524 0 0 0-.175-.018.492.492 0 0 0-.052.018h-3.133a.524.524 0 0 0-.175-.018.492.492 0 0 0-.052.018h-2.573a.524.524 0 0 0-.175-.018.492.492 0 0 0-.052.018h-2.03a.57.57 0 0 0-.227 0h-2.555a.524.524 0 0 0-.175-.018.492.492 0 0 0-.053.018H6.843a.524.524 0 0 0-.175-.018.492.492 0 0 0-.053.018H5.25L2.187 1.925ZM7.28 6.16h2.24V8.4H7.28V6.16Zm3.36 0h1.68V8.4h-1.68V6.16Zm2.8 0h1.12V8.4h-1.12V6.16Zm2.24 0h1.68V8.4h-1.68V6.16Zm2.8 0h2.24V8.4h-2.24V6.16ZM5.04 9.52h17.92v2.24h-4.918a.524.524 0 0 0-.175-.018.492.492 0 0 0-.052.018H6.842a.524.524 0 0 0-.174-.018.492.492 0 0 0-.053.018H5.04V9.52Zm2.24 3.36h2.24v8.96H7.28v-8.96Zm11.2 0h2.24v8.96h-2.24v-8.96Z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></i></div>
+                                <div class="grindbox_text">
+                                    <p class="gridboxp">Japanese tutors</p>
+                                    <p>1,136 teachers</p>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="gridbox">
+                            <a class="gridboxlink">
+                                <div class="gridbox_i"><i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="portuguese_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <g id="icons8-25_de_abril_bridge">
+                                                        <path id="Shape"
+                                                            d="m4.796 0-.119.454S3.21 5.856.181 8.834l.856.867c.28-.278.54-.563.79-.856v3.329H.608v1.217H27.39v-1.217h-1.217V8.847c.25.29.509.576.79.854l.855-.868C24.79 5.856 23.323.454 23.323.454L23.204 0h-1.327l-.123.442S21.03 2.977 19.66 5.49c-.684 1.258-1.533 2.502-2.494 3.405-.963.904-2.011 1.453-3.167 1.453-1.156 0-2.202-.55-3.165-1.453-.963-.901-1.81-2.147-2.494-3.405A28.02 28.02 0 0 1 6.251.442L6.125 0h-1.33Zm1.291 3.588c.3.73.68 1.56 1.186 2.487.198.364.414.728.64 1.09v5.009H6.087V3.588Zm15.826.01v8.576h-1.826V7.169c.228-.362.442-.728.644-1.094a25.39 25.39 0 0 0 1.182-2.478Zm1.217.002c.4 1.044.99 2.32 1.827 3.607v4.967H23.13V3.6Zm-18.26.005v8.569H3.043V7.207A19.317 19.317 0 0 0 4.87 3.605Zm4.26 5.247c.276.328.564.642.873.932.3.28.618.538.954.768v1.622H9.13V8.852Zm9.74 0v3.322h-1.827V10.55c.336-.228.654-.485.954-.766.309-.287.597-.604.873-.932Zm-6.696 2.352a4.95 4.95 0 0 0 1.826.361 4.95 4.95 0 0 0 1.826-.361v.97h-3.652v-.97ZM.609 14.609v1.217h1.217c1.015 0 1.826.81 1.826 1.826v2.433c-.594.29-1.445.61-2.435.61a.612.612 0 0 0-.535.303.614.614 0 0 0 0 .613c.112.19.317.304.535.302 1.491 0 2.718-.566 3.41-.96h.243v-.065a4.895 4.895 0 0 0 3.043 1.025 4.96 4.96 0 0 0 3.044-1.018A4.96 4.96 0 0 0 14 21.913a4.96 4.96 0 0 0 3.043-1.018 4.96 4.96 0 0 0 3.044 1.018 4.886 4.886 0 0 0 3.005-.999v.038h.283c.69.395 1.917.961 3.408.961a.612.612 0 0 0 .535-.302.614.614 0 0 0 0-.613.612.612 0 0 0-.535-.302c-1.018 0-1.881-.336-2.473-.63v-2.414c0-1.015.81-1.826 1.826-1.826h1.255V14.61H.61Zm3.633 1.217h2.473a3.012 3.012 0 0 0-.628 1.826v2.623a2.488 2.488 0 0 1-.706-.533.611.611 0 0 0-.402-.261c-.012 0-.024-.003-.033-.003a.412.412 0 0 0-.076-.007v-1.819c0-.687-.24-1.315-.628-1.826Zm4.888 0h9.732c1.018 0 1.827.81 1.827 1.826v3.003c-.186.024-.386.04-.602.04-1.595 0-2.359-.763-2.51-.931a.61.61 0 0 0-.712-.267.613.613 0 0 0-.333.245c-.104.124-.875.954-2.532.954-1.595 0-2.359-.764-2.51-.932a.61.61 0 0 0-.712-.267.613.613 0 0 0-.333.245c-.104.124-.875.954-2.532.954-.219 0-.42-.015-.609-.04v-3.004c0-1.015.811-1.826 1.826-1.826Zm12.15 0h2.44a3.012 3.012 0 0 0-.628 1.826v1.817a.694.694 0 0 0-.187.045l-.008.002a.628.628 0 0 0-.28.229c-.057.066-.285.309-.711.532v-2.625a3.01 3.01 0 0 0-.625-1.826ZM10.962 22.51a.539.539 0 0 0-.183.03.613.613 0 0 0-.333.246c-.104.123-.875.953-2.532.953-1.66 0-2.428-.832-2.532-.953a.611.611 0 0 0-.402-.262l-.033-.002a.618.618 0 0 0-.5.16c-.15.106-1.54 1.057-3.229 1.057a.612.612 0 0 0-.535.302.614.614 0 0 0 0 .614c.112.19.317.304.535.302 1.617 0 2.951-.673 3.595-1.063a4.936 4.936 0 0 0 3.101 1.063 4.96 4.96 0 0 0 3.044-1.018A4.96 4.96 0 0 0 14 24.957a4.96 4.96 0 0 0 3.043-1.018 4.96 4.96 0 0 0 3.044 1.018 4.936 4.936 0 0 0 3.1-1.063c.645.39 1.979 1.063 3.596 1.063a.612.612 0 0 0 .535-.302.614.614 0 0 0 0-.614.612.612 0 0 0-.535-.302c-1.643 0-2.992-.894-3.206-1.041a.609.609 0 0 0-.672-.14l-.008.002a.628.628 0 0 0-.28.228c-.112.13-.88.951-2.53.951-1.595 0-2.359-.763-2.51-.932a.61.61 0 0 0-.712-.266.613.613 0 0 0-.333.245c-.104.123-.875.953-2.532.953-1.595 0-2.359-.763-2.51-.932a.61.61 0 0 0-.529-.297Zm0 3.043a.539.539 0 0 0-.183.031.613.613 0 0 0-.333.245c-.104.124-.875.954-2.532.954-1.66 0-2.428-.833-2.532-.954a.611.611 0 0 0-.402-.261c-.012 0-.024-.003-.033-.003a.618.618 0 0 0-.5.16c-.15.107-1.54 1.058-3.229 1.058a.612.612 0 0 0-.535.302.614.614 0 0 0 0 .613c.112.19.317.304.535.302 1.617 0 2.951-.673 3.595-1.063A4.936 4.936 0 0 0 7.913 28a4.96 4.96 0 0 0 3.044-1.018A4.96 4.96 0 0 0 14 28a4.96 4.96 0 0 0 3.043-1.018A4.96 4.96 0 0 0 20.087 28a4.936 4.936 0 0 0 3.1-1.063c.645.39 1.979 1.063 3.596 1.063a.612.612 0 0 0 .535-.302.614.614 0 0 0 0-.613.612.612 0 0 0-.535-.302c-1.643 0-2.992-.894-3.206-1.042a.609.609 0 0 0-.672-.14l-.008.002a.628.628 0 0 0-.28.229c-.112.13-.88.95-2.53.95-1.595 0-2.359-.763-2.51-.931a.61.61 0 0 0-.712-.267.613.613 0 0 0-.333.245c-.104.124-.875.954-2.532.954-1.595 0-2.359-.764-2.51-.932a.61.61 0 0 0-.529-.298Z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></i></div>
+                                <div class="grindbox_text">
+                                    <p class="gridboxp">Portuguese tutors</p>
+                                    <p>856 teachers</p>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                    <div class="cntgrid2">
+                        <a class="showmore">
+                            <i class="fa fa-circle-chevron-down" id="newicn"></i>
+                            <p class="showing">Show more</p>
+                        </a>
+                    </div>
+                    <div class="cntgrid3">
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="polish_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <g id="icons8-cathedral">
+                                                        <path id="Shape"
+                                                            d="M5.422.549a.551.551 0 0 0-.464.446l-2.196 10.98a.573.573 0 0 0-.017.103v6.074l-2.59 2.59a.543.543 0 0 0-.155.395v6.314A.55.55 0 0 0 .549 28H10.98a.55.55 0 0 0 .55-.549v-6.588c0-1.25.945-2.196 2.195-2.196s2.197.945 2.197 2.196v6.588a.55.55 0 0 0 .549.549h10.431a.55.55 0 0 0 .549-.549v-6.314a.543.543 0 0 0-.154-.394l-2.591-2.591v-6.074a.573.573 0 0 0-.017-.103L22.493.995a.549.549 0 0 0-.6-.446.551.551 0 0 0-.464.446l-2.196 10.98a.573.573 0 0 0-.017.103v.79L14.189 4.65a.555.555 0 0 0-.498-.258h-.051a.55.55 0 0 0-.378.258l-5.027 8.218v-.79a.573.573 0 0 0-.017-.103L6.022.995a.549.549 0 0 0-.6-.446ZM5.49 3.86l1.527 7.67H3.963L5.49 3.86Zm16.47 0 1.528 7.67h-3.054l1.527-7.67Zm-8.235 2.128 5.49 8.99v11.924H17.02v-6.04a3.287 3.287 0 0 0-3.295-3.293 3.287 3.287 0 0 0-3.294 3.294v6.039H8.235V14.978l5.49-8.99Zm-9.882 6.64h3.294v2.11a.573.573 0 0 0 0 .086v12.078H3.843V18.512a.541.541 0 0 0 0-.274v-5.61Zm16.47 0h3.295v5.593a.563.563 0 0 0 0 .326v8.355h-3.294V12.627ZM2.746 19.73v7.172H1.098v-5.525l1.647-1.647Zm21.96 0 1.648 1.647v5.525h-1.647V19.73Z">
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Polish tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="dutch_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14Zm.129-10V9.469h-1.47v6.076L8.843 9.469H7.36V18h1.483v-6.053L12.646 18h1.483Zm3.234-1.184V9.47h-1.482V18h5.355v-1.184h-3.873Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Dutch tutors</p>
+                                    <p>133 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="urdu_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14Zm-.548-18.531h-1.476v5.66c0 1.203-.57 1.805-1.711 1.805-.563 0-.989-.15-1.278-.452-.289-.3-.433-.736-.433-1.306V9.469H7.077v5.695c0 .926.287 1.65.861 2.171.575.521 1.35.782 2.327.782.964 0 1.737-.264 2.317-.794.58-.53.87-1.247.87-2.153V9.469Zm4.717 5.244L19.879 18h1.589v-.076l-1.916-3.557c.492-.207.876-.503 1.151-.888.276-.384.413-.862.413-1.432 0-.836-.267-1.475-.803-1.916-.535-.442-1.294-.662-2.279-.662h-3V18h1.483v-3.287h1.652Zm-1.652-1.19v-2.859h1.564c.516.008.903.137 1.163.387s.39.603.39 1.06c0 .438-.14.783-.422 1.035-.281.251-.672.377-1.172.377h-1.523Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Urdu tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="greek_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14Zm-.785-13.809V13.02H9.71v-2.356h4.055V9.47H8.229V18h5.578v-1.184H9.71v-2.625h3.504Zm3.281 2.625V9.47h-1.482V18h5.355v-1.184h-3.873Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Greek tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="serbian_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14Zm-3.363-13.287L12.347 18h1.589v-.076l-1.916-3.557c.492-.207.876-.503 1.15-.888.276-.384.414-.862.414-1.432 0-.836-.268-1.475-.803-1.916-.535-.442-1.295-.662-2.279-.662h-3V18h1.482v-3.287h1.653Zm-1.653-1.19v-2.859h1.565c.515.008.903.137 1.163.387s.39.603.39 1.06c0 .438-.141.783-.422 1.035-.282.251-.672.377-1.172.377H8.984Zm10.465 2.28c0 .343-.13.62-.39.829-.26.209-.647.313-1.163.313-.597 0-1.056-.132-1.376-.398-.32-.266-.48-.64-.48-1.125h-1.483c0 .535.143 1.004.43 1.406.287.402.69.718 1.207.946a4.168 4.168 0 0 0 1.702.343c.934 0 1.673-.21 2.218-.63.545-.42.818-.985.818-1.696 0-.437-.094-.82-.282-1.145-.187-.327-.482-.616-.884-.868-.403-.252-.936-.476-1.6-.674-.664-.197-1.14-.4-1.43-.609-.289-.209-.433-.47-.433-.782 0-.371.134-.66.401-.867.268-.207.644-.31 1.128-.31.52 0 .919.125 1.198.377.28.252.42.6.42 1.046h1.476c0-.492-.133-.94-.399-1.345a2.606 2.606 0 0 0-1.095-.934c-.465-.22-.994-.328-1.588-.328-.895 0-1.622.222-2.183.668-.56.445-.84 1.011-.84 1.699 0 .785.388 1.422 1.165 1.91.407.254.953.484 1.641.691.687.207 1.163.412 1.427.616.263.203.395.492.395.867Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Serbian tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="hebrew_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14Zm.485-10V9.469H13.01v3.55H9.194V9.47H7.712V18h1.482v-3.791h3.815V18h1.476Zm6.239-3.809V13.02H17.22v-2.356h4.054V9.47h-5.537V18h5.578v-1.184H17.22v-2.625h3.504Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Herbrew tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="ukrainian_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Shape"
+                                                        d="M21.898 3.752a.673.673 0 0 0-.631-.063c-.128.053-3.136 1.34-3.653 5.532-.472 3.82-.603 5.378-.608 5.442a.675.675 0 0 0 .538.717c.038.008.929.2.929 1.412 0 .959-.394 1.105-1.285 1.344-.15.04-.304.082-.454.13a5.373 5.373 0 0 1-.39.102c-.187-.429-.386-.853-.583-1.274-.766-1.636-1.559-3.327-1.559-5.053V.674a.674.674 0 1 0-1.348 0V12.04c0 1.729-.775 3.421-1.526 5.059-.192.42-.387.843-.57 1.27a5.313 5.313 0 0 1-.387-.102c-.147-.049-.299-.09-.445-.13-.807-.222-1.251-.343-1.251-1.345 0-.985.503-1.315.925-1.419a.674.674 0 0 0 .511-.709c-.005-.064-.134-1.622-.595-5.441-.506-4.19-3.455-5.48-3.58-5.532A.674.674 0 0 0 5 4.312v18.106c0 .372.302.675.675.675H9.79c.367 3.346 3.287 4.778 3.42 4.841a.668.668 0 0 0 .288.066l.028-.002.03.002c.096 0 .193-.02.285-.063.135-.064 3.115-1.495 3.49-4.844h4.19a.674.674 0 0 0 .675-.675V4.312a.67.67 0 0 0-.299-.56Zm-5.915 17.992h-1.728c.161-.987.69-1.46 1.298-1.73.207.58.361 1.155.43 1.73Zm-2.447-6.382c.295.786.652 1.55 1.005 2.303.174.372.345.739.507 1.102-.547.237-1.11.603-1.527 1.205-.404-.59-.943-.955-1.47-1.192.16-.37.33-.742.503-1.12.345-.751.694-1.514.982-2.298Zm-1.982 4.67c.576.275 1.07.748 1.224 1.712H11.14c.067-.57.215-1.138.413-1.711ZM6.35 5.58c.705.638 1.588 1.814 1.83 3.805.314 2.596.473 4.158.543 4.888-.744.385-1.395 1.187-1.395 2.519 0 2.03 1.404 2.415 2.243 2.645.135.036.263.072.376.11.098.032.207.06.32.09a9.31 9.31 0 0 0-.482 2.107H6.348V5.58Zm7.184 20.992c-.611-.373-2.09-1.47-2.381-3.48H13.504l.012-.001.013.001h2.442c-.297 2.013-1.817 3.11-2.438 3.48Zm7.317-4.828h-3.51a9.101 9.101 0 0 0-.493-2.112c.107-.026.211-.054.305-.084.116-.038.247-.073.385-.11.854-.23 2.284-.613 2.284-2.646 0-1.396-.757-2.166-1.425-2.518.072-.73.235-2.293.556-4.887.249-2.016 1.172-3.196 1.898-3.829v16.186Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Aukrainian tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="czech_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14Zm.348-12.777H12.87c-.078.609-.264 1.045-.557 1.306-.293.262-.73.393-1.312.393-.637 0-1.12-.242-1.45-.727-.33-.484-.495-1.187-.495-2.11v-.755c.007-.91.184-1.6.53-2.071.346-.47.84-.706 1.485-.706.555 0 .976.135 1.263.407.287.271.466.714.536 1.327h1.477c-.094-.933-.428-1.656-1.002-2.168-.575-.512-1.332-.767-2.274-.767-.699 0-1.315.166-1.848.498-.534.332-.943.804-1.228 1.418-.285.613-.428 1.322-.428 2.127v.796c.012.786.159 1.475.44 2.069.281.594.68 1.052 1.198 1.374.518.322 1.116.483 1.796.483.973 0 1.752-.255 2.338-.764.586-.51.922-1.22 1.008-2.13Zm2.218 1.593 4.418-6.41V9.47h-6.181v1.195h4.383l-4.413 6.375V18h6.352v-1.184h-4.559Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Czech tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="turkish_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14Zm.146-17.336V9.47H7.378v1.195h2.637V18h1.47v-7.336h2.66Zm3.753 4.049L19.61 18h1.588v-.076l-1.916-3.557c.492-.207.876-.503 1.152-.888.275-.384.413-.862.413-1.432 0-.836-.268-1.475-.803-1.916-.535-.442-1.295-.662-2.28-.662h-3V18h1.483v-3.287H17.9Zm-1.652-1.19v-2.859h1.565c.515.008.903.137 1.163.387s.39.603.39 1.06c0 .438-.141.783-.423 1.035-.28.251-.671.377-1.171.377h-1.524Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Turkish tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="swedish_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14Zm-1.688-12.197c0 .343-.13.62-.39.829-.259.209-.647.313-1.162.313-.598 0-1.057-.132-1.377-.398-.32-.266-.48-.64-.48-1.125H7.42c0 .535.143 1.004.43 1.406.288.402.69.718 1.208.946a4.168 4.168 0 0 0 1.702.343c.933 0 1.673-.21 2.218-.63.544-.42.817-.985.817-1.696 0-.437-.094-.82-.281-1.145-.188-.327-.483-.616-.885-.868s-.936-.476-1.6-.674c-.664-.197-1.14-.4-1.43-.609-.288-.209-.433-.47-.433-.782 0-.371.134-.66.401-.867.268-.207.644-.31 1.128-.31.52 0 .92.125 1.199.377s.418.6.418 1.046h1.477c0-.492-.133-.94-.398-1.345a2.606 2.606 0 0 0-1.096-.934c-.465-.22-.994-.328-1.588-.328-.895 0-1.622.222-2.183.668-.56.445-.84 1.011-.84 1.699 0 .785.388 1.422 1.166 1.91.406.254.953.484 1.64.691.688.207 1.163.412 1.427.616.264.203.396.492.396.867Zm7.77-1.612V13.02h-3.504v-2.356h4.055V9.47h-5.537V18h5.578v-1.184h-4.096v-2.625h3.504Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Swedish tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="indonesian_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14Zm-2.682-10V9.469H9.842V18h1.476Zm1.323 0h2.455c.77 0 1.452-.166 2.048-.498a3.395 3.395 0 0 0 1.377-1.418c.322-.613.483-1.324.483-2.133v-.428c0-.796-.16-1.503-.48-2.12a3.436 3.436 0 0 0-1.357-1.43c-.584-.336-1.253-.504-2.007-.504h-2.52V18Zm1.482-7.336h1.037c.766 0 1.35.244 1.752.732.402.489.604 1.196.604 2.122v.474c-.008.91-.22 1.609-.636 2.095-.416.486-1.013.73-1.79.73h-.967v-6.153Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Indonesian tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="hindi_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14Zm2.185-10V9.469h-1.477v3.55h-3.814V9.47H9.41V18h1.483v-3.791h3.814V18h1.477ZM19 18V9.469h-1.477V18h1.477Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Hindi tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="korean_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14ZM9.79 14.314 12.356 18h1.758l-3.351-4.752 3.17-3.78H12.14l-2.496 2.989-.82 1.014V9.469H7.34V18h1.482v-2.66l.967-1.026Zm8.25.399L19.751 18h1.588v-.076l-1.916-3.557c.492-.207.876-.503 1.151-.888.276-.384.413-.862.413-1.432 0-.836-.267-1.475-.802-1.916-.536-.442-1.295-.662-2.28-.662h-3V18h1.483v-3.287h1.652Zm-1.652-1.19v-2.859h1.564c.516.008.903.137 1.163.387s.39.603.39 1.06c0 .438-.14.783-.422 1.035-.281.251-.672.377-1.172.377h-1.523Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Korean tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="danish_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14ZM6.954 18H9.41c.77 0 1.452-.166 2.048-.498a3.395 3.395 0 0 0 1.377-1.418c.322-.613.483-1.324.483-2.133v-.428c0-.796-.16-1.503-.48-2.12a3.436 3.436 0 0 0-1.357-1.43c-.584-.336-1.252-.504-2.006-.504h-2.52V18Zm1.483-7.336h1.037c.765 0 1.35.244 1.752.732.402.489.603 1.196.603 2.122v.474c-.008.91-.22 1.609-.636 2.095-.416.486-1.012.73-1.79.73h-.966v-6.153Zm11.132 5.35L20.267 18h1.546l-3.228-8.531h-1.33L14.032 18h1.541l.692-1.986h3.304Zm-2.888-1.196 1.236-3.539 1.236 3.54h-2.472Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Danish tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="cntgridbox3">
+                            <a class="gridboxlink3">
+                                <div class="gridbox_i3">
+                                    <i class="styles_icon__Dy6FH" aria-hidden="true"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="28" height="28"
+                                            viewBox="0 0 28 28">
+                                            <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="norwegian_icon" fill="#3BB3BD" fill-rule="nonzero">
+                                                    <path id="Combined-Shape"
+                                                        d="M14 26.8c7.07 0 12.8-5.73 12.8-12.8S21.07 1.2 14 1.2 1.2 6.93 1.2 14 6.93 26.8 14 26.8Zm0 1.2C6.268 28 0 21.732 0 14S6.268 0 14 0s14 6.268 14 14-6.268 14-14 14Zm-.768-10V9.469h-1.47v6.076L7.947 9.469H6.465V18h1.482v-6.053L11.75 18h1.482Zm8.561-4.043v-.475c-.004-.832-.152-1.561-.445-2.188-.293-.627-.708-1.107-1.245-1.441-.538-.334-1.154-.501-1.85-.501-.694 0-1.31.169-1.848.506-.537.338-.953.826-1.248 1.462-.295.637-.442 1.371-.442 2.203v.48c.004.817.153 1.538.448 2.163.295.625.713 1.106 1.254 1.444.541.338 1.157.507 1.849.507.699 0 1.317-.169 1.854-.507.537-.338.95-.822 1.24-1.453.288-.63.433-1.364.433-2.2Zm-1.482-.445v.445c0 .961-.177 1.691-.53 2.191-.354.5-.86.75-1.515.75-.649 0-1.156-.255-1.52-.767-.366-.512-.549-1.236-.549-2.174v-.492c.008-.918.193-1.628.554-2.13.361-.502.862-.753 1.503-.753.656 0 1.163.252 1.52.756.358.504.537 1.228.537 2.174Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg></i>
+                                </div>
+                                <div class="grindbox_text3">
+                                    <p class="gridboxp3">Norwegian tutors</p>
+                                    <p>526 tutors</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cntFT1bxf000">
+                    <div class="cntFT1bxf000_icon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                            <g id="uEA46-world" fill="white" fill-rule="nonzero" transform="translate(-1 -1)">
+                                <path id="Shape"
+                                    d="M17 1c8.822 0 16 7.178 16 16 0 8.823-7.178 16.001-16 16.001-8.823 0-16-7.178-16-16.001C1 8.178 8.177 1 17 1Zm3.293 28.656c5.171-1.348 9.108-5.773 9.712-11.201h-5.83a23.716 23.716 0 0 1-3.882 11.201ZM3.995 18.455c.602 5.428 4.54 9.853 9.71 11.201A23.677 23.677 0 0 1 9.82 18.455H3.995Zm9.712-14.11c-5.171 1.349-9.108 5.774-9.712 11.2h5.83a23.71 23.71 0 0 1 3.882-11.2Zm-.98 11.2h8.548A20.756 20.756 0 0 0 17 4.711a20.785 20.785 0 0 0-4.273 10.834Zm-.003 2.91A20.758 20.758 0 0 0 17 29.29a20.785 20.785 0 0 0 4.273-10.836h-8.55Zm17.281-2.91c-.604-5.426-4.541-9.851-9.712-11.2a23.662 23.662 0 0 1 3.885 11.2h5.827Z">
+                                </path>
+                            </g>
+                        </svg>
+                    </div>
+
+                </div>
+                <div class="cntFT1bxf000_container">
+                    <div class="cntFT1bxf000_container_box1">
+                        <h2>Make the world your comfort zone</h2>
+                        <p>Speak naturally with professional online tutors from 185 countries</p>
+                    </div>
+                    <ul class="cntFT1bxf000_container_box2">
+                        <li class="cntFT1bxf000_container_box2_bx">
+                            <div class="cntFT1bxf000_container_icon"><svg xmlns="http://www.w3.org/2000/svg" width="17"
+                                    height="27" viewBox="0 0 16 24">
+                                    <g id="Main-Page" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                        <g id="01_1_Main_page_Web" fill="#3BB3BD" transform="translate(-188 -1780)">
+                                            <g id="Online-tutoring" transform="translate(32 1119)">
+                                                <g id="Columns" transform="translate(32 649)">
+                                                    <g id="1-column">
+                                                        <path id="certified_icon"
+                                                            d="M16 8c0 2.583-1.236 4.877-3.141 6.341l1.132 8.528a.998.998 0 0 1-1.506.99L8 21.166l-4.486 2.691a1 1 0 0 1-1.506-.989l1.133-8.527A7.983 7.983 0 0 1 0 8c0-4.41 3.589-8 8-8s8 3.59 8 8Zm-4.264 13.076-.751-5.659A7.954 7.954 0 0 1 8 16.001a7.96 7.96 0 0 1-2.984-.583l-.752 5.658 3.221-1.933a1.005 1.005 0 0 1 1.029 0l3.222 1.933ZM2 8a6.007 6.007 0 0 0 6 6.001c3.308 0 6-2.692 6-6 0-3.309-2.692-6-6-6-3.309 0-6 2.691-6 6Zm6 3a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+                                                            transform="translate(124 12)"></path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg></div>
+                            <div class="cntFT1bxf000_container_text">
+                                <p class="p1">Expert tutors</p>
+                                <p class="p2">Find native speakers and certified private tutors</p>
+                            </div>
+                        </li>
+                        <li class="cntFT1bxf000_container_box2_bx">
+                            <div class="cntFT1bxf000_container_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 21 24">
+                                    <g id="Main-Page" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                        <g id="01_1_Main_page_Web" fill="#3BB3BD" fill-rule="nonzero"
+                                            transform="translate(-483 -1780)">
+                                            <g id="Online-tutoring" transform="translate(32 1119)">
+                                                <g id="Columns" transform="translate(32 649)">
+                                                    <g id="2-column" transform="translate(296)">
+                                                        <g id="verified_icon" transform="translate(109)">
+                                                            <g id="Group-2" transform="translate(14 12)">
+                                                                <path id="Combined-Shape"
+                                                                    d="M21 3.863c0 2.2-.068 4.005-.143 5.285a20.613 20.613 0 0 1-.234 2.47 17.63 17.63 0 0 1-1.245 4.065 16.33 16.33 0 0 1-4.89 5.989A18.067 18.067 0 0 1 10.511 24a18.07 18.07 0 0 1-3.969-2.29 16.33 16.33 0 0 1-4.89-5.99 17.632 17.632 0 0 1-1.275-4.08 20.613 20.613 0 0 1-.234-2.47A91.25 91.25 0 0 1 0 3.885c2.5.073 4.98-.475 7.214-1.594A14.642 14.642 0 0 0 10.534 0a14.64 14.64 0 0 0 3.297 2.29A15.131 15.131 0 0 0 21 3.864Zm-8.058.219A16.702 16.702 0 0 1 10.53 2.59 16.678 16.678 0 0 1 8.11 4.079a17.122 17.122 0 0 1-6.092 1.74c.023 1.18.065 2.28.124 3.283.026.747.096 1.492.202 2.178.23 1.246.609 2.46 1.114 3.58a14.337 14.337 0 0 0 4.296 5.258 16.06 16.06 0 0 0 2.751 1.687 16.147 16.147 0 0 0 2.776-1.728 14.287 14.287 0 0 0 4.269-5.206 15.569 15.569 0 0 0 1.097-3.56 18.95 18.95 0 0 0 .213-2.28c.057-.971.1-2.06.122-3.235a17.123 17.123 0 0 1-6.04-1.714Zm-1.21 10.504L10.1 16.169l-1.621-1.583-2.855-2.808 1.62-1.583L10.1 13.01l4.618-4.51 1.64 1.57-4.624 4.516Z">
+                                                                </path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="cntFT1bxf000_container_text">
+                                <p class="p1">Verified profiles</p>
+                                <p class="p2">We carefully check and confirm each tutor's profile</p>
+                            </div>
+                        </li>
+                        <li class="cntFT1bxf000_container_box2_bx">
+                            <div class="cntFT1bxf000_container_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 14 14">
+                                    <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                        <g id="1.5_TutorProfile-What_happens_next" fill="#3BB3BD" fill-rule="nonzero"
+                                            transform="translate(-961 -310)">
+                                            <g id="Tooltip" transform="translate(948 149)">
+                                                <g id="icon_contacts" transform="translate(12 160)">
+                                                    <path id="Shape"
+                                                        d="M8 1a6.99 6.99 0 0 0-7 7c0 3.873 3.127 7 7 7s7-3.127 7-7a7 7 0 0 0-7-7Zm3.858 11.262a3.052 3.052 0 0 0-1.494-1.026l-.902-.265c-.31-.093-.466-.42-.373-.731.015-.062.062-.124.093-.171l.654-.731a2.25 2.25 0 0 0 .56-1.774l-.11-.886a2.281 2.281 0 0 0-1.026-1.65h-.016a2.287 2.287 0 0 0-2.504.032 2.225 2.225 0 0 0-.964 1.524l-.14.934a2.278 2.278 0 0 0 .544 1.866l.622.685a.37.37 0 0 1 .094.171.57.57 0 0 1-.374.731l-.902.265a3.052 3.052 0 0 0-1.493 1.026A5.734 5.734 0 0 1 2.244 8 5.762 5.762 0 0 1 8 2.244 5.762 5.762 0 0 1 13.756 8c0 1.68-.732 3.204-1.898 4.262Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="cntFT1bxf000_container_text">
+                                <p class="p1">Learn anytime</p>
+                                <p class="p2">Take online lessons at the perfect time for your busy schedule</p>
+                            </div>
+                        </li>
+                        <li class="cntFT1bxf000_container_box2_bx">
+                            <div class="cntFT1bxf000_container_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <g id="Main-Page" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                        <g id="01_1_Main_page_Web_Hovers" fill="#3BB3BD"
+                                            transform="translate(-1072 -1780)">
+                                            <g id="Online-tutoring" transform="translate(32 1119)">
+                                                <g id="Columns" transform="translate(32 649)">
+                                                    <g id="4-column" transform="translate(888)">
+                                                        <g id="prices_icon" transform="translate(108)">
+                                                            <path id="Combined-Shape"
+                                                                d="M12 0c6.616 0 12 5.383 12 12s-5.384 12-12 12S0 18.618 0 12 5.384 0 12 0Zm0 21.819c5.414 0 9.818-4.405 9.818-9.818 0-5.415-4.404-9.819-9.818-9.819-5.413 0-9.818 4.404-9.818 9.819 0 5.413 4.405 9.818 9.818 9.818Zm0-17.455c4.21 0 7.636 3.426 7.636 7.637 0 4.21-3.426 7.636-7.636 7.636S4.364 16.21 4.364 12c0-4.211 3.425-7.637 7.636-7.637Zm0 13.091a5.46 5.46 0 0 0 5.455-5.454A5.46 5.46 0 0 0 12 6.546a5.46 5.46 0 0 0-5.455 5.455A5.46 5.46 0 0 0 12 17.455Zm0-8.727A3.276 3.276 0 0 1 15.273 12 3.277 3.277 0 0 1 12 15.273a3.277 3.277 0 0 1-3.273-3.272A3.276 3.276 0 0 1 12 8.728Zm0 4.363c.601 0 1.09-.49 1.09-1.09a1.092 1.092 0 0 0-2.18 0c0 .6.489 1.09 1.09 1.09Z"
+                                                                transform="translate(12 12)"></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="cntFT1bxf000_container_text">
+                                <p class="p1">Affordable prices</p>
+                                <p class="p2">Choose an experienced tutor that fits your budget</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cntFT1bxf000_container_box3">
+                        <div class="cntFT1bxf000_container_box3_icon">
+                            <span class="styles_icon_wAlF"><svg xmlns="http://www.w3.org/2000/svg" width="34"
+                                    height="24" viewBox="0 0 34 24">
+                                    <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                        <g id="Artboard" fill="#3BB3BD" fill-rule="nonzero"
+                                            transform="translate(-15 -20)">
+                                            <g id="tutoring_icon">
+                                                <g id="graduation_cap" transform="translate(15 20)">
+                                                    <path id="Shape"
+                                                        d="m17 .93.498.265 14.344 7.438 1.826.93-1.826.93-4.217 2.157v5.412c0 .47-.216.893-.465 1.163-.249.27-.552.431-.863.597-.627.328-1.37.56-2.291.764-1.843.41-4.3.664-7.006.664-2.706 0-5.163-.253-7.006-.664-.921-.203-1.664-.436-2.29-.764-.312-.166-.615-.328-.864-.597a1.763 1.763 0 0 1-.465-1.163V12.65L4.25 11.555v7.869a2.106 2.106 0 0 1 1.063 1.826c0 1.175-.95 2.125-2.125 2.125a2.124 2.124 0 0 1-2.126-2.125c0-.784.428-1.457 1.063-1.826v-8.965L.332 9.563l1.826-.93 14.344-7.438L17 .93Zm0 2.39L4.98 9.562l1.893.963c.24-.253.531-.44.83-.597.623-.328 1.37-.56 2.291-.764C11.833 8.754 14.281 8.5 17 8.5c2.719 0 5.167.253 7.006.664.921.203 1.668.436 2.29.764.3.157.59.344.831.597l1.893-.963L17 3.32Zm0 7.305c-2.594 0-4.927.237-6.541.598-.805.178-1.453.386-1.793.564-.108.058-.124.1-.166.133v4.05c.444-.161.93-.306 1.494-.43 1.843-.412 4.3-.665 7.006-.665 2.706 0 5.163.253 7.006.664.564.125 1.05.27 1.494.432V11.92c-.042-.033-.058-.075-.166-.133-.34-.178-.988-.386-1.793-.564-1.614-.361-3.947-.598-6.541-.598ZM17 17c-2.577 0-4.922.237-6.541.598a7.618 7.618 0 0 0-1.461.465c.365.157.789.315 1.461.464 1.619.361 3.964.598 6.541.598 2.577 0 4.922-.237 6.541-.598a7.618 7.618 0 0 0 1.461-.465 7.618 7.618 0 0 0-1.461-.464C21.922 17.237 19.577 17 17 17Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg></span>
+                        </div>
+                        <div class="cntFT1bxf000_container_box3_text">
+                            <h2>Focus on the skills you need</h2>
+                            <p>Prepare to achieve your goals with private tutors</p>
+                        </div>
+                    </div>
+                    <div class="cntFT1bxf000_container_box4">
+                        <div class="bx000">
+                            <div class="bx000_in">
+                                <div class="bx000_in_1">
+                                    <div class="bx000_in_1_ic"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                            height="20" viewBox="0 0 16 20">
+                                            <g id="Main-Page" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="01_1_Main_page_Web" fill="#3BB3BD" fill-rule="nonzero"
+                                                    transform="translate(-80 -2172)">
+                                                    <g id="Online-tutoring" transform="translate(32 1119)">
+                                                        <g id="Block" transform="translate(32 1039)">
+                                                            <g id="bookmark_icon">
+                                                                <g id="bookmark" transform="translate(16 14)">
+                                                                    <path id="Shape"
+                                                                        d="m8 15.229-6.419 4.585A1 1 0 0 1 0 19V3a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v16a1 1 0 0 1-1.581.814L8 15.229Zm6 1.828V3a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v14.057l5.419-3.87a1 1 0 0 1 1.162 0L14 17.056Z">
+                                                                    </path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></div>
+                                </div>
+                                <div class="bx000_in_2">
+                                    <p>Immerse yourself in a new culture</p>
+                                    <p class="p2">Connect with language experts from around the world</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="bx000">
+                            <div class="bx000_in">
+                                <div class="bx000_in_1">
+                                    <div class="bx000_in_1_ic"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                            height="22" viewBox="0 0 20 22">
+                                            <g id="Main-Page" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="01_1_Main_page_Web" fill="#3BB3BD" fill-rule="nonzero"
+                                                    transform="translate(-670 -2171)">
+                                                    <g id="Online-tutoring" transform="translate(32 1119)">
+                                                        <g id="Block" transform="translate(624 1039)">
+                                                            <g id="zap_icon">
+                                                                <g id="zap" transform="translate(15 14)">
+                                                                    <path id="Shape"
+                                                                        d="M7.867 13H0a1 1 0 0 1-.768-1.64l10-12c.639-.767 1.884-.227 1.76.764L10.132 7H18a1 1 0 0 1 .768 1.64l-10 12c-.639.767-1.884.227-1.76-.764L7.868 13Zm-5.732-2H9a1 1 0 0 1 .992 1.124l-.577 4.616L15.865 9H9a1 1 0 0 1-.992-1.124l.577-4.616L2.135 11Z">
+                                                                    </path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></div>
+                                </div>
+                                <div class="bx000_in_2">
+                                    <p>Succeed in your career</p>
+                                    <p class="p2">Develop your working vocabulary and communicate clearly</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bx000">
+                            <div class="bx000_in">
+                                <div class="bx000_in_1">
+                                    <div class="bx000_in_1_ic">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                            viewBox="0 0 22 22">
+                                            <g id="Main-Page" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="01_1_Main_page_Web" fill="#3BB3BD" fill-rule="nonzero"
+                                                    transform="translate(-77 -2291)">
+                                                    <g id="Online-tutoring" transform="translate(32 1119)">
+                                                        <g id="Block" transform="translate(32 1159)">
+                                                            <g id="clock_icon">
+                                                                <g id="clock" transform="translate(13 13)">
+                                                                    <path id="Combined-Shape"
+                                                                        d="M11 22C4.925 22 0 17.075 0 11S4.925 0 11 0s11 4.925 11 11-4.925 11-11 11Zm0-2a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm1-15v5.586l2.707 2.707a1 1 0 0 1-1.414 1.414l-3-3A1 1 0 0 1 10 11V5a1 1 0 0 1 2 0Z">
+                                                                    </path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="bx000_in_2">
+                                    <p>Get expert help when you need it</p>
+                                    <p class="p2">Learn to solve any problem in any language</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bx000">
+                            <div class="bx000_in">
+                                <div class="bx000_in_1">
+                                    <div class="bx000_in_1_ic"><svg xmlns="http://www.w3.org/2000/svg" width="20"
+                                            height="24" viewBox="0 0 20 24">
+                                            <g id="Main-Page" fill="none" fill-rule="evenodd" stroke="none"
+                                                stroke-width="1">
+                                                <g id="01_1_Main_page_Web" fill="#3BB3BD" fill-rule="nonzero"
+                                                    transform="translate(-670 -2290)">
+                                                    <g id="Online-tutoring" transform="translate(32 1119)">
+                                                        <g id="Block" transform="translate(624 1159)">
+                                                            <g id="pin_icon">
+                                                                <g id="map-pin" transform="translate(14 12)">
+                                                                    <path id="Oval"
+                                                                        d="M15.226 19.813a31.132 31.132 0 0 1-4.254 3.726c-.195.141-.337.24-.417.293a1 1 0 0 1-1.11 0c-.08-.054-.222-.152-.417-.293a31.132 31.132 0 0 1-4.254-3.726C1.802 16.676 0 13.372 0 10 0 4.477 4.477 0 10 0s10 4.477 10 10c0 3.372-1.802 6.676-4.774 9.813Zm-4.443 1.358a29.155 29.155 0 0 0 2.991-2.734C16.427 15.637 18 12.753 18 10a8 8 0 0 0-16 0c0 2.753 1.573 5.636 4.226 8.437A29.155 29.155 0 0 0 10 21.773c.242-.18.505-.38.783-.602ZM10 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm0-2a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z">
+                                                                    </path>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg></div>
+                                </div>
+                                <div class="bx000_in_2">
+                                    <p>Speak naturally, always</p>
+                                    <p class="p2">Make a good impression and build trust in any language</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cntFT1bxf000">
+                    <div class="cntFT1bxf000_icon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                            <g id="Main-Page" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                <g id="01_1_Main_page_Web_Hovers" fill="#FFF" transform="translate(-624 -3171)">
+                                    <g id="How-it-works" transform="translate(32 3155)">
+                                        <g id="preply_big_icon" transform="translate(576)">
+                                            <g id="Page-1" transform="translate(16 16)">
+                                                <path id="Combined-Shape"
+                                                    d="M16 2.91C8.783 2.91 2.91 8.782 2.91 16S8.782 29.09 16 29.09c7.219 0 13.09-5.873 13.09-13.09S23.22 2.91 16 2.91M16 32C7.178 32 0 24.823 0 16 0 7.178 7.178 0 16 0s16 7.178 16 16c0 8.823-7.178 16-16 16Zm-1.934-17.934 5.802-1.933-1.934 5.8-5.803 1.934 1.935-5.801Zm-4.234 9.555c.154 0 .31-.023.46-.074l9.252-3.084c.435-.142.775-.484.92-.918l3.083-9.252a1.455 1.455 0 0 0-1.84-1.84l-9.251 3.084a1.453 1.453 0 0 0-.92.919l-3.083 9.25a1.452 1.452 0 0 0 1.379 1.915Z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+
+                </div>
+                <div class="cntFT1bxf000_container">
+                    <div class="cntFT1bxf000_container_box1">
+                        <h2>How Preply works</h2>
+                        <p>SLearn online with the world's best tutors</p>
+                    </div>
+                    <ul class="cntFT1bxf000_container_box2_f2">
+                        <li class="cntFT1bxf000_container_box2_bx">
+                            <div class="bx1">
+                                <img src={% static 'images/im1.webp' %} />
+                            </div>
+                            <div class="bx2">
+                                <div class="bx2_number">
+                                    <div class="cntFT1bxf000_container_icon">
+                                        <h3>1</h3>
+                                    </div>
+                                </div>
+                                <div class="bx2_text">
+                                    <p class="bx2p1">Find the best tutor</p>
+                                    <p class="bx2p2">Choose from over 32,000 online tutors. Use filters to narrow your
+                                        search and find the perfect fit</p>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li class="cntFT1bxf000_container_box2_bx">
+                            <div class="cntFT1bxf000_container_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 21 24">
+                                    <g id="Main-Page" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                        <g id="01_1_Main_page_Web" fill="#3BB3BD" fill-rule="nonzero"
+                                            transform="translate(-483 -1780)">
+                                            <g id="Online-tutoring" transform="translate(32 1119)">
+                                                <g id="Columns" transform="translate(32 649)">
+                                                    <g id="2-column" transform="translate(296)">
+                                                        <g id="verified_icon" transform="translate(109)">
+                                                            <g id="Group-2" transform="translate(14 12)">
+                                                                <path id="Combined-Shape"
+                                                                    d="M21 3.863c0 2.2-.068 4.005-.143 5.285a20.613 20.613 0 0 1-.234 2.47 17.63 17.63 0 0 1-1.245 4.065 16.33 16.33 0 0 1-4.89 5.989A18.067 18.067 0 0 1 10.511 24a18.07 18.07 0 0 1-3.969-2.29 16.33 16.33 0 0 1-4.89-5.99 17.632 17.632 0 0 1-1.275-4.08 20.613 20.613 0 0 1-.234-2.47A91.25 91.25 0 0 1 0 3.885c2.5.073 4.98-.475 7.214-1.594A14.642 14.642 0 0 0 10.534 0a14.64 14.64 0 0 0 3.297 2.29A15.131 15.131 0 0 0 21 3.864Zm-8.058.219A16.702 16.702 0 0 1 10.53 2.59 16.678 16.678 0 0 1 8.11 4.079a17.122 17.122 0 0 1-6.092 1.74c.023 1.18.065 2.28.124 3.283.026.747.096 1.492.202 2.178.23 1.246.609 2.46 1.114 3.58a14.337 14.337 0 0 0 4.296 5.258 16.06 16.06 0 0 0 2.751 1.687 16.147 16.147 0 0 0 2.776-1.728 14.287 14.287 0 0 0 4.269-5.206 15.569 15.569 0 0 0 1.097-3.56 18.95 18.95 0 0 0 .213-2.28c.057-.971.1-2.06.122-3.235a17.123 17.123 0 0 1-6.04-1.714Zm-1.21 10.504L10.1 16.169l-1.621-1.583-2.855-2.808 1.62-1.583L10.1 13.01l4.618-4.51 1.64 1.57-4.624 4.516Z">
+                                                                </path>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="cntFT1bxf000_container_text">
+                                <p class="p1">Verified profiles</p>
+                                <p class="p2">We carefully check and confirm each tutor's profile</p>
+                            </div>
+                        </li>
+                        <li class="cntFT1bxf000_container_box2_bx">
+                            <div class="cntFT1bxf000_container_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 14 14">
+                                    <g id="Page-1" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                        <g id="1.5_TutorProfile-What_happens_next" fill="#3BB3BD" fill-rule="nonzero"
+                                            transform="translate(-961 -310)">
+                                            <g id="Tooltip" transform="translate(948 149)">
+                                                <g id="icon_contacts" transform="translate(12 160)">
+                                                    <path id="Shape"
+                                                        d="M8 1a6.99 6.99 0 0 0-7 7c0 3.873 3.127 7 7 7s7-3.127 7-7a7 7 0 0 0-7-7Zm3.858 11.262a3.052 3.052 0 0 0-1.494-1.026l-.902-.265c-.31-.093-.466-.42-.373-.731.015-.062.062-.124.093-.171l.654-.731a2.25 2.25 0 0 0 .56-1.774l-.11-.886a2.281 2.281 0 0 0-1.026-1.65h-.016a2.287 2.287 0 0 0-2.504.032 2.225 2.225 0 0 0-.964 1.524l-.14.934a2.278 2.278 0 0 0 .544 1.866l.622.685a.37.37 0 0 1 .094.171.57.57 0 0 1-.374.731l-.902.265a3.052 3.052 0 0 0-1.493 1.026A5.734 5.734 0 0 1 2.244 8 5.762 5.762 0 0 1 8 2.244 5.762 5.762 0 0 1 13.756 8c0 1.68-.732 3.204-1.898 4.262Z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="cntFT1bxf000_container_text">
+                                <p class="p1">Learn anytime</p>
+                                <p class="p2">Take online lessons at the perfect time for your busy schedule</p>
+                            </div>
+                        </li>
+                        <li class="cntFT1bxf000_container_box2_bx">
+                            <div class="cntFT1bxf000_container_icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <g id="Main-Page" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1">
+                                        <g id="01_1_Main_page_Web_Hovers" fill="#3BB3BD"
+                                            transform="translate(-1072 -1780)">
+                                            <g id="Online-tutoring" transform="translate(32 1119)">
+                                                <g id="Columns" transform="translate(32 649)">
+                                                    <g id="4-column" transform="translate(888)">
+                                                        <g id="prices_icon" transform="translate(108)">
+                                                            <path id="Combined-Shape"
+                                                                d="M12 0c6.616 0 12 5.383 12 12s-5.384 12-12 12S0 18.618 0 12 5.384 0 12 0Zm0 21.819c5.414 0 9.818-4.405 9.818-9.818 0-5.415-4.404-9.819-9.818-9.819-5.413 0-9.818 4.404-9.818 9.819 0 5.413 4.405 9.818 9.818 9.818Zm0-17.455c4.21 0 7.636 3.426 7.636 7.637 0 4.21-3.426 7.636-7.636 7.636S4.364 16.21 4.364 12c0-4.211 3.425-7.637 7.636-7.637Zm0 13.091a5.46 5.46 0 0 0 5.455-5.454A5.46 5.46 0 0 0 12 6.546a5.46 5.46 0 0 0-5.455 5.455A5.46 5.46 0 0 0 12 17.455Zm0-8.727A3.276 3.276 0 0 1 15.273 12 3.277 3.277 0 0 1 12 15.273a3.277 3.277 0 0 1-3.273-3.272A3.276 3.276 0 0 1 12 8.728Zm0 4.363c.601 0 1.09-.49 1.09-1.09a1.092 1.092 0 0 0-2.18 0c0 .6.489 1.09 1.09 1.09Z"
+                                                                transform="translate(12 12)"></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <div class="cntFT1bxf000_container_text">
+                                <p class="p1">Affordable prices</p>
+                                <p class="p2">Choose an experienced tutor that fits your budget</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cntFT1bxf000_container_box3">
+                        <div class="cntFT1bxf000_container_box3_icon">
+                            <span class="styles_icon_wAlF"><svg class="styles_iconGuarantee__Cdf9r"
+                                    xmlns="http://www.w3.org/2000/svg" width="84" height="84" viewBox="0 0 40 40">
+                                    <path fill="#3bb3bd"
+                                        d="M.88 21.58a2.6 2.6 0 0 1 0-3.89l.76-.65a2.66 2.66 0 0 0 .71-2.95l-.41-.94a2.62 2.62 0 0 1 1.7-3.54l1-.29a2.59 2.59 0 0 0 1.88-2.36l.06-1a2.59 2.59 0 0 1 2.58-2.48c.18 0 .3 0 .47.06l1 .18.47.05c.94 0 1.82-.53 2.29-1.35l.47-.89C14.33.53 15.21 0 16.15 0c.53 0 1.06.18 1.53.47l.82.59c.47.36 1 .47 1.53.47s1.06-.17 1.53-.47l.82-.59c.47-.35 1-.47 1.53-.47.94 0 1.82.47 2.29 1.36l.47.88a2.66 2.66 0 0 0 2.29 1.36c.17 0 .29 0 .47-.06l1-.18.47-.06a2.59 2.59 0 0 1 2.58 2.48l.06 1a2.58 2.58 0 0 0 1.88 2.36l1 .3a2.61 2.61 0 0 1 1.7 3.53l-.41.95c-.41 1-.18 2.24.65 2.95l.76.7a2.6 2.6 0 0 1 0 3.9l-.76.64a2.67 2.67 0 0 0-.71 2.95l.41.95a2.6 2.6 0 0 1-1.7 3.53l-1.06.54a2.57 2.57 0 0 0-1.88 2.35l-.06 1.01a2.58 2.58 0 0 1-2.58 2.47c-.18 0-.3 0-.47-.06l-1-.17-.47-.06c-.94 0-1.82.53-2.29 1.35l-.47.89a2.56 2.56 0 0 1-2.29 1.36c-.53 0-1.06-.18-1.53-.48l-.82-.59c-.47-.35-1-.47-1.53-.47s-1.06.18-1.53.47l-.82.59c-.47.36-1 .48-1.52.48-.94 0-1.83-.48-2.3-1.36l-.47-.89a2.67 2.67 0 0 0-2.29-1.35c-.17 0-.29 0-.47.06l-.99.17-.47.06a2.59 2.59 0 0 1-2.59-2.47v-1.06a2.57 2.57 0 0 0-1.88-2.36l-1-.3a2.62 2.62 0 0 1-1.7-3.54l.41-.94c.41-1 .18-2.24-.65-2.95z">
+                                    </path>
+                                    <path fill="#fff"
+                                        d="M12.03 14.01a46.6 46.6 0 0 0 .31 7.47 8.64 8.64 0 0 0 2.35 5.04 13.6 13.6 0 0 0 2.86 2.14c.83.49 1.69.93 2.56 1.35.08.04.14.06.24.02a21.71 21.71 0 0 0 4.81-3.04 8.54 8.54 0 0 0 2.59-4.36c.37-1.35.5-2.73.57-4.13.04-.66.04-1.31.04-1.97.01-.82 0-1.65-.04-2.47 0-.16-.06-.21-.22-.23a4.6 4.6 0 0 1-1.93-.64c-.7-.44-1.02-1.12-1.24-1.87-.07-.24-.12-.5-.16-.75-.02-.11-.06-.16-.17-.17a28.37 28.37 0 0 0-4.01-.4c-1.61-.03-3.2.13-4.78.38-.19.03-.22.13-.24.28a4.2 4.2 0 0 1-.79 2.01c-.42.55-1.02.81-1.67.99-.3.09-.61.15-.92.18-.11.01-.16.04-.16.17zm8.01 5.71.01-3.88-.01-3.91c0-.16.04-.21.21-.2 1.09.01 2.18.12 3.26.29.43.06.43.07.51.49.22 1.15.83 1.96 2.01 2.26.2.05.4.12.6.12.25.01.28.13.29.33.04 1.51.05 3.01-.07 4.51-.01.18-.08.23-.26.23h-6.31c-.18 0-.24-.05-.24-.24zm-6.46.48c-.02-.17.03-.22.2-.22l6.01-.01c.19 0 .25.04.25.24l-.01 7.77v.26a20.8 20.8 0 0 1-3.51-2.08 7.47 7.47 0 0 1-1.74-1.85 8.79 8.79 0 0 1-1.2-4.11z">
+                                    </path>
+                                </svg></span>
+                        </div>
+                        <div class="cntFT1bxf000_container_box3_text">
+                            <h2>100% Satisfaction Guarantee</h2>
+                            <p>If you are not satisfied with your trial lesson, we will give you a free replacement with
+                                another tutor or a full refund</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <footer>
+                <div class="ft_cnt_gl">
+                    <div class="colorback1">
+                        <div class="ft_cnt">
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">ABOUT US</div>
+                                <div class="ft_cnt_box2">
+                                    <ul>
+                                        <li><a href="#"><span> Who we are</span> </a></li>
+                                        <li><a href="#"><span>how it works</span></a></li>
+                                        <li><a href="#"><span>preply reviews</span></a></li>
+                                        <li><a href="#"><span>work at preply</span></a></li>
+                                        <li><a href="#"><span>preply global</span></a></li>
+                                        <li><a href="#"><span>status</span></a></li>
+                                        <li><a href="#"><span>preply live</span></a></li>
+                                        <li><a href="#"><span>preply research and studies</span></a></li>
+                                        <li><a href="#"><span>we stand with ukraine</span></a></li>
+                                        <li><a href="#"><span>media kit</span></a></li>
+                                        <li><a href="#"><span>Affiliate program</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">FOR STUDENTS</div>
+                                <div class="ft_cnt_box2">
+                                    <ul>
+                                        <li><a href="#"><span>Preply Blog</span> </a></li>
+                                        <li><a href="#"><span>Questions and Answers</span></a></li>
+                                        <li><a href="#"><span>Student discount</span></a></li>
+                                        <li><a href="#"><span>Referral program</span></a></li>
+                                        <li><a href="#"><span>Test your English for free</span></a></li>
+                                        <li><a href="#"><span>Test your vocab</span></a></li>
+                                        <li><a href="#"><span>Free English courses</span></a></li>
+                                        <li><a href="#"><span>Preply discounts</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">FOR TUTORS</div>
+                                <div class="ft_cnt_box2">
+                                    <ul>
+                                        <li><a href="#"><span> Become an online tutor</span> </a></li>
+                                        <li><a href="#"><span>Teach English online</span></a></li>
+                                        <li><a href="#"><span>Teach French online</span></a></li>
+                                        <li><a href="#"><span>Teach Spanish online</span></a></li>
+                                        <li><a href="#"><span>Teach German online</span></a></li>
+                                        <li><a href="#"><span>See all online tutoring jobs</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">FOR COMPANIES</div>
+                                <div class="ft_cnt_box2">
+                                    <ul>
+
+                                        <li><a href="#"><span> Corporate language training</span> </a></li>
+                                        <li><a href="#"><span>Corporate English training</span></a></li>
+                                        <li><a href="#"><span>Corporate Spanish training</span></a></li>
+                                        <li><a href="#"><span>Corporate German training</span></a></li>
+                                        <li><a href="#"><span>Corporate French training</span></a></li>
+                                        <li><a href="#"><span>Corporate training blog</span></a></li>
+                                        <li><a href="#"><span>Resource center</span></a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ft_cnt1">
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">Support</div>
+                                <div class="ft_cnt_box2">
+                                    <ul>
+                                        <li><a href="#"><span> Need any help?</span> </a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">Contacts</div>
+                                <div class="ft_cnt_box2">
+                                    <ul>
+                                        <li>
+                                            <svg class="styles_USAFlagIcon__ck5dd" xmlns="http://www.w3.org/2000/svg"
+                                                width="16" height="12" fill="none" viewBox="0 0 16 12">
+                                                <g fill-rule="evenodd" clip-path="url(#clipUSA)" clip-rule="evenodd">
+                                                    <path fill="#BD3D44"
+                                                        d="M0 0h16v.923H0V0Zm0 1.846h16v.923H0v-.923Zm0 1.846h16v.923H0v-.923Zm0 1.846h16v.924H0v-.924Zm0 1.847h16v.923H0v-.923ZM0 9.23h16v.923H0V9.23Zm0 1.846h16V12H0v-.923Z">
+                                                    </path>
+                                                    <path fill="#fff"
+                                                        d="M0 1h16v.91H0V1Zm0 1.818h16v.91H0v-.91Zm0 1.818h16v.91H0v-.91Zm0 1.819h16v.909H0v-.91Zm0 1.818h16v.909H0v-.91Zm0 1.818h16V11H0v-.91Z">
+                                                    </path>
+                                                    <path fill="#192F5D" d="M0 0h9.12v6.438H0V0Z"></path>
+                                                    <path fill="#fff"
+                                                        d="M.76.276.843.53h.268L.894.687l.083.255L.76.784.543.942.626.687.408.53h.269L.76.276Zm1.52 0 .083.254h.269l-.218.157.083.255L2.28.784l-.217.158.083-.255L1.928.53h.269L2.28.276Zm1.52 0 .083.254h.269l-.218.157.083.255L3.8.784l-.217.158.083-.255L3.449.53h.268L3.8.276Zm1.52 0 .083.254h.268l-.217.157.083.255L5.32.784l-.217.158.083-.255L4.968.53h.269L5.32.276Zm1.52 0 .083.254h.269l-.218.157.083.255L6.84.784l-.217.158.083-.255L6.489.53h.268L6.84.276Zm1.52 0 .083.254h.269l-.218.157.083.255L8.36.784l-.217.158.083-.255L8.009.53h.268L8.36.276ZM1.52.919l.083.255h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268L1.52.919Zm1.52 0 .083.255h.268l-.217.157.083.255-.217-.158-.217.158.083-.255-.218-.157h.269L3.04.919Zm1.52 0 .083.255h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268L4.56.919Zm1.52 0 .083.255h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268L6.08.919Zm1.52 0 .083.255h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268L7.6.919Zm-6.84.644.083.255h.268l-.217.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.268l-.217.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm-6.84.644.083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254Zm1.52 0 .083.254h.268l-.217.158.083.254-.217-.157-.217.157.083-.254-.218-.158h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254ZM.76 2.85l.083.254h.268l-.217.157.083.255L.76 3.36l-.217.157.083-.255-.218-.157h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255-.217-.157-.217.157.083-.255-.218-.157h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255L3.8 3.36l-.217.157.083-.255-.217-.157h.268l.083-.254Zm1.52 0 .083.254h.268l-.217.157.083.255-.217-.157-.217.157.083-.255-.218-.157h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255-.217-.157-.217.157.083-.255-.217-.157h.268l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255-.217-.157-.217.157.083-.255-.217-.157h.268l.083-.254Zm-6.84.644.083.254h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268l.083-.254Zm1.52 0 .083.254h.268l-.217.157.083.255-.217-.158-.217.158.083-.255-.218-.157h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268l.083-.254Zm-6.84.643.083.255h.268l-.217.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.268l-.217.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm-6.84.644.083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.268l-.217.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm-6.84.644.083.254h.268l-.217.158.083.254-.217-.157-.217.157.083-.254-.218-.158h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.218-.158h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254Zm1.52 0 .083.254h.268l-.217.158.083.254-.217-.157-.217.157.083-.254-.218-.158h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254Z">
+                                                    </path>
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clipUSA">
+                                                        <path fill="#fff" d="M0 0h16v11.956H0z"></path>
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                            USA
+                                        </li>
+                                        <li>1309 Beacon Street, Suite 300, Brookline, MA, 02446</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">Preply social</div>
+                                <div class="ft_cnt_box2">
+                                    <ul>
+                                        <li><a href="#"><span><svg class="icon_sm" xmlns="http://www.w3.org/2000/svg"
+                                                        width="10" height="10" viewBox="0 0 14 14">
+                                                        <path fill="#e0e2e3"
+                                                            d="M14 13.23a.77.77 0 0 1-.77.77H9.66V8.58h1.82l.27-2.11H9.66V5.12a.88.88 0 0 1 1-1h1.12V2.2a14.92 14.92 0 0 0-1.63-.08 2.55 2.55 0 0 0-2.67 2.79v1.56H5.65v2.11h1.83V14H.77a.77.77 0 0 1-.77-.77V.77A.77.77 0 0 1 .77 0h12.46a.77.77 0 0 1 .77.77v12.46">
+                                                        </path>
+                                                    </svg>Facebook</span> </a></li>
+                                        <li><a href="#"><span><svg class="icon_sm" xmlns="http://www.w3.org/2000/svg"
+                                                        width="10" height="10" viewBox="0 0 512 512">
+                                                        <path fill="#e0e2e3"
+                                                            d="M376 91H136c-24.813 0-45 20.188-45 45v240c0 24.813 20.188 45 45 45h240c24.813 0 45-20.188 45-45V136c0-24.813-20.188-45-45-45zM256 361c-57.89 0-105-47.11-105-105s47.11-105 105-105 105 47.11 105 105-47.11 105-105 105zm105-180c-16.54 0-30-13.46-30-30s13.46-30 30-30 30 13.46 30 30-13.46 30-30 30zm0 0">
+                                                        </path>
+                                                        <path fill="#e0e2e3"
+                                                            d="M256 181c-41.352 0-75 33.648-75 75s33.648 75 75 75 75-33.648 75-75-33.648-75-75-75zm0 0">
+                                                        </path>
+                                                        <path fill="#e0e2e3"
+                                                            d="M436 0H76C34.648 0 0 34.648 0 76v360c0 41.352 34.648 76 76 76h360c41.352 0 76-34.648 76-76V76c0-41.352-34.648-76-76-76zm15 376c0 41.352-33.648 75-75 75H136c-41.352 0-75-33.648-75-75V136c0-41.352 33.648-75 75-75h240c41.352 0 75 33.648 75 75zm0 0">
+                                                        </path>
+                                                    </svg>Instagram</span></a></li>
+                                        <li><a href="#"><span><svg class="icon_sm" xmlns="http://www.w3.org/2000/svg"
+                                                        width="10" height="10">
+                                                        <rect width="14" height="14" fill="#E0E2E3" fill-rule="evenodd"
+                                                            rx="1.167"></rect>
+                                                        <path fill="#384047" fill-rule="evenodd"
+                                                            d="M9.55 6.423c.493.319.485.84 0 1.153l-3.407 2.2c-.493.32-.893.073-.893-.53V4.754c0-.612.407-.845.893-.532L9.55 6.423z">
+                                                        </path>
+                                                    </svg>Youtube</span></a></li>
+                                        <li><a href="#"><span><svg class="icon_sm" xmlns="http://www.w3.org/2000/svg"
+                                                        width="10" height="10" xml:space="preserve" id="Layer_1" x="0"
+                                                        y="0" version="1.1" viewBox="0 0 14 14">
+                                                        <path
+                                                            id="QuogsA_00000008131793520576361780000009310305174241304252_"
+                                                            fill="#FFF"
+                                                            d="M0 12.8V1.1C0 .6.5.1 1 0H12.8c.2 0 .4.1.6.2.4.4.6.7.6 1.2v11.4c0 .5-.5 1-1 1.1H1.2c-.5 0-1-.5-1.1-1-.1 0-.1-.1-.1-.1zM7.7 6v-.5c0-.3-.1-.4-.4-.4H5.8c-.3 0-.4.1-.4.4V12c0 .3.2.4.4.4h1.5c.3 0 .4-.1.4-.4V8.7c0-.4.1-.7.2-1 .3-.5.7-.7 1.2-.7s.8.3 1 .8c.1.3.1.6.1.9v3.2c0 .3.1.4.4.4h1.5c.3 0 .4-.1.4-.4V8.4c0-.6 0-1.1-.2-1.6-.2-.7-.5-1.3-1.2-1.6-.8-.4-1.6-.3-2.5-.1-.3.3-.6.5-.9.9zM2 8.8V12c0 .3.1.5.5.5h1.4c.4 0 .5-.1.5-.5V5.6c0-.3-.2-.5-.5-.5H2.5c-.3 0-.5.2-.5.5v3.2zM4.7 3c0-.8-.7-1.5-1.5-1.5S1.7 2.2 1.7 3c0 .9.7 1.5 1.5 1.5.8.1 1.5-.6 1.5-1.5z"
+                                                            class="st0"></path>
+                                                    </svg>LinkedIn</span></a></li>
+                                        <li><a href="#"><span><svg class="icon_sm" xmlns="http://www.w3.org/2000/svg"
+                                                        width="10" height="10" xml:space="preserve" id="Layer_1" x="0"
+                                                        y="0" version="1.1" viewBox="0 0 14 14">
+                                                        <path
+                                                            id="FnGtaT_00000011745585645229053930000002954502926691124096_"
+                                                            fill="#FFF"
+                                                            d="M14 7c0 3.9-3.1 7-7 7s-7-3.1-7-7 3.1-7 7-7 7 3.1 7 7zm-3.2-2.4h-.1c-.5-.1-1-.3-1.3-.7-.3-.2-.6-.6-.7-.9 0 0 0-.1-.1-.1H7.2v5.5c0 .7-.6 1.3-1.4 1.3-.7 0-1.2-.6-1.2-1.3 0-.7.5-1.2 1.2-1.3h.6V5.7h-.9C4 5.9 3 7.3 3.2 8.8c.2 1 .7 1.8 1.7 2.1 1 .4 1.9.2 2.7-.4.7-.5 1-1.3 1-2.1V5.2c.6.4 1.2.7 1.9.8.1-.5.2-.9.3-1.4z"
+                                                            class="st0"></path>
+                                                    </svg>TikTok</span></a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">APPS</div>
+                                <div class="ft_cnt_box2">
+                                    <ul>
+
+                                        <li><a href="#"><img src={% static 'images/icon1.svg' %} class="logoappstore" />
+                                            </a>
+                                        </li>
+                                        <li><a href="#"><img src={% static 'images/icon2.png' %} class="logoappstore" />
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="colorback2">
+                        <div class="ft_cnt">
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">LEARN</div>
+                                <div class="ft_cnt_box2">
+                                    <ul>
+
+                                        <li id="left1"><a href="#"><span> Learn English online</span> </a></li>
+                                        <li id="left1"><a href="#"><span>Learn Spanish online</span></a></li>
+                                        <li id="left1"><a href="#"><span>Learn French online</span></a></li>
+                                        <li id="left1"><a href="#"><span>Learn another language</span></a></li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">ONLINE LANGUAGE CLASSES & COURSES</div>
+                                <div class="ft_cnt_box2">
+                                    <ul>
+
+
+                                        <li><a href="#"><span> Online English classes</span> </a></li>
+                                        <li><a href="#"><span>Business English courses</span></a></li>
+                                        <li><a href="#"><span>Online Spanish classes</span></a></li>
+                                        <li><a href="#"><span>Online French classes</span></a></li>
+                                        <li><a href="#"><span>Online German classes</span></a></li>
+                                        <li><a href="#"><span>Online Chinese classes</span></a></li>
+                                        <li><a href="#"><span>Online Japanese classes</span></a></li>
+                                        <li><a href="#"><span>Online Turkish classes</span></a></li>
+                                        <li><a href="#"><span>Online Portuguese classes</span></a></li>
+                                        <li><a href="#"><span>Online Polish classes</span></a></li>
+                                        <li><a href="#"><span>Online Arabic classes</span></a></li>
+                                        <li><a href="#"><span>Online Russian classes</span></a></li>
+                                        <li><a href="#"><span>Online Italian classes</span></a></li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">1-ON-1 TUTORS</div>
+                                <div class="ft_cnt_box2">
+                                    <ul>
+                                        <li id="left"><a href="#"><span> English Tutors</span> </a></li>
+                                        <li id="left"><a href="#"><span>Spanish Tutors</span></a></li>
+                                        <li id="left"><a href="#"><span>French Tutors</span></a></li>
+                                        <li id="left"><a href="#"><span>German Tutors</span></a></li>
+                                        <li id="left"><a href="#"><span>Arabic Tutors</span></a></li>
+                                        <li id="left"><a href="#"><span>Math Tutors</span></a></li>
+                                        <li id="left"><a href="#"><span>Japanese tutors</span></a></li>
+                                        <li id="left"><a href="#"><span>Chinese tutors</span></a></li>
+                                        <li id="left"><a href="#"><span>Portuguese tutors</span></a></li>
+
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">TUTORS NEAR YOU</div>
+                                <div class="ft_cnt_box2">
+                                    <ul>
+
+                                        <li id="left"><a href="#"><span> Tutors in NYC</span> </a></li>
+                                        <li id="left"><a href="#"><span>Tutors in Los Angeles</span></a></li>
+                                        <li id="left"><a href="#"><span>Tutors in Toronto</span></a></li>
+                                        <li id="left"><a href="#"><span>Tutors in London</span></a></li>
+                                        <li id="left"><a href="#"><span>Tutors in Sydney</span></a></li>
+                                        <li id="left"><a href="#"><span>Tutors abroad</span></a></li>
+                                        <li id="left"><a href="#"><span>Tutors by city</span></a></li>
+
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ft_cnt">
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1"><i class="fa-regular fa-copyright" style="color: #ffffff;"></i>
+                                    2012-2023 Preply Inc.
+                                </div>
+                            </div>
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">
+                                    <ul>
+                                        <li class="left"><a href="#"><span>Legal Center</span></a></li>
+                                        <li class="left">-</li>
+                                        <li class="left"><a href="#"><span>Privacy Policy</span></a></li>
+                                        <li class="left">-</li>
+                                        <li class="left"><a href="#"><span>Cookie Policy</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">
+
+                                </div>
+                            </div>
+                            <div class="ft_cnt_in">
+                                <div class="ft_cnt_box1">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </footer>
+            <script>
+                const toggle = document.querySelector(".toggle_btn");
+                const togglei = document.querySelector(".toggle_btn i");
+                const dropdown = document.querySelector(".dropdown-menu1");
+                const dropdown2 = document.querySelector(".dropdown-menu2");
+                toggle.onclick = function () {
+                    dropdown.classList.toggle("open");
+                    dropdown2.classList.toggle("open");
+                    toggle.classList.toggle("open");
+                    const isopen = dropdown.classList.contains("open");
+                    const isopen2 = dropdown2.classList.contains("open");
+                    togglei.classList = isopen2 ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+                    togglei.classList = isopen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+
+                };
+
+                const cntgrid33 = document.querySelector(".cntgrid3");
+                const showmore = document.querySelector(".showmore");
+                const newicn = document.querySelector("#newicn");
+                const showing = document.querySelector(".showing");
+
+                showmore.onclick = function () {
+
+                    if (cntgrid33.style.display == "grid") {
+                        cntgrid33.style.display = "none";
+                        newicn.classList = "fa fa-circle-chevron-down"
+                        showing.textContent = "Show more";
+                    } else {
+                        cntgrid33.style.display = "grid";
+                        newicn.classList = "fa fa-circle-chevron-up"
+                        showing.textContent = "Show less";
+                    }
+                }
+            </script>
+        </div>
+        {% endif %}
+
+
+    </form>
+</body>
+
+</html>

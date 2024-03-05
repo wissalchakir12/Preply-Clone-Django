@@ -1,0 +1,889 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href={% static 'css/style.css' %} />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>Online English tutors &amp; teachers for private English lessons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @font-face {
+            font-family: 'PreplyInterV';
+            font-weight: 400 700;
+            font-display: swap;
+            font-style: oblique 0deg 10deg;
+            src: url('https://static.preply.com/ds/fonts/en/PreplyInter.var.woff2') format('woff2');
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: 'PreplyInterV';
+            font-weight: 400 700;
+            font-display: swap;
+            font-style: oblique 0deg 10deg;
+            src: url('https://static.preply.com/ds/fonts/cyr/PreplyInter.var.woff2') format('woff2');
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454, U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: 'PreplyInterV';
+            font-weight: 400 700;
+            font-display: swap;
+            font-style: oblique 0deg 10deg;
+            src: url('https://static.preply.com/ds/fonts/lat/PreplyInter.var.woff2') format('woff2');
+            unicode-range: U+A1, U+BF-C4, U+C6-CF, U+D1-D6, U+D9-DC, U+DF-E4, U+E6-EF, U+F1-F6, U+F9-FC,
+                U+FF, U+102-107, U+118, U+119, U+11E, U+11F, U+130, U+131, U+141-144, U+152, U+153, U+15A,
+                U+15B, U+15E, U+15F, U+178-17C, U+218-21B, U+1E9E, U+E02E;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/en/PreplyInter.regular.woff2') format('woff2');
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/en/PreplyInter.medium.woff2') format('woff2');
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/en/PreplyInter.bold.woff2') format('woff2');
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: oblique 10deg;
+            font-weight: 400;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/en/PreplyInter.italic.woff2') format('woff2');
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: oblique 10deg;
+            font-weight: 500;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/en/PreplyInter.medium.italic.woff2') format('woff2');
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: oblique 10deg;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/en/PreplyInter.bold.italic.woff2') format('woff2');
+            unicode-range: U+0020-007F, U+AB, U+BB;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/cyr/PreplyInter.regular.woff2') format('woff2');
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454, U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/cyr/PreplyInter.medium.woff2') format('woff2');
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454, U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/cyr/PreplyInter.bold.woff2') format('woff2');
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454, U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: oblique 10deg;
+            font-weight: 400;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/cyr/PreplyInter.italic.woff2') format('woff2');
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454, U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: oblique 10deg;
+            font-weight: 500;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/cyr/PreplyInter.medium.italic.woff2') format('woff2');
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454, U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: oblique 10deg;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/cyr/PreplyInter.bold.italic.woff2') format('woff2');
+            unicode-range: U+401, U+404, U+406, U+407, U+410-44F, U+451, U+454, U+456, U+457, U+490, U+491;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/lat/PreplyInter.regular.woff2') format('woff2');
+            unicode-range: U+A1, U+BF-C4, U+C6-CF, U+D1-D6, U+D9-DC, U+DF-E4, U+E6-EF, U+F1-F6, U+F9-FC,
+                U+FF, U+102-107, U+118, U+119, U+11E, U+11F, U+130, U+131, U+141-144, U+152, U+153, U+15A,
+                U+15B, U+15E, U+15F, U+178-17C, U+218-21B, U+1E9E, U+E02E;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: normal;
+            font-weight: 500;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/lat/PreplyInter.medium.woff2') format('woff2');
+            unicode-range: U+A1, U+BF-C4, U+C6-CF, U+D1-D6, U+D9-DC, U+DF-E4, U+E6-EF, U+F1-F6, U+F9-FC,
+                U+FF, U+102-107, U+118, U+119, U+11E, U+11F, U+130, U+131, U+141-144, U+152, U+153, U+15A,
+                U+15B, U+15E, U+15F, U+178-17C, U+218-21B, U+1E9E, U+E02E;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/lat/PreplyInter.bold.woff2') format('woff2');
+            unicode-range: U+A1, U+BF-C4, U+C6-CF, U+D1-D6, U+D9-DC, U+DF-E4, U+E6-EF, U+F1-F6, U+F9-FC,
+                U+FF, U+102-107, U+118, U+119, U+11E, U+11F, U+130, U+131, U+141-144, U+152, U+153, U+15A,
+                U+15B, U+15E, U+15F, U+178-17C, U+218-21B, U+1E9E, U+E02E;
+        }
+
+        @font-face {
+            font-family: 'PreplyInter';
+            font-style: oblique 10deg;
+            font-weight: 400;
+            font-display: swap;
+            src: url('https://static.preply.com/ds/fonts/lat/PreplyInter.italic.woff2') format('woff2');
+            unicode-range: U+A1, U+BF-C4, U+C6-CF, U+D1-D6, U+D9-DC, U+DF-E4, U+E6-EF, U+F1-F6, U+F9-FC,
+                U+FF, U+102-107, U+118, U+119, U+11E, U+11F, U+130, U+131, U+141-144, U+152, U+153, U+15A,
+                U+15B, U+15E, U+15F, U+178-17C, U+218-21B, U+1E9E, U+E02E;
+        }
+
+
+
+        body {
+            /* CSS Variables that may have been missed get put on body */
+            --1ba55a: 8px;
+            --477fda: 16px;
+            --743802: 24px;
+            --39ce90: 32px;
+            --28cff1: 48px;
+            --da403c: #8194a7;
+            --c9575b: #192435;
+            --8d63e4: 14px;
+            --d4313c: 1.42857143;
+            --2152b7: 32px;
+            --69b27c: 14px;
+            --a9bc9f: 700;
+            --42f895: 20px;
+            --c2692c: 0.0025em;
+            --070316: normal;
+            --676438: normal;
+            --73984e: 400;
+            --75dce9: 16px;
+            --aface6: #090f19;
+        }
+
+        * {
+            font-family: 'PreplyInterV', 'PreplyInter', 'PreplyInter-Fallback', sans-serif;
+            box-sizing: border-box;
+        }
+
+        section {
+            display: block;
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .styles_PreSearchStartHeaderContent__VIbzp {
+            display: flex;
+            flex: 1 1 auto;
+            flex-direction: column;
+            justify-content: flex-start;
+            margin: 0 auto;
+            position: relative;
+            width: 100%;
+        }
+
+        @media (min-width: 880px) {
+            .styles_PreSearchStartHeaderContent__VIbzp {
+                justify-content: center;
+                padding: 0 calc(40% + var(--28cff1)) 0 var(--743802);
+            }
+
+            .styles_WithTrust__y_fGa .styles_PreSearchStartHeaderContent__VIbzp {
+                min-height: calc(100vh - 370px);
+            }
+        }
+
+        div {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .styles_PreSearchStartHeader__8ApT8 {
+            align-items: stretch;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 1280px;
+        }
+
+        @media (min-width: 880px) {
+            .styles_PreSearchStartHeader__8ApT8 {
+                min-height: calc(100vh - 70px);
+            }
+        }
+
+        .styles_PageWrap__lIYEc {
+            background: #f3f3f3;
+            line-height: 1.42857143;
+            width: 100%;
+            z-index: 1;
+        }
+
+        body {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .f5F8lI {
+            --1ba55a: 8px;
+            --477fda: 16px;
+            --743802: 24px;
+            --39ce90: 32px;
+            --28cff1: 48px;
+            --da403c: #8194a7;
+            --c9575b: #192435;
+            --8d63e4: 14px;
+            --d4313c: 1.42857143;
+            --2152b7: 32px;
+            --69b27c: 14px;
+            --a9bc9f: 700;
+            --42f895: 20px;
+            --c2692c: 0.0025em;
+            --070316: normal;
+            --676438: normal;
+            --73984e: 400;
+            --75dce9: 16px;
+        }
+
+        .f5F8lI.ds-scheme--base {
+            --aface6: #090f19;
+            color: #090f19;
+        }
+
+        html {
+            box-sizing: border-box;
+            border: 0;
+            margin: 0;
+            padding: 0;
+            color: #384047;
+            font-size: 14px;
+        }
+
+        .sty-j8j {
+            border-bottom: 1px solid var(--da403c);
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 55px;
+            margin-left: 100px;
+
+        }
+
+        @media (min-width: 880px) {
+            .sty-j8j {
+                border-bottom: none;
+                gap: 24px;
+                justify-content: start;
+                margin-bottom: var(--39ce90);
+                width: auto;
+            }
+        }
+
+        :before,
+        :after {
+            box-sizing: border-box;
+        }
+
+        .sty-mjr {
+            align-items: flex-end;
+            display: flex;
+            flex: 0 0 50%;
+            justify-content: center;
+            padding: var(--1ba55a);
+        }
+
+        @media (min-width: 880px) {
+            .sty-mjr {
+                align-items: center;
+                border-radius: var(--75dce9);
+                flex: 0 1 auto;
+                gap: var(--477fda);
+                padding: 0;
+            }
+        }
+
+        .sty-nda {
+            position: relative;
+        }
+
+        @media (min-width: 880px) {
+            .sty-nda {
+                border-bottom: none;
+                padding: var(--1ba55a) var(--477fda);
+            }
+        }
+
+        .sty-nda:before {
+            border-bottom: 2px solid var(--c9575b);
+            bottom: -1px;
+            content: "";
+            left: 0;
+            position: absolute;
+            right: 0;
+        }
+
+        @media (min-width: 880px) {
+            .sty-nda:before {
+                border: 2px solid var(--c9575b);
+                border-radius: var(--75dce9);
+                top: 0;
+            }
+        }
+
+        ._1k-bw3 {
+            display: none;
+        }
+
+        @media (min-width: 880px) {
+            ._3p-vof {
+                display: initial;
+            }
+        }
+
+        ._2S-tqt {
+            border: none;
+            border-spacing: 0;
+            font-weight: inherit;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: inherit;
+        }
+
+        ._3WN-cld {
+            -webkit-box-flex: 0;
+            -ms-flex: none;
+            flex: none;
+        }
+
+        p {
+            border: 0;
+            vertical-align: baseline;
+            margin: 0;
+            padding: 0;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        .khP-pop {
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            font-size: var(--8d63e4);
+            font-weight: var(--73984e);
+            line-height: var(--d4313c);
+            margin: 0;
+        }
+
+        ._2p-3x7 {
+            font-size: var(--69b27c);
+            font-style: var(--070316);
+            font-variation-settings: var(--676438);
+            font-weight: var(--a9bc9f);
+            letter-spacing: var(--c2692c);
+            line-height: var(--42f895);
+        }
+
+        ._2J-lyj {
+            color: var(--aface6);
+        }
+
+        a {
+            border: 0;
+            vertical-align: baseline;
+            margin: 0;
+            padding: 0;
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        .sty-ygw {
+            align-items: center;
+            color: var(--c9575b);
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+
+        @media (min-width: 880px) {
+            .sty-ygw {
+                align-items: center;
+                border-radius: var(--75dce9);
+                display: flex;
+                flex-direction: row;
+                gap: var(--477fda);
+                padding: var(--1ba55a) var(--477fda);
+            }
+
+            .sty-ygw:hover {
+                background-color: #fff;
+            }
+        }
+
+        span {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nKo-5o8 {
+            display: inline-block;
+            vertical-align: text-top;
+        }
+
+        ._18-8gx {
+            height: var(--2152b7);
+            max-width: var(--2152b7);
+            min-width: var(--2152b7);
+            width: var(--2152b7);
+        }
+
+        .nKo-5o8 svg {
+            fill: currentColor;
+            display: block;
+            max-height: 100%;
+            max-width: 100%;
+            min-width: 100%;
+            width: 100%;
+        }
+
+
+
+
+
+        img {
+            border: 0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sty-e6d {
+
+            max-width: 45%;
+            max-height: 45%;
+        }
+
+        :before,
+        :after {
+            box-sizing: border-box;
+        }
+
+        .styles_SeoHeadingWrapper__Woukq {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            gap: var(--6947b0);
+            width: 100%;
+        }
+
+        .cntft0 {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cnTFT {
+            display: flex;
+            flex-direction: row;
+            gap: 0;
+            width: 87%;
+            align-items: self-start;
+            justify-content: center;
+        }
+
+        .cntFTbox1 {
+            flex: 4.5;
+            width: 80%;
+            height: 400px;
+            color: black;
+        }
+
+        .cntFTbox1 h1 {
+            font-family: 'PreplyInterV';
+            font-size: 34;
+        }
+
+        .incfb1 {
+            display: flex;
+            flex-direction: column;
+            transition: display 0.3s, flex-direction 0.3s;
+        }
+
+        .incfb1.open {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .read_more {
+            font-family: 'PreplyInterV';
+            font-size: 15px;
+            height: 20px;
+            overflow: hidden;
+            transition: height 0.3s, width 0s;
+            width: 80%;
+            color: #8194a7;
+            ;
+        }
+
+        .read_more.open {
+            height: auto;
+            width: 95%;
+        }
+
+        .readbtn {
+            color: #52667d;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Container1">
+        <section class="Navbar">
+            <div class="boxnavbar1">
+                <a href="#">
+                    <div class="Logo">
+                        <img src={% static 'images/logo.png.png' %} class="im" \>
+                    </div>
+                </a>
+                <div class="payp">
+                    <div class="inpayp"></div>
+
+                </div>
+                <div class="boxnavbar2">
+                    <a href="#" class="aa">
+                        <span class="ss">
+                            <div class="dd">
+                                <p class="pp">Find tutors</p>
+                            </div>
+                        </span>
+                    </a>
+                    <a href="#" class="aa">
+                        <span class="ss">
+                            <div class="dd">
+                                <p class="pp">Group Classes</p>
+                                <div class="new">
+                                    <svg class="styles_badgeNewIcon__Fjpc8" xmlns="http://www.w3.org/2000/svg" width="7"
+                                        height="16" fill="none" preserveAspectRatio="none" viewBox="0 0 7 16">
+                                        <path fill="#CD4A86"
+                                            d="M1.205 1.598C1.989.81 3.124 0 7 0v16c-1.676 0-3.711-.074-4.843-1.5C-.157 11.585-.816 3.632 1.205 1.598Z">
+                                        </path>
+                                        <path fill="#CD4A86"
+                                            d="M1.205 1.598C1.989.81 3.124 0 7 0v16c-1.676 0-3.711-.074-4.843-1.5C-.157 11.585-.816 3.632 1.205 1.598Z">
+                                        </path>
+                                    </svg>
+                                    <span class="new2">New</span>
+                                    <svg class="styles_badgeNewIcon__Fjpc8" xmlns="http://www.w3.org/2000/svg" width="7"
+                                        height="16" fill="none" preserveAspectRatio="none" viewBox="0 0 7 16">
+                                        <path fill="#CD4A86"
+                                            d="M5.795 14.402C5.011 15.19 3.876 16 0 16V0c1.676 0 3.711.074 4.843 1.5 2.314 2.915 2.973 10.868.952 12.902Z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </span>
+                    </a>
+                    <a href="#" class="aa">
+                        <span class="ss">
+                            <div class="dd">
+                                <p class="pp">Corporate training</p>
+                            </div>
+                        </span>
+                    </a>
+                    <a href="#" class="aa">
+                        <span class="ss">
+                            <div class="dd">
+                                <p class="pp">Become a tutor</p>
+                            </div>
+                        </span>
+                    </a>
+
+
+                </div>
+            </div>
+            <div class="boxnavbar3">
+                <div class="Referafriend">
+                    <a class="Referafrienda" href="#">
+                        <span class="Referafriendspan">Refer a friend</span>
+                    </a>
+                </div>
+                <div data-qa-id="lang-currency-dropdown" class="styles_HeaderDropdownWrapper__uIOg5">
+                    <button class="styles_DropdownButton__w9edY"
+                        aria-label="Select language and currency">English<!-- -->,<!-- --> <!-- -->USD<span
+                            class="nKoHrt _2YELqy" aria-hidden="true">
+                            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24">
+                                <path fill="#192435" fill-rule="evenodd"
+                                    d="M17.976 9.22a1.25 1.25 0 0 0-1.757-.196L12 12.399 7.78 9.024a1.25 1.25 0 1 0-1.56 1.952l5 4a1.25 1.25 0 0 0 1.56 0l5-4a1.25 1.25 0 0 0 .196-1.757Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="styles_overlay__aTxTh"></div>
+                    <div class="styles_DropdownWrapper__zJ5Kq">
+                        <div class="_28AVC_ _2QG_l9 _18Ax2l I4gO77 kjiJEp rdvNhX">
+                            <div class="_15uGWh X4eHUe TeMu3z BDosR9 _2x1aeM _1WH1_Q _2JlASK GWHMDM">
+                                <div class="_15uGWh X4eHUe TeMu3z _2WBp0z _2x1aeM _1WH1_Q _2JlASK GWHMDM">
+                                    <p class="khPkeq _2cZbUW _1kfchs">Language</p>
+                                    <div class="styles_SelectWrapper__3CHVK"><select name="language"
+                                            class="styles_Select__om9ng">
+                                            <option value="ru">Русский</option>
+                                            <option selected="" value="en">English</option>
+                                            <option value="pl">Polski</option>
+                                            <option value="de">Deutsch</option>
+                                            <option value="ua">Українська</option>
+                                            <option value="pt">Português</option>
+                                            <option value="tr">Türkçe</option>
+                                            <option value="id">Bahasa Indonesia</option>
+                                            <option value="fr">Français</option>
+                                            <option value="it">Italiano</option>
+                                            <option value="es">Español</option>
+                                            <option value="zh">中文</option>
+                                            <option value="ja">日本語</option>
+                                            <option value="ko">한국어</option>
+                                            <option value="ar">العربية</option>
+                                            <option value="nl">Nederlands</option>
+                                            <option value="ro">Română</option>
+                                        </select><span class="styles_ExpandArrowWrapper__UsGoB"><span
+                                                class="nKoHrt _2YELqy" aria-hidden="true"><svg aria-hidden="true"
+                                                    focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#192435" fill-rule="evenodd"
+                                                        d="M17.976 9.22a1.25 1.25 0 0 0-1.757-.196L12 12.399 7.78 9.024a1.25 1.25 0 1 0-1.56 1.952l5 4a1.25 1.25 0 0 0 1.56 0l5-4a1.25 1.25 0 0 0 .196-1.757Z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></span></span></div>
+                                </div>
+                                <div class="_15uGWh X4eHUe TeMu3z _2WBp0z _2x1aeM _1WH1_Q _2JlASK GWHMDM">
+                                    <p class="khPkeq _2cZbUW _1kfchs">Currency</p>
+                                    <div class="styles_SelectWrapper__3CHVK"><select name="currency"
+                                            class="styles_Select__om9ng">
+                                            <option value="BRL">BRL</option>
+                                            <option value="GBP">GBP</option>
+                                            <option value="EUR">EUR</option>
+                                            <option value="PLN">PLN</option>
+                                            <option value="UAH">UAH</option>
+                                            <option selected="" value="USD">USD</option>
+                                        </select><span class="styles_ExpandArrowWrapper__UsGoB"><span
+                                                class="nKoHrt _2YELqy" aria-hidden="true"><svg aria-hidden="true"
+                                                    focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                                    viewBox="0 0 24 24">
+                                                    <path fill="#192435" fill-rule="evenodd"
+                                                        d="M17.976 9.22a1.25 1.25 0 0 0-1.757-.196L12 12.399 7.78 9.024a1.25 1.25 0 1 0-1.56 1.952l5 4a1.25 1.25 0 0 0 1.56 0l5-4a1.25 1.25 0 0 0 .196-1.757Z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg></span></span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="styles_VerticalDivider__QoXCN "></div>
+                <a href="#" class="questionmark">
+                    <span class="nKoHrt _2YELqy _3uaBxy " aria-hidden="true"><i class="far fa-question-circle"
+                            id="ic1"></i>
+                    </span>
+                </a>
+                <a href="#" class="log_btn">
+                    <div class="log">
+                        <i class="fa fa-arrow-right-to-bracket" id="ic"></i>
+                        <p>Log In</p>
+                    </div>
+                </a>
+            </div>
+
+
+
+        </section>
+        <div class="dropdown-menu1">
+            <ul>
+                <li><a href="#" class=""> Home</a></li>
+                <li><a href="#" class=""> Message</a></li>
+                <li><a href="#" class=""> Help</a></li>
+                <li><a href="#" class=""> Log In</a></li>
+            </ul>
+        </div>
+        <div class="dropdown-menu2">
+            <ul>
+                <li><a href="#" class=""> Home</a></li>
+                <li><a href="#" class=""> Find tutors</a></li>
+                <li><a href="#" class=""> Group classes</a></li>
+                <li><a href="#" class=""> Corporate training</a></li>
+                <li><a href="#" class=""> Become a tutor</a></li>
+                <li><a href="#" class=""> Message</a></li>
+                <li><a href="#" class=""> Help</a></li>
+                <li><a href="#" class=""> Log In</a></li>
+            </ul>
+        </div>
+        <div class="toggle_btn"><i id="aa" class="fa-solid fa-bars"></i></div>
+    </div>
+
+    <div class="sty-j8j">
+        <div class="sty-mjr sty-nda">
+            <div class="_2S-tqt _3WN-cld _1k-bw3 _3p-vof">
+                <span class="nKo-5o8 _18-8gx">
+                    <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 32 32">
+                        <path fill="#27E0F6"
+                            d="M18.847 27.662c3.05-.976 7.74-5.157 8.25-10.734.353-3.875-1.933-7.98-4.182-9.355C16.253 3.5 5.819 6.32 3.485 11.419c-2.182 4.769.244 11.634 4.66 14.76 3.181 2.25 7.652 2.46 10.702 1.483Z">
+                        </path>
+                        <path fill="#090F19"
+                            d="M30.43 28.137c.407-.027 1.112-.4 1.338-1.078.156-.471-.009-1.053-.249-1.294-.71-.715-2.09-.69-2.528-.128-.41.525-.308 1.455.15 1.981.33.38.88.545 1.289.519Z">
+                        </path>
+                        <path fill="#090F19" fill-rule="evenodd"
+                            d="M23.778 6.944c0 4.533-2.415 6.457-4.305 6.457-1.89 0-4.306-1.924-4.306-6.457 0-2.738 2.055-4.72 4.306-4.72 2.25 0 4.305 1.982 4.305 4.72Zm2.224 0c0 5.209-2.924 8.681-6.53 8.681-3.605 0-6.529-3.472-6.529-8.68 0-3.836 2.924-6.945 6.53-6.945 3.605 0 6.529 3.11 6.529 6.944Zm-5.962 13.02c3.2-.032 5.172.557 6.37 1.158 1.052.528 1.558 1.084 1.855 1.411.038.042.072.08.104.113a1.112 1.112 0 1 0 1.617-1.527l-.09-.098c-.32-.353-1.061-1.17-2.489-1.886-1.569-.788-3.9-1.429-7.384-1.394-4.545 0-7.413 1.037-9.155 2.562-1.762 1.542-2.212 3.442-2.212 4.8v1.562a1.112 1.112 0 1 0 2.224 0v-1.562c0-.878.283-2.103 1.453-3.127 1.188-1.04 3.449-2.011 7.695-2.011h.012Z"
+                            clip-rule="evenodd">
+                        </path>
+                    </svg>
+                </span>
+            </div>
+            <p class="khP-pop _2p-3x7 _2J-lyj">
+                Private lessons
+            </p>
+        </div>
+        <div class="sty-mjr">
+            <a class="sty-ygw" href="#" style="margin-left: 40px;">
+                <div class="_2S-tqt _3WN-cld _1k-bw3 _3p-vof">
+                    <span class="nKo-5o8 _18-8gx">
+                        <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 33 32">
+                            <path fill="#FDC75F"
+                                d="M17.75 27.774c2.873-.951 7.292-5.024 7.771-10.457.334-3.775-1.819-7.773-3.937-9.113-6.275-3.966-16.103-1.217-18.302 3.75-2.056 4.644.229 11.332 4.388 14.375 2.996 2.193 7.208 2.396 10.08 1.445Z">
+                            </path>
+                            <path fill="#090F19"
+                                d="M27.753 25.374c.384-.026 1.048-.39 1.26-1.05.147-.458-.008-1.025-.234-1.26-.669-.696-1.968-.672-2.381-.125-.386.511-.29 1.417.142 1.93.311.37.83.53 1.213.505Z">
+                            </path>
+                            <path fill="#090F19" fill-rule="evenodd"
+                                d="M17.71 11.455c1.358 0 3.386-1.485 3.386-5.436 0-2.363-1.698-3.932-3.386-3.932-1.687 0-3.386 1.57-3.386 3.932 0 3.95 2.029 5.436 3.386 5.436Zm0 2.087c3.023 0 5.473-3.01 5.473-7.523C23.183 2.695 20.733 0 17.71 0c-3.022 0-5.473 2.695-5.473 6.019 0 4.514 2.45 7.523 5.473 7.523ZM9.864 3.668c-1.378 0-2.632 1.255-2.632 2.98 0 2.654 1.392 3.944 2.632 3.944a.87.87 0 1 1 0 1.74c-2.628 0-4.371-2.56-4.371-5.683 0-2.527 1.88-4.72 4.37-4.72a.87.87 0 0 1 0 1.739Zm15.269 0c1.377 0 2.631 1.255 2.631 2.98 0 2.654-1.391 3.944-2.631 3.944a.87.87 0 1 0 0 1.74c2.627 0 4.37-2.56 4.37-5.683 0-2.527-1.88-4.72-4.37-4.72a.87.87 0 1 0 0 1.739Zm5.081 13.03c.735.664.916 1.462.916 2.042v1.059h1.738V18.74c0-.936-.3-2.257-1.488-3.332-1.177-1.066-3.102-1.775-6.11-1.775a.87.87 0 1 0 0 1.74c2.76 0 4.199.651 4.943 1.325ZM32 20.668a.87.87 0 0 0 .87-.869h-1.74c0 .48.39.87.87.87Zm-27.216-3.97a2.709 2.709 0 0 0-.915 2.042v1.059h-1.74V18.74c0-.936.3-2.257 1.488-3.332 1.178-1.066 3.102-1.775 6.11-1.775a.87.87 0 1 1 0 1.74c-2.76 0-4.199.651-4.943 1.325Zm-1.785 3.97a.87.87 0 0 1-.87-.869h1.74c0 .48-.39.87-.87.87Zm21.025-1.813c-1.126-.584-2.98-1.157-5.99-1.125h-.01c-3.994 0-6.119.943-7.24 1.958a4.097 4.097 0 0 0-1.382 3.086v1.522a1.044 1.044 0 1 1-2.087 0v-1.522c0-1.302.416-3.138 2.07-4.634 1.64-1.484 4.345-2.496 8.633-2.497 3.286-.034 5.487.592 6.968 1.36 1.345.698 2.042 1.493 2.342 1.835.033.038.06.07.085.095a1.044 1.044 0 0 1-1.541 1.408c-.03-.032-.063-.07-.098-.11a5.54 5.54 0 0 0-1.75-1.376Z"
+                                clip-rule="evenodd">
+                            </path>
+                        </svg>
+                    </span>
+                </div>
+                Group classes
+            </a>
+        </div>
+    </div>
+    <div class="cntft0">
+        <div class="cnTFT">
+            <div class="cntFTbox1">
+                <h1>Online English tutors & teachers for private lessons</h1>
+                <p id="read_more" class="read_more">
+                    Looking for an online English tutor? Preply is the leading
+                    online language learning platform worldwide. You can choose from
+                    16126 English teachers with an average rating of 4.9 out of 5
+                    stars given by 135013 customers. Book a lesson with a private
+                    English teacher today and start learning. Not entirely happy
+                    with your tutor? No worries, Preply offers free tutor
+                    replacement till you're 100% satisfied. Looking for a different
+                    way to learn a language? Explore online English classes.
+                </p>
+                <a href="#" class="readbtn"> + Read more</a>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+<script>
+    const toggle = document.querySelector(".toggle_btn");
+    const togglei = document.querySelector(".toggle_btn i");
+    const dropdown = document.querySelector(".dropdown-menu1");
+    const dropdown2 = document.querySelector(".dropdown-menu2");
+    toggle.onclick = function () {
+        dropdown.classList.toggle("open");
+        dropdown2.classList.toggle("open");
+        toggle.classList.toggle("open");
+        const isopen = dropdown.classList.contains("open");
+        const isopen2 = dropdown2.classList.contains("open");
+        togglei.classList = isopen2 ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+        togglei.classList = isopen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+    };
+    const readbtn = document.querySelector(".readbtn");
+    const pgr = document.querySelector(".read_more");
+    const incfb = document.querySelector(".incfb1");
+    readbtn.onclick = function () { 
+      pgr.classList.toggle("open");
+      incfb.classList.toggle("open");
+    };
+</script>
+
+</html>

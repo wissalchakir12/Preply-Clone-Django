@@ -1,0 +1,235 @@
+@font-face {
+    font-family: 'PreplyInterV';
+    font-weight: 400 700;
+    font-display: swap;
+    font-style: oblique 0deg 10deg;
+    src: url('https://static.preply.com/ds/fonts/en/PreplyInter.var.woff2') format('woff2');
+    unicode-range: U+0020-007F, U+AB, U+BB;
+}
+html,
+body {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-family: 'PreplyInterV';
+    background-color: #f3f3f3;
+}
+
+html {
+    color: #384047;
+    font-size: 14px;
+}
+*{
+    padding: 0%;
+    margin:0%;
+}
+
+.cnt_signup_stu{
+    width: 100%;
+    height: 105vh;
+    display: flex;
+    justify-content: center;
+    
+}
+.cnt_signup_stu_box{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+.text{
+    margin-top: 31px;
+    width: 100%;
+}
+.text h1{
+    font-size: 28px;
+    letter-spacing: 0.4px;
+}
+.text_p{
+    display: flex;
+    flex-direction: row;
+    margin-top: 18px;
+}
+.text_p p{
+    font-size: 15px;
+    letter-spacing: 0.4px;
+    font-weight: bold;
+}
+.text_p a{
+    font-size: 15px;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    color:#006987;
+    font-weight:500;
+    margin-left: 6px;
+}
+.google{
+    width: 100%;
+    height: 48px;
+    border-radius: 13px;
+    margin-top: 20px;
+    background-color: #4285f4;
+}
+.Apple{
+    width: 100%;
+    height: 48px;
+    border-radius: 13px;
+    margin-top: 20px;
+    background-color: black;
+}
+.Apple:hover{
+    
+    background-color: rgb(31, 31, 31);
+    
+}
+.google:hover{
+    
+    background-color: #5592f5;
+}
+.google_lien{
+    text-decoration: none;
+    color: white;
+}
+.google_lien_stl{
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.google_lien_stl .i{
+    flex:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.google_lien_stl .p{
+    flex:9;
+    font-size: 16px;
+    position: relative;
+    left:77px;
+    font-weight: 500;
+}
+.facebook{
+    width: 100%;
+    height: 48px;
+    border-radius: 13px;
+    margin-top: 18px;
+    background-color: #3c5a9a;
+}
+.facebook:hover{
+    background-color: #486298;
+}
+.border_or{
+    margin-top: 26px;
+    border-top: 2.5px solid #d8dfe6;
+    height: 29px;
+}
+.border_or_center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    position: relative;
+    left: 46%;
+    border-radius: 50%;
+    background-color: #f3f3f3;
+    top: -20px;
+}
+.form{
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: black;
+}
+.form .input_si{
+    margin-top: 8.5px;
+    width: 100%;
+    height: 45px;
+    background-color: #f3f3f3;
+    border: #d8dfe6 solid 2.5px;
+    margin-bottom: 8.5px;
+    font-size: 16px;
+    padding-left: 15px;
+    border-radius: 5px;
+}
+.form .input_si:hover{
+    border: #0096b2 solid 2px;
+}
+
+.in_ch{
+    width: 23px;
+    height: 23px;
+    margin-top: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    color: #0096b2;
+    border-color: #0096b2;
+}
+.lbl_r{
+    position: relative;
+    left:10px;
+    top:-7px;
+    font-size: 16px;
+    color: #384047;
+}
+
+.sign_up{
+    width: 100%;
+    height: 48px;
+    border-radius: 13px;
+    margin-top: 20px;
+    background-color: #0096b2;
+}
+.sign_up:hover{
+    
+    background-color:#2d9eb2;
+}
+.sign_up_lien{
+    text-decoration: none;
+    color: white;
+}
+.sign_up_lien_stl{
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign_up_lien_stl .p{
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+.text2{
+    margin-top: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+}
+.text2 .p1{
+    color:#87898a;
+    font-size: 14px;
+}
+.p2_lien{
+    text-decoration: none;
+    cursor: pointer;
+    color:#0096b2 ;
+    font-size: 15px;
+}
+.p2 span{
+    margin-left: 3px;
+    margin-right: 3px;
+    color:#87898a;
+    font-size: 15px;
+}
+.span_or{
+    margin-left: 3px;
+    margin-right: 3px;
+    color:#87898a;
+    font-size: 15px;
+}
+.a_log{
+    color: #0096b2;
+}

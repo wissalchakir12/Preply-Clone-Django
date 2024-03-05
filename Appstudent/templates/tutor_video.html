@@ -1,0 +1,163 @@
+{% extends 'base.html' %} {% block content%}{% load static %}
+<style>
+    @font-face {
+        font-family: 'PreplyInterV';
+        font-weight: 400 700;
+        font-display: swap;
+        font-style: oblique 0deg 10deg;
+        src: url('https://static.preply.com/ds/fonts/en/PreplyInter.var.woff2') format('woff2');
+        unicode-range: U+0020-007F, U+AB, U+BB;
+    }
+
+    * {
+        font-family: 'PreplyInterV';
+    }
+
+    .container_vid {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .vid_des {
+        display: flex;
+        width: 95%;
+        padding: 30px;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .left_vid {
+        flex: 2;
+
+    }
+    .vid_cont{
+        display: flex;
+        height: 501;
+        width: 889;
+        margin-left: 20px;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: black;
+    }
+    .video_{
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+
+    .act_vid {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+    }
+
+    .title_ {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 30px;
+    }
+
+    .titles {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img__ img {
+        padding-left: 15px;
+        border-radius: 50%;
+        width: 200px;
+        height: 180px;
+    }
+
+    .act_vid_box1 {
+        flex: 1;
+    }
+
+    .act_vid_box2 {
+        flex: 1;
+        
+
+    }
+
+    .act_vid_box2 p {
+        font-size: 25px;
+    }
+
+    .tle_span {
+        font-size: 20px;
+    }
+
+    .subject {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .svg_sbj {
+        height: 23px;
+        width: 23px;
+        font-weight: bold;
+    }
+    .img_tut{
+        width: 100%;
+        margin-bottom: 30px;
+        border-radius: 130px;
+    }
+</style>
+<div class="container_vid">
+
+    <div class="vid_des">
+        <div class="left_vid">
+            <div class="title_">
+                <div class="img__">
+                    <img src="{% static 'images/'|add:tutor.9 %}">
+                </div>
+                <div class="titles">
+                    <h2>{{tutor.2}} {{tutor.3}} -
+                        {% for country in countries %}
+                        {% if country.0 == tutor.5 %}
+                        (<span class="tle_span">{{ country.1 }}</span>)
+                        {% endif %}
+                        {% endfor %}
+                    </h2>
+                    <h3>{% for subject in subjects %}
+                        {% if subject.0 == tutor.6 %}
+                        <div class="subject">
+                            <svg class="svg_sbj" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 16">
+                                <path fill="#52667D" fill-rule="evenodd"
+                                    d="M7.636 1.344a.75.75 0 0 1 .728 0l5.987 3.326a.75.75 0 0 1 .399.663v4a.75.75 0 0 1-1.5 0V6.608L8.364 9.322a.75.75 0 0 1-.728 0l-6-3.333a.75.75 0 0 1 0-1.311l6-3.334Zm-4.092 3.99L8 7.808l4.456-2.476L8 2.858 3.544 5.333ZM5.417 10a.75.75 0 0 0-1.5 0v.667a4.083 4.083 0 1 0 8.166 0V10a.75.75 0 0 0-1.5 0v.667a2.583 2.583 0 1 1-5.166 0V10Z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <span>{{ subject.1 }}</span>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </h3>
+                </div>
+
+            </div>
+            <div class="vid_cont">
+                <video class="video_"  controls>
+                    <source src="{% static 'videos/'|add:tutor.10 %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+        <div class="act_vid">
+            <div class="act_vid_box1">
+                <img class="img_tut" src="{% static 'images/male_tutor.webp' %}" alt="">
+            </div>
+            <div class="act_vid_box2">
+                {% for subject in subjects %}
+                {% if subject.0 == tutor.6 %}
+                <p>I'm {{tutor.2}}, your dedicated tutor at PREPLY. With expertise in {{subject.1}}, I'm here to help
+                    you excel. Let's embark on a successful learning journey together.</p>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}

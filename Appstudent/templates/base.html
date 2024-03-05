@@ -1,0 +1,441 @@
+{% load static %}
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <link rel="stylesheet" href={% static 'css/stylebase.css' %} />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <body>
+        {% if request.session.student_login %}
+        <div class="Container1">
+            <section class="Navbar">
+                <div class="Navbar_box">
+                    <div class="Navbar_box_logo">
+                        <a href="/">
+                            <img src={% static 'images/logo.png.png' %} class="logo" />
+                        </a>
+                    </div>
+                    <div class="Navbar_box_links">
+                        <div><a href="/findtutor" class="links1">Find tutors</a></div>
+                        <div><a href="" class="links1">Lessons</a></div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="Navbar_box1">
+                    <div class="referbtn">
+                        <a href="" class="referbtn_a">Refer a friend</a>
+                    </div>
+                    <div>
+
+                    </div>
+                    <div class="q_m">
+                        <a href="#" class="q_m_a">
+                            <i class="far fa-question-circle" id="ic1"></i>
+                        </a>
+                    </div>
+                    <di class="login">
+                        <a href="{% url 'logout_student' %}" class="login_a">
+                            <div class="login_a_i"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
+                            <div class="login_a_t">
+                                <p>Log out</p>
+                            </div>
+
+                        </a>
+                    </di>
+                </div>
+            </section>
+            <div class="dropdown-menu1">
+                <ul>
+                    <li><a href="#" class=""> Home</a></li>
+                    <li><a href="#" class=""> Message</a></li>
+                    <li><a href="#" class=""> Help</a></li>
+                    <li><a href="#" class=""> Log In</a></li>
+                </ul>
+            </div>
+            <div class="dropdown-menu2">
+                <ul>
+                    <li><a href="#" class=""> Home</a></li>
+                    <li><a href="#" class=""> Find tutors</a></li>
+                    <li><a href="#" class=""> Group classes</a></li>
+                    <li><a href="#" class=""> Corporate training</a></li>
+                    <li><a href="#" class=""> Become a tutor</a></li>
+                    <li><a href="#" class=""> Message</a></li>
+                    <li><a href="#" class=""> Help</a></li>
+                    <li><a href="#" class=""> Log In</a></li>
+                </ul>
+            </div>
+            <div class="toggle_btn"><i id="aa" class="fa-solid fa-bars"></i></div>
+        </div>
+        {% else %}
+            <div class="Container1">
+                <section class="Navbar">
+                    <div class="Navbar_box">
+                        <div class="Navbar_box_logo">
+                            <a href="/">
+                                <img src={% static 'images/logo.png.png' %} class="logo" />
+                            </a>
+                        </div>
+                        <div class="Navbar_box_links">
+                            <div><a href="/findtutor" class="links1">Find tutors</a></div>
+                            <div><a href="#" class="links1">Corporate training</a></div>
+                            <div><a href="/become_tutor" class="links1">Become a tutor</a></div>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="Navbar_box1">
+                        <div class="referbtn">
+                            <a href="" class="referbtn_a">Refer a friend</a>
+                        </div>
+                        <div>
+
+                        </div>
+                        <div class="q_m">
+                            <a href="#" class="q_m_a">
+                                <i class="far fa-question-circle" id="ic1"></i>
+                            </a>
+                        </div>
+                        <di class="login">
+                            <a href="/login" class="login_a">
+                                <div class="login_a_i"><i class="fa fa-arrow-right-to-bracket" id="ic"></i></div>
+                                <div class="login_a_t">
+                                    <p>Log in</p>
+                                </div>
+
+                            </a>
+                        </di>
+                    </div>
+                </section>
+                <div class="dropdown-menu1">
+                    <ul>
+                        <li><a href="#" class=""> Home</a></li>
+                        <li><a href="#" class=""> Message</a></li>
+                        <li><a href="#" class=""> Help</a></li>
+                        <li><a href="#" class=""> Log In</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown-menu2">
+                    <ul>
+                        <li><a href="#" class=""> Home</a></li>
+                        <li><a href="#" class=""> Find tutors</a></li>
+                        <li><a href="#" class=""> Group classes</a></li>
+                        <li><a href="#" class=""> Corporate training</a></li>
+                        <li><a href="#" class=""> Become a tutor</a></li>
+                        <li><a href="#" class=""> Message</a></li>
+                        <li><a href="#" class=""> Help</a></li>
+                        <li><a href="#" class=""> Log In</a></li>
+                    </ul>
+                </div>
+                <div class="toggle_btn"><i id="aa" class="fa-solid fa-bars"></i></div>
+            </div>
+        {% endif%}
+        {% block content %} {% endblock %}
+        <footer>
+            <div class="ft_cnt_gl">
+                <div class="colorback1">
+                    <div class="ft_cnt">
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">ABOUT US</div>
+                            <div class="ft_cnt_box2">
+                                <ul>
+                                    <li><a href="#"><span> Who we are</span> </a></li>
+                                    <li><a href="#"><span>how it works</span></a></li>
+                                    <li><a href="#"><span>preply reviews</span></a></li>
+                                    <li><a href="#"><span>work at preply</span></a></li>
+                                    <li><a href="#"><span>preply global</span></a></li>
+                                    <li><a href="#"><span>status</span></a></li>
+                                    <li><a href="#"><span>preply live</span></a></li>
+                                    <li><a href="#"><span>preply research and studies</span></a></li>
+                                    <li><a href="#"><span>we stand with ukraine</span></a></li>
+                                    <li><a href="#"><span>media kit</span></a></li>
+                                    <li><a href="#"><span>Affiliate program</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">FOR STUDENTS</div>
+                            <div class="ft_cnt_box2">
+                                <ul>
+                                    <li><a href="#"><span>Preply Blog</span> </a></li>
+                                    <li><a href="#"><span>Questions and Answers</span></a></li>
+                                    <li><a href="#"><span>Student discount</span></a></li>
+                                    <li><a href="#"><span>Referral program</span></a></li>
+                                    <li><a href="#"><span>Test your English for free</span></a></li>
+                                    <li><a href="#"><span>Test your vocab</span></a></li>
+                                    <li><a href="#"><span>Free English courses</span></a></li>
+                                    <li><a href="#"><span>Preply discounts</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">FOR TUTORS</div>
+                            <div class="ft_cnt_box2">
+                                <ul>
+                                    <li><a href="#"><span> Become an online tutor</span> </a></li>
+                                    <li><a href="#"><span>Teach English online</span></a></li>
+                                    <li><a href="#"><span>Teach French online</span></a></li>
+                                    <li><a href="#"><span>Teach Spanish online</span></a></li>
+                                    <li><a href="#"><span>Teach German online</span></a></li>
+                                    <li><a href="#"><span>See all online tutoring jobs</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">FOR COMPANIES</div>
+                            <div class="ft_cnt_box2">
+                                <ul>
+
+                                    <li><a href="#"><span> Corporate language training</span> </a></li>
+                                    <li><a href="#"><span>Corporate English training</span></a></li>
+                                    <li><a href="#"><span>Corporate Spanish training</span></a></li>
+                                    <li><a href="#"><span>Corporate German training</span></a></li>
+                                    <li><a href="#"><span>Corporate French training</span></a></li>
+                                    <li><a href="#"><span>Corporate training blog</span></a></li>
+                                    <li><a href="#"><span>Resource center</span></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ft_cnt1">
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">Support</div>
+                            <div class="ft_cnt_box2">
+                                <ul>
+                                    <li><a href="#"><span> Need any help?</span> </a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">Contacts</div>
+                            <div class="ft_cnt_box2">
+                                <ul>
+                                    <li>
+                                        <svg class="styles_USAFlagIcon__ck5dd" xmlns="http://www.w3.org/2000/svg"
+                                            width="16" height="12" fill="none" viewBox="0 0 16 12">
+                                            <g fill-rule="evenodd" clip-path="url(#clipUSA)" clip-rule="evenodd">
+                                                <path fill="#BD3D44"
+                                                    d="M0 0h16v.923H0V0Zm0 1.846h16v.923H0v-.923Zm0 1.846h16v.923H0v-.923Zm0 1.846h16v.924H0v-.924Zm0 1.847h16v.923H0v-.923ZM0 9.23h16v.923H0V9.23Zm0 1.846h16V12H0v-.923Z">
+                                                </path>
+                                                <path fill="#fff"
+                                                    d="M0 1h16v.91H0V1Zm0 1.818h16v.91H0v-.91Zm0 1.818h16v.91H0v-.91Zm0 1.819h16v.909H0v-.91Zm0 1.818h16v.909H0v-.91Zm0 1.818h16V11H0v-.91Z">
+                                                </path>
+                                                <path fill="#192F5D" d="M0 0h9.12v6.438H0V0Z"></path>
+                                                <path fill="#fff"
+                                                    d="M.76.276.843.53h.268L.894.687l.083.255L.76.784.543.942.626.687.408.53h.269L.76.276Zm1.52 0 .083.254h.269l-.218.157.083.255L2.28.784l-.217.158.083-.255L1.928.53h.269L2.28.276Zm1.52 0 .083.254h.269l-.218.157.083.255L3.8.784l-.217.158.083-.255L3.449.53h.268L3.8.276Zm1.52 0 .083.254h.268l-.217.157.083.255L5.32.784l-.217.158.083-.255L4.968.53h.269L5.32.276Zm1.52 0 .083.254h.269l-.218.157.083.255L6.84.784l-.217.158.083-.255L6.489.53h.268L6.84.276Zm1.52 0 .083.254h.269l-.218.157.083.255L8.36.784l-.217.158.083-.255L8.009.53h.268L8.36.276ZM1.52.919l.083.255h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268L1.52.919Zm1.52 0 .083.255h.268l-.217.157.083.255-.217-.158-.217.158.083-.255-.218-.157h.269L3.04.919Zm1.52 0 .083.255h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268L4.56.919Zm1.52 0 .083.255h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268L6.08.919Zm1.52 0 .083.255h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268L7.6.919Zm-6.84.644.083.255h.268l-.217.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.268l-.217.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm-6.84.644.083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254Zm1.52 0 .083.254h.268l-.217.158.083.254-.217-.157-.217.157.083-.254-.218-.158h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254ZM.76 2.85l.083.254h.268l-.217.157.083.255L.76 3.36l-.217.157.083-.255-.218-.157h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255-.217-.157-.217.157.083-.255-.218-.157h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255L3.8 3.36l-.217.157.083-.255-.217-.157h.268l.083-.254Zm1.52 0 .083.254h.268l-.217.157.083.255-.217-.157-.217.157.083-.255-.218-.157h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255-.217-.157-.217.157.083-.255-.217-.157h.268l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255-.217-.157-.217.157.083-.255-.217-.157h.268l.083-.254Zm-6.84.644.083.254h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268l.083-.254Zm1.52 0 .083.254h.268l-.217.157.083.255-.217-.158-.217.158.083-.255-.218-.157h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268l.083-.254Zm1.52 0 .083.254h.269l-.218.157.083.255-.217-.158-.217.158.083-.255-.217-.157h.268l.083-.254Zm-6.84.643.083.255h.268l-.217.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.268l-.217.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm-6.84.644.083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.268l-.217.157.083.254-.217-.157-.217.157.083-.254-.218-.157h.269l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm1.52 0 .083.255h.269l-.218.157.083.254-.217-.157-.217.157.083-.254-.217-.157h.268l.083-.255Zm-6.84.644.083.254h.268l-.217.158.083.254-.217-.157-.217.157.083-.254-.218-.158h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.218-.158h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254Zm1.52 0 .083.254h.268l-.217.158.083.254-.217-.157-.217.157.083-.254-.218-.158h.269l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254Zm1.52 0 .083.254h.269l-.218.158.083.254-.217-.157-.217.157.083-.254-.217-.158h.268l.083-.254Z">
+                                                </path>
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clipUSA">
+                                                    <path fill="#fff" d="M0 0h16v11.956H0z"></path>
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        USA
+                                    </li>
+                                    <li>1309 Beacon Street, Suite 300, Brookline, MA, 02446</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">Preply social</div>
+                            <div class="ft_cnt_box2">
+                                <ul>
+                                    <li><a href="#"><span><svg class="icon_sm" xmlns="http://www.w3.org/2000/svg"
+                                                    width="10" height="10" viewBox="0 0 14 14">
+                                                    <path fill="#e0e2e3"
+                                                        d="M14 13.23a.77.77 0 0 1-.77.77H9.66V8.58h1.82l.27-2.11H9.66V5.12a.88.88 0 0 1 1-1h1.12V2.2a14.92 14.92 0 0 0-1.63-.08 2.55 2.55 0 0 0-2.67 2.79v1.56H5.65v2.11h1.83V14H.77a.77.77 0 0 1-.77-.77V.77A.77.77 0 0 1 .77 0h12.46a.77.77 0 0 1 .77.77v12.46">
+                                                    </path>
+                                                </svg>Facebook</span> </a></li>
+                                    <li><a href="#"><span><svg class="icon_sm" xmlns="http://www.w3.org/2000/svg"
+                                                    width="10" height="10" viewBox="0 0 512 512">
+                                                    <path fill="#e0e2e3"
+                                                        d="M376 91H136c-24.813 0-45 20.188-45 45v240c0 24.813 20.188 45 45 45h240c24.813 0 45-20.188 45-45V136c0-24.813-20.188-45-45-45zM256 361c-57.89 0-105-47.11-105-105s47.11-105 105-105 105 47.11 105 105-47.11 105-105 105zm105-180c-16.54 0-30-13.46-30-30s13.46-30 30-30 30 13.46 30 30-13.46 30-30 30zm0 0">
+                                                    </path>
+                                                    <path fill="#e0e2e3"
+                                                        d="M256 181c-41.352 0-75 33.648-75 75s33.648 75 75 75 75-33.648 75-75-33.648-75-75-75zm0 0">
+                                                    </path>
+                                                    <path fill="#e0e2e3"
+                                                        d="M436 0H76C34.648 0 0 34.648 0 76v360c0 41.352 34.648 76 76 76h360c41.352 0 76-34.648 76-76V76c0-41.352-34.648-76-76-76zm15 376c0 41.352-33.648 75-75 75H136c-41.352 0-75-33.648-75-75V136c0-41.352 33.648-75 75-75h240c41.352 0 75 33.648 75 75zm0 0">
+                                                    </path>
+                                                </svg>Instagram</span></a></li>
+                                    <li><a href="#"><span><svg class="icon_sm" xmlns="http://www.w3.org/2000/svg"
+                                                    width="10" height="10">
+                                                    <rect width="14" height="14" fill="#E0E2E3" fill-rule="evenodd"
+                                                        rx="1.167"></rect>
+                                                    <path fill="#384047" fill-rule="evenodd"
+                                                        d="M9.55 6.423c.493.319.485.84 0 1.153l-3.407 2.2c-.493.32-.893.073-.893-.53V4.754c0-.612.407-.845.893-.532L9.55 6.423z">
+                                                    </path>
+                                                </svg>Youtube</span></a></li>
+                                    <li><a href="#"><span><svg class="icon_sm" xmlns="http://www.w3.org/2000/svg"
+                                                    width="10" height="10" xml:space="preserve" id="Layer_1" x="0" y="0"
+                                                    version="1.1" viewBox="0 0 14 14">
+                                                    <path
+                                                        id="QuogsA_00000008131793520576361780000009310305174241304252_"
+                                                        fill="#FFF"
+                                                        d="M0 12.8V1.1C0 .6.5.1 1 0H12.8c.2 0 .4.1.6.2.4.4.6.7.6 1.2v11.4c0 .5-.5 1-1 1.1H1.2c-.5 0-1-.5-1.1-1-.1 0-.1-.1-.1-.1zM7.7 6v-.5c0-.3-.1-.4-.4-.4H5.8c-.3 0-.4.1-.4.4V12c0 .3.2.4.4.4h1.5c.3 0 .4-.1.4-.4V8.7c0-.4.1-.7.2-1 .3-.5.7-.7 1.2-.7s.8.3 1 .8c.1.3.1.6.1.9v3.2c0 .3.1.4.4.4h1.5c.3 0 .4-.1.4-.4V8.4c0-.6 0-1.1-.2-1.6-.2-.7-.5-1.3-1.2-1.6-.8-.4-1.6-.3-2.5-.1-.3.3-.6.5-.9.9zM2 8.8V12c0 .3.1.5.5.5h1.4c.4 0 .5-.1.5-.5V5.6c0-.3-.2-.5-.5-.5H2.5c-.3 0-.5.2-.5.5v3.2zM4.7 3c0-.8-.7-1.5-1.5-1.5S1.7 2.2 1.7 3c0 .9.7 1.5 1.5 1.5.8.1 1.5-.6 1.5-1.5z"
+                                                        class="st0"></path>
+                                                </svg>LinkedIn</span></a></li>
+                                    <li><a href="#"><span><svg class="icon_sm" xmlns="http://www.w3.org/2000/svg"
+                                                    width="10" height="10" xml:space="preserve" id="Layer_1" x="0" y="0"
+                                                    version="1.1" viewBox="0 0 14 14">
+                                                    <path
+                                                        id="FnGtaT_00000011745585645229053930000002954502926691124096_"
+                                                        fill="#FFF"
+                                                        d="M14 7c0 3.9-3.1 7-7 7s-7-3.1-7-7 3.1-7 7-7 7 3.1 7 7zm-3.2-2.4h-.1c-.5-.1-1-.3-1.3-.7-.3-.2-.6-.6-.7-.9 0 0 0-.1-.1-.1H7.2v5.5c0 .7-.6 1.3-1.4 1.3-.7 0-1.2-.6-1.2-1.3 0-.7.5-1.2 1.2-1.3h.6V5.7h-.9C4 5.9 3 7.3 3.2 8.8c.2 1 .7 1.8 1.7 2.1 1 .4 1.9.2 2.7-.4.7-.5 1-1.3 1-2.1V5.2c.6.4 1.2.7 1.9.8.1-.5.2-.9.3-1.4z"
+                                                        class="st0"></path>
+                                                </svg>TikTok</span></a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">APPS</div>
+                            <div class="ft_cnt_box2">
+                                <ul>
+
+                                    <li><a href="#"><img src={% static 'images/icon1.svg' %} class="logoappstore" />
+                                        </a></li>
+                                    <li><a href="#"><img src={% static 'images/icon2.jpg' %} class="logoappstore" />
+                                        </a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="colorback2">
+                    <div class="ft_cnt">
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">LEARN</div>
+                            <div class="ft_cnt_box2">
+                                <ul>
+
+                                    <li id="left1"><a href="#"><span> Learn English online</span> </a></li>
+                                    <li id="left1"><a href="#"><span>Learn Spanish online</span></a></li>
+                                    <li id="left1"><a href="#"><span>Learn French online</span></a></li>
+                                    <li id="left1"><a href="#"><span>Learn another language</span></a></li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">ONLINE LANGUAGE CLASSES & COURSES</div>
+                            <div class="ft_cnt_box2">
+                                <ul>
+
+
+                                    <li><a href="#"><span> Online English classes</span> </a></li>
+                                    <li><a href="#"><span>Business English courses</span></a></li>
+                                    <li><a href="#"><span>Online Spanish classes</span></a></li>
+                                    <li><a href="#"><span>Online French classes</span></a></li>
+                                    <li><a href="#"><span>Online German classes</span></a></li>
+                                    <li><a href="#"><span>Online Chinese classes</span></a></li>
+                                    <li><a href="#"><span>Online Japanese classes</span></a></li>
+                                    <li><a href="#"><span>Online Turkish classes</span></a></li>
+                                    <li><a href="#"><span>Online Portuguese classes</span></a></li>
+                                    <li><a href="#"><span>Online Polish classes</span></a></li>
+                                    <li><a href="#"><span>Online Arabic classes</span></a></li>
+                                    <li><a href="#"><span>Online Russian classes</span></a></li>
+                                    <li><a href="#"><span>Online Italian classes</span></a></li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">1-ON-1 TUTORS</div>
+                            <div class="ft_cnt_box2">
+                                <ul>
+                                    <li id="left"><a href="#"><span> English Tutors</span> </a></li>
+                                    <li id="left"><a href="#"><span>Spanish Tutors</span></a></li>
+                                    <li id="left"><a href="#"><span>French Tutors</span></a></li>
+                                    <li id="left"><a href="#"><span>German Tutors</span></a></li>
+                                    <li id="left"><a href="#"><span>Arabic Tutors</span></a></li>
+                                    <li id="left"><a href="#"><span>Math Tutors</span></a></li>
+                                    <li id="left"><a href="#"><span>Japanese tutors</span></a></li>
+                                    <li id="left"><a href="#"><span>Chinese tutors</span></a></li>
+                                    <li id="left"><a href="#"><span>Portuguese tutors</span></a></li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">TUTORS NEAR YOU</div>
+                            <div class="ft_cnt_box2">
+                                <ul>
+
+                                    <li id="left"><a href="#"><span> Tutors in NYC</span> </a></li>
+                                    <li id="left"><a href="#"><span>Tutors in Los Angeles</span></a></li>
+                                    <li id="left"><a href="#"><span>Tutors in Toronto</span></a></li>
+                                    <li id="left"><a href="#"><span>Tutors in London</span></a></li>
+                                    <li id="left"><a href="#"><span>Tutors in Sydney</span></a></li>
+                                    <li id="left"><a href="#"><span>Tutors abroad</span></a></li>
+                                    <li id="left"><a href="#"><span>Tutors by city</span></a></li>
+
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ft_cnt">
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1"><i class="fa-regular fa-copyright" style="color: #ffffff;"></i>
+                                2012-2023 Preply Inc.
+                            </div>
+                        </div>
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">
+                                <ul>
+                                    <li class="left"><a href="#"><span>Legal Center</span></a></li>
+                                    <li class="left">-</li>
+                                    <li class="left"><a href="#"><span>Privacy Policy</span></a></li>
+                                    <li class="left">-</li>
+                                    <li class="left"><a href="#"><span>Cookie Policy</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">
+
+                            </div>
+                        </div>
+                        <div class="ft_cnt_in">
+                            <div class="ft_cnt_box1">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </body>
+    <script>
+        const toggle = document.querySelector(".toggle_btn");
+        const togglei = document.querySelector(".toggle_btn i");
+        const dropdown = document.querySelector(".dropdown-menu1");
+        const dropdown2 = document.querySelector(".dropdown-menu2");
+        toggle.onclick = function () {
+            dropdown.classList.toggle("open");
+            dropdown2.classList.toggle("open");
+            toggle.classList.toggle("open");
+            const isopen = dropdown.classList.contains("open");
+            const isopen2 = dropdown2.classList.contains("open");
+            togglei.classList = isopen2 ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+            togglei.classList = isopen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
+        };
+    </script>
+
+    </html>

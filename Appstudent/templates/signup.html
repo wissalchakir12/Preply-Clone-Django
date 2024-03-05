@@ -1,0 +1,272 @@
+{% extends 'base.html' %} {% block content%}{% load static %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}" />
+<style>
+    
+
+    .form .error_input {
+        margin-top: 8.5px;
+        width: 100%;
+        height: 45px;
+        background-color: rgb(244, 213, 213);
+        border: red solid 1.5px;
+        margin-bottom: 8.5px;
+        font-size: 16px;
+        padding-left: 15px;
+        border-radius: 5px;
+    }
+
+    .sa{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sa_b{
+        background-color: None;
+        background: none;
+        width: 100%;
+        border: none;
+        cursor: pointer;
+    }
+
+   
+</style>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="cnt_signup_stu">
+        <div class="cnt_signup_stu_box">
+            <div class="text">
+                <h1>Sign up as a student</h1>
+                <div class="text_p">
+                    <p>Already have an account?</p>
+                    <a href="/login">Log in</a>
+                </div>
+            </div>
+            <div class="google">
+                <a href="#" class="google_lien">
+                    <div class="google_lien_stl">
+                        <div class="i"><i class="fa-brands fa-google"></i></div>
+                        <div class="p">
+                            <p>Continue with Google</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="facebook">
+                <a href="#" class="google_lien">
+                    <div class="google_lien_stl">
+                        <div class="i"><i class="fa-brands fa-facebook"></i></div>
+                        <div class="p">
+                            <p>Continue with Facebook</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="border_or">
+                <div class="border_or_center">
+                    <p>or</p>
+                </div>
+            </div>
+            <div class="form">
+                {% if isError == 1 %}
+                    <label>Name</label></br>
+                    <input type="text" class="error_input" placeholder="Your name" name="firstname"  /></br>
+                    <div>
+                        <span style="color: red;"> {{Error}} </span>
+                    </div>
+                    <label>Email</label></br>
+                    <input type="email" class="error_input" placeholder="Your email" name="Email"  /></br>
+                    <div>
+                        <span style="color: red;"> {{Error}} </span>
+                    </div>
+                    <label>Password</label></br>
+                    <input type="password" class="error_input" placeholder="Your password" name="Password"  /></br>
+                    <div>
+                        <span style="color: red;"> {{Error}} </span>
+                    </div>
+                {% elif isError == 2 %}
+                    <label>Name</label></br>
+                    <input type="text" class="error_input" placeholder="Your name" name="firstname"  /></br>
+                    <div>
+                        <span style="color: red;"> {{Error}} </span>
+                    </div>
+                    <label>Email</label></br>
+                    <input type="email" class="error_input" placeholder="Your email" name="Email"  /></br>
+                    <div>
+                        <span style="color: red;"> {{Error}} </span>
+                    </div>
+                    <label>Password</label></br>
+                    <input type="password" class="input_si" placeholder="Your password" name="Password"  /></br>
+                    <div>
+                        <span style="color: red;">  </span>
+                    </div>
+                {% elif isError == 3 %}
+                    <label>Name</label></br>
+                    <input type="text" class="error_input" placeholder="Your name" name="firstname"  /></br>
+                    <div>
+                        <span style="color: red;"> {{Error}} </span>
+                    </div>
+                    <label>Email</label></br>
+                    <input type="email" class="input_si" placeholder="Your email" name="Email"  /></br>
+                    <div>
+                        <span style="color: red;">  </span>
+                    </div>
+                    <label>Password</label></br>
+                    <input type="password" class="error_input" placeholder="Your password" name="Password"  /></br>
+                    <div>
+                        <span style="color: red;"> {{Error}} </span>
+                    </div>
+                {% elif isError == 4 %}
+                    <label>Name</label></br>
+                    <input type="text" class="error_input" placeholder="Your name" name="firstname"  /></br>
+                    <div>
+                        <span style="color: red;"> {{Error}} </span>
+                    </div>
+                    <label>Email</label></br>
+                    <input type="email" class="input_si" placeholder="Your email" name="Email"  /></br>
+                    <div>
+                        <span style="color: red;">  </span>
+                    </div>
+                    <label>Password</label></br>
+                    <input type="password" class="input_si" placeholder="Your password" name="Password"  /></br>
+                    <div>
+                        <span style="color: red;">  </span>
+                    </div>
+                {% elif isError == 5 %}
+                    <label>Name</label></br>
+                    <input type="text" class="input_si" placeholder="Your name" name="firstname"  /></br>
+                    <div>
+                        <span style="color: red;"> </span>
+                    </div>
+                    <label>Email</label></br>
+                    <input type="email" class="error_input" placeholder="Your email" name="Email"  /></br>
+                    <div>
+                        <span style="color: red;">  {{Error}} </span>
+                    </div>
+                    <label>Password</label></br>
+                    <input type="password" class="error_input" placeholder="Your password" name="Password"  /></br>
+                    <div>
+                        <span style="color: red;">  {{Error}} </span>
+                    </div>
+                {% elif isError == 6 %}
+                    <label>Name</label></br>
+                    <input type="text" class="input_si" placeholder="Your name" name="firstname"  /></br>
+                    <div>
+                        <span style="color: red;"> </span>
+                    </div>
+                    <label>Email</label></br>
+                    <input type="email" class="error_input" placeholder="Your email" name="Email"  /></br>
+                    <div>
+                        <span style="color: red;">  {{Error}} </span>
+                    </div>
+                    <label>Password</label></br>
+                    <input type="password" class="input_si" placeholder="Your password" name="Password"  /></br>
+                    <div>
+                        <span style="color: red;"></span>
+                    </div>
+                {% elif isError == 7 %}
+                    <label>Name</label></br>
+                    <input type="text" class="input_si" placeholder="Your name" name="firstname"  /></br>
+                    <div>
+                        <span style="color: red;"> </span>
+                    </div>
+                    <label>Email</label></br>
+                    <input type="email" class="input_si" placeholder="Your email" name="Email"  /></br>
+                    <div>
+                        <span style="color: red;">  </span>
+                    </div>
+                    <label>Password</label></br>
+                    <input type="password" class="error_input" placeholder="Your password" name="Password"  /></br>
+                    <div>
+                        <span style="color: red;">{{Error}} </span>
+                    </div>
+                {% elif isError == 8 %}
+                    <label>Name</label></br>
+                    <input type="text" class="input_si" placeholder="Your name" name="firstname"  /></br>
+                    <div>
+                        <span style="color: red;"> </span>
+                    </div>
+                    <label>Email</label></br>
+                    <input type="email" class="input_si" placeholder="Your email" name="Email"  /></br>
+                    <div>
+                        <span style="color: red;">  </span>
+                    </div>
+                    <label>Password</label></br>
+                    <input type="password" class="error_input" placeholder="Your password" name="Password"  /></br>
+                    <div>
+                        <span style="color: red;">{{Error}} </span>
+                    </div>
+                {% elif isError == 9 %}
+                    <label>Name</label></br>
+                    <input type="text" class="input_si" placeholder="Your name" name="firstname"  /></br>
+                    <div>
+                        <span style="color: red;"> </span>
+                    </div>
+                    <label>Email</label></br>
+                    <input type="email" class="input_si" placeholder="Your email" name="Email"  /></br>
+                    <div>
+                        <span style="color: red;">  </span>
+                    </div>
+                    <label>Password</label></br>
+                    <input type="password" class="error_input" placeholder="Your password" name="Password"  /></br>
+                    <div>
+                        <span style="color: red;">{{Error}} </span>
+                    </div>
+                {% elif isError == 10 %}
+                    <label>Name</label></br>
+                    <input type="text" class="input_si" placeholder="Your name" name="firstname"  /></br>
+                    <div>
+                        <span style="color: red;"> </span>
+                    </div>
+                    <label>Email</label></br>
+                    <input type="email" class="error_input" placeholder="Your email" name="Email"  /></br>
+                    <div>
+                        <span style="color: red;"> {{Error}} </span>
+                    </div>
+                    <label>Password</label></br>
+                    <input type="password" class="input_si" placeholder="Your password" name="Password"  /></br>
+                    <div>
+                        <span style="color: red;"> </span>
+                    </div>
+                {% else %}
+                    <label>Name</label></br>
+                    <input type="text" class="input_si" placeholder="Your name" name="firstname"  /></br>
+                    <div>
+                        <span style="color: red;"> </span>
+                    </div>
+                    <label>Email</label></br>
+                    <input type="email" class="input_si" placeholder="Your email" name="Email"  /></br>
+                    <div>
+                        <span style="color: red;">  </span>
+                    </div>
+                    <label>Password</label></br>
+                    <input type="password" class="input_si" placeholder="Your password" name="Password"  /></br>
+                    <div>
+                        <span style="color: red;"> </span>
+                    </div>
+                {% endif %}
+                
+                <div>
+                    <input type="checkbox" id="remember" name="remember" value="remember me" class="in_ch" />
+                    <label class="lbl_r">Remember me</label></br>
+                </div>
+            </div>
+            <div class="sign_up sa">
+                <button href="#" class="sign_up_lien sa_b" type="submit">
+                    <div class="sign_up_lien_stl">
+                        <div class="p">
+                            <p>Sign up</p>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            <div class="text2">
+                <p class="p1">By clicking Continue with or Sign up, you agree to Preply</p>
+                <p class="p2"><a href="#" class="p2_lien">Terms of Service including Subscription Services
+                        Terms</a><span>and</span><a href="#" class="p2_lien">Privacy Policy</a></p>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock content%}
